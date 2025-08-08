@@ -1,0 +1,442 @@
+@media screen and (max-width: 1024px) {
+
+    .Navbar,
+    .innerNav {
+        width: 100%;
+    }
+
+    .logoImg {
+        margin-left: 25px;
+        margin-bottom: 8px;
+    }
+
+    .HeaderButtons {
+        padding-top: 13px;
+        padding-left: 4px;
+    }
+
+    .logoDiv {
+        width: 91%;
+        padding-left: 40px;
+        padding-right: 40px
+    }
+
+    .HeaderButtons {
+        padding-left: 10px;
+    }
+
+    .headSelectSign {
+        border: 1px solid #cccccc96;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 123px;
+        height: 31px;
+        border-radius: 3px;
+        margin-left: 126px;
+    }
+
+    .text-adv {
+        position: relative;
+        padding-top: 0;
+    }
+
+    .text-adv span {
+        height: 120px;
+        width: 406px;
+        padding-top: 75px;
+        font-size: 34px;
+    }
+
+    .price-plan {
+        font-weight: 500;
+        font-size: 15px;
+        height: 30px;
+        width: 290px;
+        padding-top: 10px;
+    }
+
+    #langSelect {
+        font-size: 15px;
+    }
+
+
+    .text-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 395px;
+        padding-top: 0;
+    }
+
+    .get-start-section {
+        width: 550px;
+        height: 120px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-top: 5px;
+        outline: none;
+    }
+
+    .get-start-section span {
+        height: 25px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding-top: 10px;
+        line-height: 25px;
+    }
+
+    .input-section {
+        padding-top: 26px;
+    }
+
+    .get-start-button {
+        height: 55px;
+        width: 35%;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 550;
+        transition: 0.2s ease-in;
+    }
+
+    .input-tag {
+        height: 53px;
+        width: 61%;
+        background: #181616f6;
+        border: 1px solid #cccccc7b;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content: center;
+    }
+
+    .movies-slider,
+    .trending-text {
+        width: 100%;
+        /* margin-left: 50px; */
+    }
+
+    .trending-text {
+        position: relative;
+        left: 116px;
+        top: 21px;
+    }
+
+    .movies-slide {
+        /* width: 100%; */
+        padding-left: 70px;
+        padding-right: 70px;
+        height: 253px;
+    }
+
+    .movies-cards {
+        height: 210px;
+        width: 145px;
+    }
+
+    .movies-cards span {
+        font-size: 84px;
+        font-weight: 800;
+        top: 95px;
+        right: 115px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .Navbar,
+    .innerNav {
+        width: 100%;
+    }
+
+    .logoImg {
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo {
+        width: 89px;
+        height: 24px;
+        padding-top: 8px;
+        padding-right: 5px;
+    }
+
+    .HeaderButtons {
+        padding-top: 1px;
+        padding-left: 4px;
+    }
+
+    .headerBtnDiv {
+        margin: 0;
+        padding: 0px;
+    }
+
+    .logoDiv {
+        width: 92%;
+        padding-left: 32px;
+        padding-right: 0px
+    }
+
+    .headSelectSign {
+        width: 125px;
+    }
+
+    .netflix-lang-icon {
+        font-size: 12px;
+    }
+
+    #langSelect {
+        font-size: 14px;
+    }
+
+    .headSignBtn button {
+        height: 32px;
+        width: 76px;
+    }
+
+    .text-adv {
+        height: 100px;
+        width: 646px;
+        /* display: flex;
+        justify-content: center; */
+        padding-bottom: 16px;
+    }
+
+    .text-adv span {
+        height: 100px;
+        width: 463px;
+        font-size: 29px;
+        padding-top: 0;
+    }
+
+    .price-plan {
+        font-weight: 500;
+        font-size: 15px;
+        height: 30px;
+        width: 290px;
+        /* padding-top: 10px; */
+    }
+
+    #langSelect {
+        font-size: 15px;
+    }
+
+
+    .text-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 395px;
+        padding-top: 0;
+    }
+
+    .get-start-section {
+        width: 450px;
+        height: 120px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-top: 5px;
+        outline: none;
+        position: relative;
+        top: 1px;
+    }
+
+    .get-start-section span {
+        height: 25px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding-top: 13px;
+        line-height: 25px;
+    }
+
+    .input-section {
+        padding-top: 27px;
+        padding-left: 0;
+        height: 150px;
+    }
+
+
+    .get-start-button {
+        height: 55px;
+        width: 41%;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 550;
+        transition: 0.2s ease-in;
+    }
+
+    .input-tag {
+        height: 53px;
+        width: 55%;
+        background: #181616f6;
+        border: 1px solid #cccccc7b;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding-left: 5px;
+    }
+
+    .input-tag label {
+        padding-left: 10px;
+        padding-top: 3px;
+        font-size: 15px;
+    }
+
+
+ .movies-slide {
+        /* width: 100%; */
+        padding-left: 35px;
+        padding-right: 35px;
+        height: 200px;
+        display: flex;
+        gap: 0px;
+    }
+
+    .movies-cards {
+        height: 170px;
+        width: 120px;
+    }
+
+    .movies-cards span {
+        font-size: 60px;
+        font-weight: 800;
+        top: 80px;
+        right: 92px;
+    }
+    .movies{
+        margin-right: 0;
+        padding-left: 22px;
+        display: flex;
+        gap: 24px;
+    }
+    .trending-text {
+        position: relative;
+        left: 55px;
+        top: 21px;
+        font-size: 23px;
+    }
+    .trending-bgimg-section{
+        width: 100%;
+        height: 10vh;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .Navbar,
+    .innerNav {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .logoImg {
+        width: 100%;
+        margin-left: 25px;
+        /* margin-bottom: 8px; */
+    }
+
+    .HeaderButtons {
+        padding-top: 13px;
+        /* padding-left: 4px; */
+    }
+
+    .logoDiv {
+        width: 91%;
+        padding-left: 0;
+    }
+
+    .HeaderButtons {
+        padding-left: 10px;
+        width: 230px;
+    }
+
+    .headSelectSign {
+        border: 1px solid #cccccc96;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 60px;
+        height: 31px;
+        border-radius: 3px;
+    }
+    .headerBtnDiv{
+        width: 425px;
+        display: flex;
+        gap: 10px;
+        padding-bottom: 10px;
+    }
+    #langSelect{
+        display: none;
+    }
+    .hero-section{
+        height: 100vh;
+        width: 100vw;
+    }
+    .text-adv{
+        width: 361px;
+        position: relative;
+        bottom: 30px;
+    }
+    .text-adv span{
+        width: 361px;
+    }
+
+    .get-start-section{
+        width: 100%;
+    }
+
+    .get-start-section span{
+        width: 84%;
+        position: relative;
+        top: 20px;
+    }
+
+    .input-section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        top: 20px;
+    }
+    .input-tag{
+        height: 45px;
+        width: 350px;
+    }
+    .get-start-button{
+        height: 48px;
+        width: 158px;
+    }
+    .movies-slide{
+        width: 400px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
