@@ -1,0 +1,73 @@
+.login-page .headerBtnDiv{
+    display: none;
+}
+
+.login-page .footer-main-div{
+    background-color: #161616;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 300px;
+}
+.login-page .Footer-links {
+    background-color: #161616;
+    color: #f2f2f2;
+    text-decoration: underline;
+}
+.login-page .Footer-links ul li{
+    background-color: #161616;
+    color: aqua;
+    display: flex;
+    align-items: start;
+}
+.login-page .Footer-links ul{
+    background-color: #161616;
+    height: 85px;
+    width: 250px;
+    padding: 0;
+}
+.login-page .footer-main-div span{
+    background-color: #161616;
+    color: aqua;
+    text-decoration: none;
+}
+.login-page .footer-inner-div{
+    background-color: #161616;
+    color: aqua;
+}
+
+.login-page .footer-inner-div span{
+    background-color: #161616;
+    color: aqua;
+}
+
+.login-page .footer-bottom-div{
+    background-color: #161616;
+    color: aqua;
+    height: 15px;
+}
+.login-page .footer-bottom-div p{
+    background-color: #161616;
+}
+.login-page .footer-lang-button {
+    border: 1px solid #cccccca0;
+    color: aqua;
+}
+
+.login-page #langSelect{
+    color: #f2f2f2;
+    font-size: 13px;
+     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 30px 10px 12px;
+    background-image: url("data:image/svg+xml,%3Csvg fill='white' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 20px;
+    position: relative;
+    right: 5px;
+    outline: none;
+}

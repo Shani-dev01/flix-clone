@@ -1,0 +1,162 @@
+*{
+    box-sizing: border-box;
+    background-color: #fff;
+    background: #fff;
+}
+
+body.signin-page .Navbar{
+    background: white;
+    border: 1px solid #ccc;
+    height: 92px;
+    position: static;
+}
+.signin-page .logoImg{
+    padding-left: 35px;
+    padding-bottom: 42px;
+}
+.signin-page .headSelectSign{
+    display: none;
+}
+.signin-page .headerBtnDiv{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 10px;
+    padding-bottom: 5px;
+}
+.signin-page .headSignBtn button{
+    background-color: #fff;
+    color: black;
+}
+.signin-page .headSignBtn button:hover{
+    background-color: #ccc;
+    color: black;
+    text-decoration: underline;
+}
+.signin-page .signin-box{
+    height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+.signin-page .img-div{
+    width: 416px;
+    height: 430px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+    padding-top: 80px;
+    /* padding-left: 50px; */
+}
+.signin-page .img-div img{
+    height: 70px;
+    width: 270px;
+    object-fit: initial;
+}
+.signin-page .img-div span, p, h2{
+    position: static;
+    color: black;
+}
+.signin-page .img-div p{
+    font-size: 17px;
+    color: black;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    /* background: #000; */
+}
+
+
+.signin-page .img-div span{
+    height: 40px;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.signin-page .img-div h2{
+    font-size: 33px;
+    margin: 0;
+    padding-top: 5px;
+}
+.signin-page .img-div button{
+    width: 100%;
+    height: 55px;
+    background-color: rgb(229, 9, 20);
+    border: none;
+    font-size: 23px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 4px;
+}
+.signin-page
+.footer-main-div{
+    background-color: #f2f2f2;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    height: 300px;
+    /* padding-top: 50px; */
+}
+
+.signin-page .Footer-links {
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: underline;
+}
+.signin-page .Footer-links ul li{
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: start;
+}
+.signin-page .Footer-links ul{
+    background-color: #f2f2f2;
+    height: 85px;
+    width: 250px;
+    padding: 0;
+}
+.signin-page .footer-main-div span{
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+}
+.signin-page .footer-inner-div{
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.7);
+}
+.signin-page .footer-bottom-div{
+    background-color: #f2f2f2;
+    color: rgba(0, 0, 0, 0.7);
+    height: 15px;
+}
+.signin-page .footer-bottom-div p{
+    background-color: #f2f2f2;
+}
+.signin-page .footer-lang-button {
+    border: 1px solid black;
+    color: black;
+}
+
+.signin-page #langSelect{
+    color: black;
+    font-size: 13px;
+     appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 10px 30px 10px 12px;
+    background-image: url("data:image/svg+xml,%3Csvg fill='black' height='16' viewBox='0 0 24 24' width='16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 5px center;
+    background-size: 20px;
+    position: relative;
+    right: 5px;
+    outline: none;
+}
