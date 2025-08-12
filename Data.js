@@ -6,6 +6,12 @@ const img_base_url = 'https://image.tmdb.org/t/p/w500';
 
 // logic for fetch data and render to the card
 $(document).ready(function () {
+    $('.header-container').load('/header.html', function () {
+        $('.headSignBtn button').click(function () {
+            $(this).window.location.hre = 'login.html';
+        })
+    });
+
     const $card = $('.movies')
     const renderMoviesCaed = async () => {
         try {
@@ -32,6 +38,7 @@ $(document).ready(function () {
 
                         // logic for render card img on poster img using data-id
                         const $movieId = $(this).data('id')
+                        console.log($movieId)
                         const movies = pages.find(m => m.id === $movieId)
                         const img2 = `${img_base_url}${movies.backdrop_path}`
                         $('.poster-movie-title').html(movies.original_title)

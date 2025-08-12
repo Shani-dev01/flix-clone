@@ -65,13 +65,13 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 395px;
+        height: 496px;
         padding-top: 0;
     }
 
     .get-start-section {
-        width: 550px;
-        height: 120px;
+        width: 320px;
+        height: 128px;
         display: flex;
         justify-content: end;
         align-items: center;
@@ -118,7 +118,7 @@
         border-radius: 5px;
         display: flex;
         flex-direction: column;
-        /* align-items: center; */
+        align-items: center;
         justify-content: center;
     }
 
@@ -308,7 +308,7 @@
     }
 
 
- .movies-slide {
+    .movies-slide {
         /* width: 100%; */
         padding-left: 35px;
         padding-right: 35px;
@@ -328,19 +328,22 @@
         top: 80px;
         right: 92px;
     }
-    .movies{
+
+    .movies {
         margin-right: 0;
         padding-left: 22px;
         display: flex;
         gap: 24px;
     }
+
     .trending-text {
         position: relative;
         left: 55px;
         top: 21px;
         font-size: 23px;
     }
-    .trending-bgimg-section{
+
+    .trending-bgimg-section {
         width: 100%;
         height: 10vh;
         background-size: cover;
@@ -348,7 +351,8 @@
     }
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 425px) {
+
     .Navbar,
     .innerNav {
         width: 100%;
@@ -385,39 +389,44 @@
         height: 31px;
         border-radius: 3px;
     }
-    .headerBtnDiv{
+
+    .headerBtnDiv {
         width: 425px;
         display: flex;
         gap: 10px;
         padding-bottom: 10px;
     }
-    #langSelect{
+
+    #langSelect {
         display: none;
     }
-    .hero-section{
+
+    .hero-section {
         height: 100vh;
         width: 100vw;
     }
-    .text-adv{
+
+    .text-adv {
         width: 361px;
         position: relative;
         bottom: 30px;
     }
-    .text-adv span{
+
+    .text-adv span {
         width: 361px;
     }
 
-    .get-start-section{
+    .get-start-section {
         width: 100%;
     }
 
-    .get-start-section span{
+    .get-start-section span {
         width: 84%;
         position: relative;
         top: 20px;
     }
 
-    .input-section{
+    .input-section {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -426,17 +435,429 @@
         position: relative;
         top: 20px;
     }
-    .input-tag{
+
+    .input-tag {
         height: 45px;
         width: 350px;
     }
-    .get-start-button{
+
+    .get-start-button {
         height: 48px;
         width: 158px;
     }
-    .movies-slide{
+
+    .movies-slide {
         width: 400px;
         padding-left: 0;
         padding-right: 0;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 375px) {
+    .Navbar {
+        width: 100%;
+    }
+
+    .HeaderButtons {
+        width: 195px;
+    }
+
+    .headerBtnDiv {
+        width: 100%;
+        display: flex;
+        align-items: start;
+    }
+
+    .headSelectSign {
+        margin-left: 0;
+    }
+
+    .hero-section {
+        width: 320px;
+        height: 496px;
+    }
+
+    .text-adv {
+        width: 320px;
+    }
+
+    .get-start-section {
+        width: 256px;
+        height: 133px;
+        display: flex;
+        /* justify-content: space-evenly; */
+        align-items: center;
+    }
+
+    .get-start-section span {
+        width: 256px;
+        position: relative;
+        top: 71px;
+        height: 72px;
+    }
+
+    .text-adv span {
+        width: 260px;
+        height: 130px;
+        margin-bottom: 8px;
+    }
+
+    .price-plan {
+        width: 256px;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 16px;
+    }
+
+    .input-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+        top: 65px;
+        height: 158px;
+        width: 256px;
+    }
+
+    .input-tag {
+        width: 256px;
+    }
+
+    .inputs-box {
+        width: 256px;
+    }
+
+    .alert-text {
+        width: 256px;
+        height: 10px;
+        display: none;
+        padding-bottom: 0;
+        /* color: ; */
+    }
+
+
+    /* movies slider section */
+    .movies {
+        position: relative;
+        padding-left: 10px;
+        padding-right: 5px;
+        height: 201px;
+        width: 240px;
+        gap: 3px;
+    }
+
+    .movies-slider {
+        width: 320px;
+        height: 248px;
+    }
+
+    .movies-slide {
+        width: 320px;
+        height: 205px;
+    }
+
+    .movies-slide button {
+        margin-bottom: 15px;
+        height: 115px;
+        width: 23px;
+    }
+
+    .movie-posters {
+        width: 320px;
+        height: 568px;
+        /* position: absolute; */
+        /* top: 0; */
+    }
+
+    .poster {
+        height: 418px;
+        width: 312px;
+        overflow: hidden;
+    }
+
+    .poster-box {
+        height: 200px;
+        width: 318px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .poster-box img {
+        height: 200px;
+    }
+
+    .poster-title {
+        height: 232px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .poster-title p {
+        width: 286px;
+        height: 100px;
+        padding: 0;
+        padding-left: 10px;
+        font-size: 14px;
+        overflow: hidden;
+    }
+
+    .poster-box h2 {
+        padding-left: 10px;
+        font-size: 32px;
+        width: 256px;
+        height: 55px;
+        position: relative;
+        bottom: 9%;
+    }
+
+    .poster-botton {
+        width: 286px;
+        height: 40px;
+        margin-left: 10px;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .fa-chevron-right {
+        padding-left: 10px;
+    }
+
+    /* movies slider section  ends here */
+
+    /* movies cards styling starts here */
+
+    .trending-text {
+        position: relative;
+        left: 15px;
+        font-style: 21px;
+    }
+
+    .movies-cards span {
+        position: relative;
+        right: 111px;
+    }
+
+    .movies-card {
+        width: 112px;
+        height: 156px;
+    }
+
+    .movies-cards img {
+        width: 112px;
+        height: 156px;
+    }
+
+    /* movies cards styling ends here */
+
+    .get-start-inner-div {
+        height: 150px;
+        width: 295px;
+        display: flex;
+        padding-right: 0;
+        padding-left: 25px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-section2 {
+        display: flex;
+        padding-right: 0;
+        padding-left: 0px;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .input-box {
+        width: 275px;
+        height: 50px;
+    }
+
+    .get-start-input {
+        width: 320px;
+        height: 230px;
+    }
+
+    .get-start-button2 {
+        width: 140px;
+        height: 48px;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        padding-right: 20px;
+        font-size: 19px;
+        font-weight: 600;
+        padding-left: 8px;
+        transition: 0.2s ease-in;
+    }
+
+    .Information-section {
+        height: 311px;
+        width: 318px;
+    }
+
+    .inner-info-se {
+        height: 311px;
+    }
+
+    .main-key-feature-section {
+        width: 306px;
+        height: 850px;
+        padding-left: 10px;
+        padding-right: 0;
+        display: block;
+    }
+
+
+    .main-key-feature-section h2 {
+        width: 299px;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        padding-left: 10px;
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .main-key-feature-inner-section {
+        height: 835px;
+        width: 305px;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .inner-key-feature-section {
+        height: 760px;
+        width: 295px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding-left: 15px;
+    }
+
+    .key-feature-cards {
+        width: 270px;
+        height: 205px;
+        padding-left: 0;
+    }
+
+    .key-feature-title {
+        padding-top: 25px;
+        font-size: 20px;
+    }
+
+    .key-feature-discription {
+        height: 45px;
+        padding-bottom: 0;
+        padding-top: 5px;
+        margin-top: 0;
+        font-size: 15px;
+    }
+
+    .key-feature-img {
+        height: 50px;
+        margin-left: 42px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    .frequently-ask-section {
+        padding: 0;
+        padding-left: 18px;
+        width: 300px;
+    }
+
+    .frequently-ask-section h3 {
+        font-size: 19px;
+    }
+
+    .faqs-discription {
+        width: 208px;
+        font-size: 18px;
+        /* padding-top: 15px; */
+    }
+
+
+    .main-question-box {
+        width: 290px;
+    }
+
+    .questions {
+        width: 260px;
+        /* height: 72px; */
+        padding-left: 24px;
+        padding-right: 0;
+        font-size: 20px;
+    }
+
+    .fa-plus {
+        font-size: 38px;
+        margin-right: 25px;
+    }
+
+    .footer-main-div {
+        width: 320px;
+        height: 575px;
+        padding-left: 0px;
+        padding-right: 0;
+    }
+
+    .footer-inner-div {
+        width: 295px;
+        height: 575px;
+        padding-left: 25px;
+    }
+
+    .Footer-links {
+        width: 293px;
+        height: 415px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Footer-links ul {
+        height: 85px;
+        padding-top: 15px;
+    }
+
+    .Footer-links ul li {
+        width: 276px;
+        height: 21px;
+        padding-top: 10px;
+    }
+
+    .footer-bottom-div {
+        height: 220px;
+        background: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 25px;
+    }
+
+    .footer-bottom-div p {
+        padding-right: 50px;
+        font-size: 12px;
     }
 }

@@ -7,11 +7,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="responsive.css">
-    <script src="jquery-3.7.1.min.js"></script>
-    <script src="Data.js"></script>
-    <script src="app.js"></script>
     <link rel="icon" href="assests/netflix-logo.png">
-    <title>Netflix Clone</title>
+    <title>Netflix India - Watch Tv Shows and Movies.</title>
 </head>
 
 <body>
@@ -36,16 +33,20 @@
                     <span class="discription">Ready to watch? Enter your email to create or restart your membership.
                     </span>
                     <div class="input-section">
+                        <div class="inputs-box" >
                         <div class="input-tag">
-                            <label for="email">Email address</label>
-                            <input type="text" class="inputId">
+                            <label for="email2" >Email address</label>
+                            <input id="email2" type="email" class="inputId" >
+                        </div>
+        
+                        <p class="alert-text">Email is required.</p>
                         </div>
                         <div class="get-start-button">
                             Get Started
                             <i class="fas fa-chevron-right"></i>
                         </div>
                     </div>
-                    <p class="alert-text" >Email is required.</p>
+                    
                 </div>
             </div>
         </div>
@@ -53,7 +54,7 @@
     <!-- Hero section ends here  -->
     <!-- Information section starts here  -->
     <div class="Information-section">
-        <div>
+        <div class="inner-info-sec" >
             <div class="trending-bgimg-section">
             </div>
             <div class="movies-slider">
@@ -102,7 +103,7 @@
     <!-- Information section ends here  -->
     <!-- Key feature section starts here  -->
     <div class="main-key-feature-section">
-        <div>
+        <div class="main-key-feature-inner-section" >
             <h2>More reasons to join</h2>
             <div class="inner-key-feature-section">
                 <div class="key-feature-cards">
@@ -146,7 +147,9 @@
         <h3>Frequently Asked Questions</h3>
         <div class="questions-section">
             <div class="main-question-box">
-                <div class="questions">What is Netflix? <div class="far fa-plus"></div>
+                <div class="questions">What is Netflix?
+                <div class="far fa-plus">
+                </div>
                 </div>
                 <div class="faqs-discription">
                     <span>
@@ -238,8 +241,8 @@
             </span>
             <div class="input-section2">
                 <div class="input-box">
-                    <label for="forEmailAddress">Email address</label>
-                    <input type="text" class="input2">
+                    <label for="emailBox" >Email address</label>
+                    <input id="emailBox" type="email" name="email" class="input2">
                 </div>
                 <div class="get-start-button2 ">
                     Get Started
@@ -313,5 +316,8 @@
 
 
 </body>
+<script src="jquery-3.7.1.min.js"></script>
+<script src="app.js"></script>
+<script src="Data.js"></script>
 
 </html>
