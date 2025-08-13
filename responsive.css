@@ -1,4 +1,3 @@
-
 @media screen and (max-width: 1024px) {
 
     .Navbar,
@@ -375,7 +374,20 @@
     .logoImg {
         width: 50%;
         max-width: 100vw;
-        padding-left: 25px;
+        padding-left: 0px;
+        margin-left: 0;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 10px;
+        padding-top: 10px;
+        padding-bottom: 20px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 40px;
     }
 
     .HeaderButtons {
@@ -412,20 +424,12 @@
         width: 100%;
         max-width: 100vw;
         padding-left: 0;
-        height: auto;
         padding-right: 0;
     }
 
-    .hero-section {
-        min-height: 100%;
-        height: auto;
+    .hero-section::before{
+        height: 68vh;
     }
-
-    .hero-section::before {
-        min-height: 100%;
-        height: auto;
-    }
-
 
     .get-start-section {
         height: 180px;
@@ -832,11 +836,13 @@
         width: 100%;
         padding-left: 0;
     }
-    .logo{
+
+    .logo {
         text-transform: uppercase;
         font-size: 24px;
 
     }
+
     .logoImg {
         width: 80%;
         height: 40px;
