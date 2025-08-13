@@ -1,3 +1,4 @@
+
 @media screen and (max-width: 1024px) {
 
     .Navbar,
@@ -411,11 +412,23 @@
         width: 100%;
         max-width: 100vw;
         padding-left: 0;
+        height: auto;
         padding-right: 0;
     }
 
+    .hero-section {
+        min-height: 100%;
+        height: auto;
+    }
+
+    .hero-section::before {
+        min-height: 100%;
+        height: auto;
+    }
+
+
     .get-start-section {
-        height: 165px;
+        height: 180px;
         width: 100%;
         max-width: 100vw;
         display: flex;
@@ -435,7 +448,8 @@
         display: flex;
         align-items: start;
         justify-content: center;
-        height: 498px;
+        min-height: 100%;
+        height: auto;
     }
 
     .get-start-button {
@@ -447,7 +461,8 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        height: 500px;
+        min-height: 68vh;
+        height: auto;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -455,7 +470,7 @@
 
     .text-adv {
         width: 99%;
-        height: 145px;
+        height: 120px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -464,8 +479,9 @@
     .text-adv span {
         width: 89%;
         height: 115px;
-        padding-bottom: 10px;
-        display: block;
+        padding-bottom: 30px;
+        /* display: block; */
+        padding-top: 10px;
     }
 
     .price-plan {
@@ -667,13 +683,14 @@
     }
 
     .main-question-box {
-        width: 85%;
+        width: 95%;
         max-width: 100vw;
         padding-right: 0;
         padding-left: 26px;
         display: flex;
         align-items: center;
         justify-content: center;
+        padding-left: 10px;
     }
 
     .frequently-ask-section {
@@ -740,7 +757,7 @@
     }
 
     .discription {
-        width: 90%;
+        width: 88%;
         height: 50px;
         padding-left: 28px;
     }
@@ -776,7 +793,7 @@
 
     .footer-inner-div {
         width: 90%;
-        padding-left: 20px;
+        padding-left: 30px;
     }
 
     .Footer-links ul {
