@@ -1,9 +1,5 @@
 $(document).ready(function () {
-    $('.header-container').load('/header.html', function () {
-        $('.headSignBtn button').click(function () {
-            $(this).window.location.hre = 'signin2.html';
-        })
-    });
+    $('.header-container').load('/header.html');
 
     console.log('FAQ BIND START hua - ', new Date().toISOString());
     console.log('FAQ bind hua');
