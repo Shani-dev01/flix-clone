@@ -113,7 +113,7 @@ $(document).ready(function () {
     
     // logic for go to signin page on click
     $('.poster-botton').click(function(){
-        $(this).window.location.href='signin.html'
+       window.location.href='signin.html'
     })
 
 });
