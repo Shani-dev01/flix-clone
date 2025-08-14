@@ -535,11 +535,11 @@
     }
 
     .hero-section {
-        height: 90h;
+        height: 60vh;
     }
 
     .hero-section::before {
-        height: 88vh;
+        height: 60vh;
     }
 
     .get-start-section {
@@ -579,8 +579,8 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        min-height: 82vh;
-        height: auto;
+        height: 100%;
+        min-height: 60vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -656,6 +656,8 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
+        height: 100%;
+        min-height: 40vh;
     }
 
     .Information-section {
@@ -664,13 +666,14 @@
         height: 330px;
         padding-bottom: 10px;
         height: 100%;
-        min-height: 75vh;
+        min-height: 40vh;
     }
 
     .movie-posters {
         width: 100%;
         max-width: 100vw;
-        height: 498px;
+        height: 100%;
+        height: 45vh;
         position: absolute;
         top: 0;
         left: 0;
@@ -679,7 +682,8 @@
     .poster {
         width: 95%;
         max-width: 100vw;
-        height: 380px;
+        height: 100%;
+        height: 45vh;
         position: relative;
 
     }
@@ -689,10 +693,13 @@
         padding-left: 25px;
         display: flex;
         gap: 30px;
+        height: 100%;
+        min-height: 25vh;
     }
 
     .movies-slide {
-        height: 235px;
+        height: 100%;
+        min-height: 31vh;
     }
 
 
@@ -756,9 +763,13 @@
     }
 
     .poster-botton {
-        width: 93%;
+        width: 90%;
         padding-left: 0;
         margin-left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
     }
 
     /* Movies slider saection ends here */
@@ -1056,11 +1067,11 @@
     }
 
     .hero-section {
-        height: 90h;
+        height: 75vh;
     }
 
     .hero-section::before {
-        height: 88vh;
+        height: 75vh;
     }
 
     .get-start-section {
@@ -1100,7 +1111,7 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        min-height: 88vh;
+        min-height: 80vh;
         height: auto;
         display: flex;
         align-items: center;
@@ -1206,9 +1217,9 @@
     }
 
     .poster {
-        width: 95%;
+        width: 96%;
         max-width: 100vw;
-        height: 380px;
+        height: 95%;
         position: relative;
 
     }
@@ -1217,12 +1228,12 @@
         width: 82%;
         padding-left: 25px;
         display: flex;
-        gap: 8px;
+        gap: 25px;
         height: 300px;
     }
 
     .movies-slide {
-        height: 223px;
+        height: 60%;
         padding-top: 0;
         margin-top: 0;
     }
@@ -1238,7 +1249,7 @@
     }
 
     .movies-cards img {
-        width: 116px;
+        width: 100%;
         height: 154px;
     }
 
@@ -1250,13 +1261,13 @@
     }
 
     .poster-box {
-        height: 220px;
+        height: 47%;
         position: relative;
         z-index: 998;
     }
 
     .poster-title {
-        height: 160px;
+        height: 54%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
@@ -1270,8 +1281,8 @@
     }
 
     .poster-box img {
-        height: 215px;
-        width: 190px;
+        height: 100%;
+        width: 100%;
     }
 
     .poster-box h2 {
@@ -1279,7 +1290,7 @@
         height: 45px;
         font-size: 35px;
         position: relative;
-        bottom: 22%;
+        bottom: 12%;
         padding-left: 15px;
     }
 
@@ -1292,6 +1303,9 @@
         width: 90%;
         padding-left: 0;
         margin-left: 0;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
     }
 
     /* Movies slider saection ends here */
@@ -1395,9 +1409,9 @@
     }
 
     .faqs-discription {
-        width: 80%;
+        width: 89%;
         font-size: 18px;
-        padding: 18px;
+        padding: 14px;
     }
 
     .fa-plus {
@@ -2419,7 +2433,7 @@
     .main-key-feature-section h2 {
         width: 89%;
         font-size: 25px;
-        margin-bottom: 0;
+        margin-bottom: 20px;
         padding-left: 25px;
     }
 
@@ -2854,7 +2868,7 @@
     }
 
     .movies-slide {
-        height: 280px;
+        height: 52vh;
         padding-top: 0;
         margin-top: 0;
     }
