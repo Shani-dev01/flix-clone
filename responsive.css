@@ -889,6 +889,12 @@
         padding-left: 0;
         padding-right: 0;
     }
+    .hero-section{
+        height: 88vh;
+    }
+    .hero-section::before{
+        height: 88vh;
+    }
 
     .get-start-section {
         height: 165px;
@@ -923,7 +929,7 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        height: 500px;
+        height: 88vh;
         display: flex;
         align-items: center;
         justify-content: center;
