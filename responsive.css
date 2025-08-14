@@ -1,828 +1,3 @@
-@media screen and (max-width: 1024px) {
-
-    .Navbar,
-    .innerNav {
-        width: 100%;
-    }
-
-    .logoImg {
-        margin-left: 25px;
-        margin-bottom: 8px;
-    }
-
-    .HeaderButtons {
-        padding-top: 13px;
-        padding-left: 4px;
-    }
-
-    .logoDiv {
-        width: 91%;
-        padding-left: 40px;
-        padding-right: 40px
-    }
-
-    .HeaderButtons {
-        padding-left: 10px;
-    }
-
-    .headSelectSign {
-        border: 1px solid #cccccc96;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 123px;
-        height: 31px;
-        border-radius: 3px;
-        margin-left: 126px;
-    }
-
-    .text-adv {
-        position: relative;
-        padding-top: 0;
-    }
-
-    .text-adv span {
-        height: 120px;
-        width: 406px;
-        padding-top: 75px;
-        font-size: 34px;
-    }
-
-    .price-plan {
-        font-weight: 500;
-        font-size: 15px;
-        height: 30px;
-        width: 290px;
-        padding-top: 10px;
-    }
-
-    #langSelect {
-        font-size: 15px;
-    }
-
-
-    .text-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 496px;
-        padding-top: 0;
-    }
-
-    .get-start-section {
-        width: 320px;
-        height: 128px;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        padding-top: 5px;
-        outline: none;
-    }
-
-    .get-start-section span {
-        height: 25px;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        text-align: center;
-        padding-top: 10px;
-        line-height: 25px;
-    }
-
-    .input-section {
-        padding-top: 26px;
-    }
-
-    .get-start-button {
-        height: 55px;
-        width: 35%;
-        background: rgb(253, 22, 22);
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 550;
-        transition: 0.2s ease-in;
-    }
-
-    .input-tag {
-        height: 53px;
-        width: 61%;
-        background: #181616f6;
-        border: 1px solid #cccccc7b;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .movies-slider,
-    .trending-text {
-        width: 100%;
-        /* margin-left: 50px; */
-    }
-
-    .trending-text {
-        position: relative;
-        left: 116px;
-        top: 21px;
-    }
-
-    .movies-slide {
-        /* width: 100%; */
-        padding-left: 70px;
-        padding-right: 70px;
-        height: 253px;
-    }
-
-    .movies-cards {
-        height: 210px;
-        width: 145px;
-    }
-
-    .movies-cards span {
-        font-size: 84px;
-        font-weight: 800;
-        top: 95px;
-        right: 115px;
-    }
-}
-
-@media (max-width: 375px) {
-
-    .Navbar,
-    .innerNav {
-        width: 100%;
-    }
-
-    .logoImg {
-        margin: 0;
-        padding: 0;
-    }
-
-    .logo {
-        width: 89px;
-        height: 24px;
-        padding-top: 8px;
-        padding-right: 5px;
-    }
-
-    .HeaderButtons {
-        padding-top: 1px;
-        padding-left: 4px;
-    }
-
-    .headerBtnDiv {
-        margin: 0;
-        padding: 0px;
-    }
-
-    .logoDiv {
-        width: 92%;
-        padding-left: 32px;
-        padding-right: 0px
-    }
-
-    .headSelectSign {
-        width: 125px;
-    }
-
-    .netflix-lang-icon {
-        font-size: 12px;
-    }
-
-    #langSelect {
-        font-size: 14px;
-    }
-
-    .headSignBtn button {
-        height: 32px;
-        width: 76px;
-    }
-
-    .text-adv {
-        height: 100px;
-        width: 646px;
-        /* display: flex;
-        justify-content: center; */
-        padding-bottom: 16px;
-    }
-
-    .text-adv span {
-        height: 100px;
-        width: 463px;
-        font-size: 29px;
-        padding-top: 0;
-    }
-
-    .price-plan {
-        font-weight: 500;
-        font-size: 15px;
-        height: 30px;
-        width: 290px;
-        /* padding-top: 10px; */
-    }
-
-    #langSelect {
-        font-size: 15px;
-    }
-
-
-    .text-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 395px;
-        padding-top: 0;
-    }
-
-    .get-start-section {
-        width: 450px;
-        height: 120px;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        padding-top: 5px;
-        outline: none;
-        position: relative;
-        top: 1px;
-    }
-
-    .get-start-section span {
-        height: 25px;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        text-align: center;
-        padding-top: 13px;
-        line-height: 25px;
-    }
-
-    .input-section {
-        padding-top: 27px;
-        padding-left: 0;
-        height: 150px;
-    }
-
-
-    .get-start-button {
-        height: 55px;
-        width: 41%;
-        background: rgb(253, 22, 22);
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 550;
-        transition: 0.2s ease-in;
-    }
-
-    .input-tag {
-        height: 53px;
-        width: 55%;
-        background: #181616f6;
-        border: 1px solid #cccccc7b;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        padding-left: 5px;
-    }
-
-    .input-tag label {
-        padding-left: 10px;
-        padding-top: 3px;
-        font-size: 15px;
-    }
-
-
-    .movies-slide {
-        /* width: 100%; */
-        padding-left: 35px;
-        padding-right: 35px;
-        height: 200px;
-        display: flex;
-        gap: 0px;
-    }
-
-    .movies-cards {
-        height: 170px;
-        width: 120px;
-    }
-
-    .movies-cards span {
-        font-size: 60px;
-        font-weight: 800;
-        top: 80px;
-        right: 92px;
-    }
-
-    .movies {
-        margin-right: 0;
-        padding-left: 22px;
-        display: flex;
-        gap: 24px;
-    }
-
-    .trending-text {
-        position: relative;
-        left: 55px;
-        top: 21px;
-        font-size: 23px;
-    }
-
-    .trending-bgimg-section {
-        width: 100%;
-        height: 10vh;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
-
-/* Ye sirf 376px se 768px tak chalega */
-@media (min-width: 376px) and (max-width: 425px) {
-
-    /* Logic section starts here */
-    .Navbar,
-    .innerNav {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-    }
-
-    .logoDiv {
-        width: 100%;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .logoImg {
-        width: 50%;
-        max-width: 100vw;
-        padding-left: 0px;
-        margin-left: 0;
-    }
-
-    .logo {
-        width: 100%;
-        height: 40px;
-        padding-left: 10px;
-        padding-top: 0px;
-        padding-bottom: 20px;
-        margin: 0;
-        margin-bottom: 0px;
-        color: red;
-        font-size: 45px;
-    }
-
-    .HeaderButtons {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-    }
-
-    .headerBtnDiv {
-        width: 91%;
-        display: flex;
-        justify-content: space-evenly;
-    }
-
-    .headSelectSign {
-        width: 34%;
-        max-width: 100vw;
-        padding-left: 0;
-        margin-right: 0;
-        margin-left: 0;
-    }
-
-    #langSelect {
-        display: none;
-    }
-
-    /* Logic section ends here */
-
-
-    /* Hero section starts here */
-    .hero-section,
-    .text-section,
-    .text-section {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 0;
-        padding-right: 0;
-    }
-    .hero-section{
-        height: 88h;
-    }
-
-    .hero-section::before{
-        height: 88vh;
-    }
-
-    .get-start-section {
-        height: 180px;
-        width: 100%;
-        max-width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-
-    .get-start-section span {
-        width: 80%;
-        height: 35px;
-        padding-top: 0;
-        padding-bottom: 20px;
-    }
-
-    .inner-section {
-        display: flex;
-        align-items: start;
-        justify-content: center;
-        min-height: 100%;
-        height: auto;
-    }
-
-    .get-start-button {
-        height: 45px;
-    }
-
-    .text-section {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 0;
-        padding-right: 0;
-        min-height: 88vh;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .text-adv {
-        width: 99%;
-        height: 120px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .text-adv span {
-        width: 89%;
-        height: 115px;
-        padding-bottom: 30px;
-        /* display: block; */
-        padding-top: 10px;
-    }
-
-    .price-plan {
-        width: 256px;
-        height: 20px;
-        font-size: 16px;
-        padding-top: 0;
-        margin-bottom: 0;
-    }
-
-    .input-section {
-        margin: 0;
-        width: 100%;
-        height: 120px;
-        padding-top: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .inputs-box {
-        width: 80%;
-        height: 45px;
-    }
-
-    .input-tag {
-        width: 95%;
-    }
-
-    /* Hero section ends here */
-
-    /* Moives slider section starts here */
-    .Information-section,
-    .inner-info-sec,
-    .movies-slider,
-    .movies-slide {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .Information-section {
-        width: 100%;
-        max-width: 100vw;
-        height: 330px;
-        padding-bottom: 10px;
-        height: 430px;
-    }
-
-    .movie-posters {
-        width: 100%;
-        max-width: 100vw;
-        height: 498px;
-        position: absolute;
-        top: 0;
-        left: 0;
-    }
-
-    .poster {
-        width: 95%;
-        max-width: 100vw;
-        height: 380px;
-        position: relative;
-
-    }
-
-    .movies {
-        width: 82%;
-        padding-left: 25px;
-        display: flex;
-        gap: 30px;
-    }
-
-    .movies-cards span {
-        font-size: 84px;
-        font-weight: 800;
-        top: 95px;
-        right: 106px;
-    }
-
-    .poster-box {
-        height: 220px;
-        position: relative;
-        z-index: 998;
-    }
-
-    .poster-title {
-        height: 160px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
-    }
-
-    .poster-title p {
-        overflow: hidden;
-        height: 55px;
-        padding-left: 15px;
-    }
-
-    .poster-box img {
-        height: 220px;
-        z-index: 0;
-    }
-
-    .poster-box h2 {
-        width: 90%;
-        height: 45px;
-        font-size: 35px;
-        position: relative;
-        bottom: 22%;
-        padding-left: 15px;
-    }
-
-    .trending-text {
-        position: relative;
-        left: 10%;
-    }
-
-    .poster-botton {
-        width: 90%;
-        padding-left: 0;
-        margin-left: 0;
-    }
-
-    /* Movies slider saection ends here */
-
-    /* Details saection starts here */
-    .main-key-feature-section,
-    .main-key-feature-inner-section,
-    .inner-key-feature-section {
-        width: 100%;
-        max-width: 100vw;
-        height: 100%;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-        padding-left: 0;
-        padding-right: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .key-feature-cards {
-        width: 90%;
-        height: 200px;
-        display: flex;
-        align-items: start;
-        justify-content: start;
-    }
-
-    .main-key-feature-section h2 {
-        width: 90%;
-        font-size: 19px;
-    }
-
-    .key-feature-title {
-        font-size: 19px;
-        padding-top: 28px;
-        font-weight: 700;
-        width: 94%;
-    }
-
-    .key-feature-discription {
-        width: 84%;
-        height: 52px;
-        padding-top: 10px;
-        padding-bottom: 0px;
-        margin: 0;
-        font-size: 14px;
-    }
-
-    .key-feature-img {
-        width: 95%;
-        padding: 0;
-        margin: 0;
-        height: 63px;
-    }
-
-    .key-feature-img img {
-        height: 50px;
-        width: 50px;
-    }
-
-    /* Details saection ends here */
-    /* FAQ saection starts here */
-    .frequently-ask-section,
-    .questions-section {
-        width: 100%;
-        max-width: 100vw;
-        padding-right: 0;
-        padding-left: 0;
-        align-items: start;
-        justify-content: center;
-    }
-
-    .main-question-box {
-        width: 95%;
-        max-width: 100vw;
-        padding-right: 0;
-        padding-left: 26px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-left: 10px;
-    }
-
-    .frequently-ask-section {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
-
-    .frequently-ask-section h3 {
-        padding-left: 21px;
-        font-size: 18px;
-    }
-
-    .questions {
-        width: 76%;
-        height: 72px;
-        font-size: 17px;
-    }
-
-    .faqs-discription {
-        width: 80%;
-        font-size: 18px;
-        padding: 22px;
-    }
-
-    .fa-plus {
-        font-size: 35px;
-    }
-
-    /* FAQ saection ends here */
-    /* Input section starts here */
-    .get-start-input,
-    .get-start-inner-div {
-        width: 100%;
-        max-width: 100vw;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-    }
-
-    .input-section2 {
-        width: 90%;
-        max-width: 100vw;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        padding-left: 28px;
-        margin: 0;
-    }
-
-    .get-start-input {
-        height: 250px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .input-box {
-        height: 46px;
-        width: 92%;
-    }
-
-    .discription {
-        width: 88%;
-        height: 50px;
-        padding-left: 28px;
-    }
-
-    .get-start-button2 {
-        width: 125px;
-        height: 47px;
-        background: rgb(253, 22, 22);
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        color: #fff;
-        padding-right: 20px;
-        font-size: 18px;
-        font-weight: 600;
-        padding-left: 8px;
-        transition: 0.2s ease-in;
-        margin-top: 6px;
-    }
-
-    /* Input section ends here */
-    /* Footer section starts here */
-    .footer-main-div,
-    .footer-inner-div,
-    .Footer-links {
-        width: 100%;
-        max-width: 100vw;
-        padding-right: 0;
-        padding-left: 0;
-        flex-direction: column;
-    }
-
-    .footer-inner-div {
-        width: 90%;
-        padding-left: 30px;
-    }
-
-    .Footer-links ul {
-        height: 80px;
-    }
-
-    .footer-bottom-div {
-        width: 90%;
-        padding-left: 20px;
-    }
-
-    .footer-bottom-div,
-    p {
-        padding-bottom: 0px;
-    }
-
-    /* Footer section ends here */
-
-}
-
-
-
 @media (min-width: 320px) and (max-width: 375px) {
 
     /* Logic section starts here */
@@ -889,15 +64,17 @@
         padding-left: 0;
         padding-right: 0;
     }
-    .hero-section{
+
+    .hero-section {
         height: 88vh;
     }
-    .hero-section::before{
+
+    .hero-section::before {
         height: 88vh;
     }
 
     .get-start-section {
-        height: 165px;
+        height: 220px;
         width: 100%;
         max-width: 100vw;
         display: flex;
@@ -908,9 +85,10 @@
 
     .get-start-section span {
         width: 80%;
-        height: 35px;
+        height: 55px;
         padding-top: 0;
         padding-bottom: 20px;
+        padding-left: 0;
     }
 
     .inner-section {
@@ -1268,3 +446,878 @@
     /* Footer section ends here */
 
 }
+
+@media (min-width: 376px) and (max-width: 425px) {
+
+    /* Logic section starts here */
+    .Navbar,
+    .innerNav {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+    }
+
+    .logoDiv {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logoImg {
+        width: 50%;
+        max-width: 100vw;
+        padding-left: 0px;
+        padding-bottom: 0;
+        margin-left: 0;
+        height: 72px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 20px;
+        padding-top: 10px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 30px;
+    }
+
+    .HeaderButtons {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .headerBtnDiv {
+        width: 91%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 0;
+        margin-right: 15px;
+    }
+
+    .headSelectSign {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
+    }
+
+    .headSelectSign button {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
+    }
+
+    #langSelect {
+        display: none;
+    }
+
+    /* Logic section ends here */
+
+
+    /* Hero section starts here */
+    .hero-section,
+    .text-section,
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-section {
+        height: 90h;
+    }
+
+    .hero-section::before {
+        height: 90vh;
+    }
+
+    .get-start-section {
+        height: 190px;
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .get-start-section span {
+        width: 80%;
+        height: 55px;
+        padding-top: 0;
+        padding-bottom: 15px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .inner-section {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        min-height: 100%;
+        height: auto;
+    }
+
+    .get-start-button {
+        height: 45px;
+        width: 38%;
+    }
+
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 84vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+    }
+
+    .text-adv {
+        width: 99%;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-adv span {
+        width: 90%;
+        height: 85px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 30px;
+        padding-left: 0;
+    }
+
+    .price-plan {
+        width: 67%;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 0;
+        font-weight: 100;
+    }
+
+    .input-section {
+        margin: 0;
+        width: 100%;
+        height: 135px;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .inputs-box {
+        width: 90%;
+        height: 40px;
+        padding-left: 20px;
+    }
+
+    .input-tag {
+        width: 95%;
+    }
+
+
+    .input-tag label {
+        width: 90%;
+        color: beige;
+        padding-left: 15px;
+        color: #cccccccf;
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    /* Hero section ends here */
+
+    /* Moives slider section starts here */
+    .Information-section,
+    .inner-info-sec,
+    .movies-slider,
+    .movies-slide {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Information-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 330px;
+        padding-bottom: 10px;
+        height: 100%;
+        min-height: 75vh;
+    }
+
+    .movie-posters {
+        width: 100%;
+        max-width: 100vw;
+        height: 498px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .poster {
+        width: 95%;
+        max-width: 100vw;
+        height: 380px;
+        position: relative;
+
+    }
+
+    .movies {
+        width: 82%;
+        padding-left: 25px;
+        display: flex;
+        gap: 30px;
+    }
+
+    .movies-slide{
+        height: 235px;
+    }
+
+
+    .movies-cards {
+        position: relative;
+        height: 215px;
+        width: 175px;
+        display: flex;
+        flex-shrink: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    .movies-cards img{
+        width: 170px;
+    }
+
+    .movies-cards span {
+        font-size: 84px;
+        font-weight: 800;
+        top: 95px;
+        right: 140px;
+    }
+
+    .poster-box {
+        height: 220px;
+        position: relative;
+        z-index: 998;
+    }
+
+    .poster-title {
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .poster-title p {
+        overflow: hidden;
+        height: 55px;
+        padding-left: 15px;
+    }
+
+    .poster-box img {
+        height: 215px;
+        width: 190px;
+    }
+
+    .poster-box h2 {
+        width: 90%;
+        height: 45px;
+        font-size: 35px;
+        position: relative;
+        bottom: 22%;
+        padding-left: 15px;
+    }
+
+    .trending-text {
+        position: relative;
+        left: 10%;
+    }
+
+    .poster-botton {
+        width: 90%;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    /* Movies slider saection ends here */
+
+    /* Details saection starts here */
+    .main-key-feature-section,
+    .main-key-feature-inner-section,
+    .inner-key-feature-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key-feature-cards {
+        width: 90%;
+        height: 200px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .main-key-feature-section h2 {
+        width: 90%;
+        font-size: 19px;
+    }
+
+    .key-feature-title {
+        font-size: 19px;
+        padding-top: 28px;
+        font-weight: 700;
+        width: 94%;
+    }
+
+    .key-feature-discription {
+        width: 84%;
+        height: 52px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .key-feature-img {
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        height: 63px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Details saection ends here */
+    /* FAQ saection starts here */
+    .frequently-ask-section,
+    .questions-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .main-question-box {
+        width: 95%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 10px;
+    }
+
+    .frequently-ask-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frequently-ask-section h3 {
+        padding-left: 21px;
+        font-size: 18px;
+    }
+
+    .questions {
+        width: 76%;
+        height: 72px;
+        font-size: 17px;
+    }
+
+    .faqs-discription {
+        width: 80%;
+        font-size: 18px;
+        padding: 22px;
+    }
+
+    .fa-plus {
+        font-size: 35px;
+    }
+
+    /* FAQ saection ends here */
+    /* Input section starts here */
+    .get-start-input,
+    .get-start-inner-div {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .input-section2 {
+        width: 90%;
+        max-width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding-left: 28px;
+        margin: 0;
+    }
+
+    .get-start-input {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-box {
+        height: 46px;
+        width: 92%;
+    }
+
+    .discription {
+        width: 88%;
+        height: 50px;
+        padding-left: 28px;
+    }
+
+    .get-start-button2 {
+        width: 125px;
+        height: 47px;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        padding-right: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        padding-left: 8px;
+        transition: 0.2s ease-in;
+        margin-top: 6px;
+    }
+
+    /* Input section ends here */
+    /* Footer section starts here */
+    .footer-main-div,
+    .footer-inner-div,
+    .Footer-links {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        flex-direction: column;
+    }
+
+    .footer-inner-div {
+        width: 90%;
+        padding-left: 30px;
+    }
+
+    .Footer-links ul {
+        height: 80px;
+    }
+
+    .footer-bottom-div {
+        width: 90%;
+        padding-left: 20px;
+    }
+
+    .footer-bottom-div,
+    p {
+        padding-bottom: 0px;
+    }
+
+    /* Footer section ends here */
+
+}
+
+@media (min-width: 426px) and (max-width: 1024px) {
+
+    .Navbar,
+    .innerNav {
+        width: 100%;
+    }
+
+    .logoImg {
+        margin-left: 25px;
+        margin-bottom: 8px;
+    }
+
+    .HeaderButtons {
+        padding-top: 13px;
+        padding-left: 4px;
+    }
+
+    .logoDiv {
+        width: 91%;
+        padding-left: 40px;
+        padding-right: 40px
+    }
+
+    .HeaderButtons {
+        padding-left: 10px;
+    }
+
+    .headSelectSign {
+        border: 1px solid #cccccc96;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 123px;
+        height: 31px;
+        border-radius: 3px;
+        margin-left: 126px;
+    }
+
+    .text-adv {
+        position: relative;
+        padding-top: 0;
+    }
+
+    .text-adv span {
+        height: 120px;
+        width: 406px;
+        padding-top: 75px;
+        font-size: 34px;
+    }
+
+    .price-plan {
+        font-weight: 500;
+        font-size: 15px;
+        height: 30px;
+        width: 290px;
+        padding-top: 10px;
+    }
+
+    #langSelect {
+        font-size: 15px;
+    }
+
+
+    .text-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 496px;
+        padding-top: 0;
+    }
+
+    .get-start-section {
+        width: 320px;
+        height: 128px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-top: 5px;
+        outline: none;
+    }
+
+    .get-start-section span {
+        height: 25px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding-top: 10px;
+        line-height: 25px;
+    }
+
+    .input-section {
+        padding-top: 26px;
+    }
+
+    .get-start-button {
+        height: 55px;
+        width: 35%;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 550;
+        transition: 0.2s ease-in;
+    }
+
+    .input-tag {
+        height: 53px;
+        width: 61%;
+        background: #181616f6;
+        border: 1px solid #cccccc7b;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .movies-slider,
+    .trending-text {
+        width: 100%;
+        /* margin-left: 50px; */
+    }
+
+    .trending-text {
+        position: relative;
+        left: 116px;
+        top: 21px;
+    }
+
+    .movies-slide {
+        /* width: 100%; */
+        padding-left: 70px;
+        padding-right: 70px;
+        height: 253px;
+    }
+
+    .movies-cards {
+        height: 210px;
+        width: 145px;
+    }
+
+    .movies-cards span {
+        font-size: 84px;
+        font-weight: 800;
+        top: 95px;
+        right: 115px;
+    }
+}
+
+@media (max-width: 375px) {
+
+    .Navbar,
+    .innerNav {
+        width: 100%;
+    }
+
+    .logoImg {
+        margin: 0;
+        padding: 0;
+    }
+
+    .logo {
+        width: 89px;
+        height: 24px;
+        padding-top: 8px;
+        padding-right: 5px;
+    }
+
+    .HeaderButtons {
+        padding-top: 1px;
+        padding-left: 4px;
+    }
+
+    .headerBtnDiv {
+        margin: 0;
+        padding: 0px;
+    }
+
+    .logoDiv {
+        width: 92%;
+        padding-left: 32px;
+        padding-right: 0px
+    }
+
+    .headSelectSign {
+        width: 125px;
+    }
+
+    .netflix-lang-icon {
+        font-size: 12px;
+    }
+
+    #langSelect {
+        font-size: 14px;
+    }
+
+    .headSignBtn button {
+        height: 32px;
+        width: 76px;
+    }
+
+    .text-adv {
+        height: 100px;
+        width: 646px;
+        /* display: flex;
+        justify-content: center; */
+        padding-bottom: 16px;
+    }
+
+    .text-adv span {
+        height: 100px;
+        width: 463px;
+        font-size: 29px;
+        padding-top: 0;
+    }
+
+    .price-plan {
+        font-weight: 500;
+        font-size: 15px;
+        height: 30px;
+        width: 290px;
+        /* padding-top: 10px; */
+    }
+
+    #langSelect {
+        font-size: 15px;
+    }
+
+
+    .text-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 395px;
+        padding-top: 0;
+    }
+
+    .get-start-section {
+        width: 450px;
+        height: 120px;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding-top: 5px;
+        outline: none;
+        position: relative;
+        top: 1px;
+    }
+
+    .get-start-section span {
+        height: 25px;
+        width: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        padding-top: 13px;
+        line-height: 25px;
+    }
+
+    .input-section {
+        padding-top: 27px;
+        padding-left: 0;
+        height: 150px;
+    }
+
+
+    .get-start-button {
+        height: 55px;
+        width: 41%;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 550;
+        transition: 0.2s ease-in;
+    }
+
+    .input-tag {
+        height: 53px;
+        width: 55%;
+        background: #181616f6;
+        border: 1px solid #cccccc7b;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        padding-left: 5px;
+    }
+
+    .input-tag label {
+        padding-left: 10px;
+        padding-top: 3px;
+        font-size: 15px;
+    }
+
+
+    .movies-slide {
+        /* width: 100%; */
+        padding-left: 35px;
+        padding-right: 35px;
+        height: 200px;
+        display: flex;
+        gap: 0px;
+    }
+
+    .movies-cards {
+        height: 170px;
+        width: 120px;
+    }
+
+    .movies-cards span {
+        font-size: 60px;
+        font-weight: 800;
+        top: 80px;
+        right: 92px;
+    }
+
+    .movies {
+        margin-right: 0;
+        padding-left: 22px;
+        display: flex;
+        gap: 24px;
+    }
+
+    .trending-text {
+        position: relative;
+        left: 55px;
+        top: 21px;
+        font-size: 23px;
+    }
+
+    .trending-bgimg-section {
+        width: 100%;
+        height: 10vh;
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+
+/* Ye sirf 376px se 768px tak chalega */

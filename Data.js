@@ -18,7 +18,7 @@ $(document).ready(function () {
         const res = await fetch(`${url}/trending/movie/day?api_key=${api_key}`);
         const data = await res.json();
         const pages = data.results;
-        console.log(data.results)
+        // console.log(data.results)
         pages.slice(0, 9).forEach((Element, i) => {
             const img = `${img_base_url}${Element.poster_path}`;
             const cardHtml = `
