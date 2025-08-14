@@ -1,7 +1,7 @@
 $(document).ready(function () {
     $('.header-container').load('/header.html', function () {
         $('.headSignBtn button').click(function () {
-            $(this).window.location.hre = 'signin.html';
+            $(this).window.location.hre = 'signin2.html';
         })
     });
 
