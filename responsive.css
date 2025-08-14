@@ -1,200 +1,3 @@
-@media (max-width: 375px) {
-
-    .Navbar,
-    .innerNav {
-        width: 100%;
-    }
-
-    .logoImg {
-        margin: 0;
-        padding: 0;
-    }
-
-    .logo {
-        width: 89px;
-        height: 24px;
-        padding-top: 8px;
-        padding-right: 5px;
-    }
-
-    .HeaderButtons {
-        padding-top: 1px;
-        padding-left: 4px;
-    }
-
-    .headerBtnDiv {
-        margin: 0;
-        padding: 0px;
-    }
-
-    .logoDiv {
-        width: 92%;
-        padding-left: 32px;
-        padding-right: 0px
-    }
-
-    .headSelectSign {
-        width: 125px;
-    }
-
-    .netflix-lang-icon {
-        font-size: 12px;
-    }
-
-    #langSelect {
-        font-size: 14px;
-    }
-
-    .headSignBtn button {
-        height: 32px;
-        width: 76px;
-    }
-
-    .text-adv {
-        height: 100px;
-        width: 646px;
-        /* display: flex;
-        justify-content: center; */
-        padding-bottom: 16px;
-    }
-
-    .text-adv span {
-        height: 100px;
-        width: 463px;
-        font-size: 29px;
-        padding-top: 0;
-    }
-
-    .price-plan {
-        font-weight: 500;
-        font-size: 15px;
-        height: 30px;
-        width: 290px;
-        /* padding-top: 10px; */
-    }
-
-    #langSelect {
-        font-size: 15px;
-    }
-
-
-    .text-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 395px;
-        padding-top: 0;
-    }
-
-    .get-start-section {
-        width: 450px;
-        height: 120px;
-        display: flex;
-        justify-content: end;
-        align-items: center;
-        padding-top: 5px;
-        outline: none;
-        position: relative;
-        top: 1px;
-    }
-
-    .get-start-section span {
-        height: 25px;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        text-align: center;
-        padding-top: 13px;
-        line-height: 25px;
-    }
-
-    .input-section {
-        padding-top: 27px;
-        padding-left: 0;
-        height: 150px;
-    }
-
-
-    .get-start-button {
-        height: 55px;
-        width: 41%;
-        background: rgb(253, 22, 22);
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        color: #fff;
-        font-size: 18px;
-        font-weight: 550;
-        transition: 0.2s ease-in;
-    }
-
-    .input-tag {
-        height: 53px;
-        width: 55%;
-        background: #181616f6;
-        border: 1px solid #cccccc7b;
-        border-radius: 5px;
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        padding-left: 5px;
-    }
-
-    .input-tag label {
-        padding-left: 10px;
-        padding-top: 3px;
-        font-size: 15px;
-    }
-
-
-    .movies-slide {
-        /* width: 100%; */
-        padding-left: 35px;
-        padding-right: 35px;
-        height: 200px;
-        display: flex;
-        gap: 0px;
-    }
-
-    .movies-cards {
-        height: 170px;
-        width: 120px;
-    }
-
-    .movies-cards span {
-        font-size: 60px;
-        font-weight: 800;
-        top: 80px;
-        right: 92px;
-    }
-
-    .movies {
-        margin-right: 0;
-        padding-left: 22px;
-        display: flex;
-        gap: 24px;
-    }
-
-    .trending-text {
-        position: relative;
-        left: 55px;
-        top: 21px;
-        font-size: 23px;
-    }
-
-    .trending-bgimg-section {
-        width: 100%;
-        height: 10vh;
-        background-size: cover;
-        background-position: center;
-    }
-}
-
 @media (min-width: 320px) and (max-width: 375px) {
 
     /* Logic section starts here */
@@ -888,7 +691,7 @@
         gap: 30px;
     }
 
-    .movies-slide{
+    .movies-slide {
         height: 235px;
     }
 
@@ -902,7 +705,7 @@
         transition: 0.2s ease-in-out;
     }
 
-    .movies-cards img{
+    .movies-cards img {
         width: 170px;
     }
 
@@ -935,7 +738,7 @@
 
     .poster-box img {
         height: 215px;
-        width: 190px;
+        width: 100%;
     }
 
     .poster-box h2 {
@@ -953,7 +756,7 @@
     }
 
     .poster-botton {
-        width: 90%;
+        width: 93%;
         padding-left: 0;
         margin-left: 0;
     }
@@ -1163,162 +966,2192 @@
 
 }
 
-@media (min-width: 426px) and (max-width: 1024px) {
+@media (min-width: 426px) and (max-width: 599px) {
 
+    /* Logic section starts here */
     .Navbar,
     .innerNav {
         width: 100%;
-    }
-
-    .logoImg {
-        margin-left: 25px;
-        margin-bottom: 8px;
-    }
-
-    .HeaderButtons {
-        padding-top: 13px;
-        padding-left: 4px;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        height: 101px;
     }
 
     .logoDiv {
-        width: 91%;
-        padding-left: 40px;
-        padding-right: 40px
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logoImg {
+        width: 50%;
+        max-width: 100vw;
+        padding-left: 0px;
+        padding-bottom: 0;
+        margin-left: 0;
+        height: 72px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 5px;
+        padding-top: 6px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 29px;
     }
 
     .HeaderButtons {
-        padding-left: 10px;
+        width: 40%;
+        display: flex;
+        justify-content: space-end;
+        padding-bottom: 10px;
+    }
+
+    .headerBtnDiv {
+        width: 91%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 0;
+        margin-right: 0px;
     }
 
     .headSelectSign {
-        border: 1px solid #cccccc96;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        width: 123px;
-        height: 31px;
-        border-radius: 3px;
-        margin-left: 126px;
-    }
-
-    .text-adv {
-        position: relative;
-        padding-top: 0;
-    }
-
-    .text-adv span {
-        height: 120px;
-        width: 406px;
-        padding-top: 75px;
-        font-size: 34px;
-    }
-
-    .price-plan {
-        font-weight: 500;
-        font-size: 15px;
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
         height: 30px;
-        width: 290px;
-        padding-top: 10px;
+    }
+
+    .headSelectSign button {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
     }
 
     #langSelect {
-        font-size: 15px;
+        display: none;
     }
 
+    /* Logic section ends here */
 
+
+    /* Hero section starts here */
+    .hero-section,
+    .text-section,
     .text-section {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 496px;
-        padding-top: 0;
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-section {
+        height: 90h;
+    }
+
+    .hero-section::before {
+        height: 88vh;
     }
 
     .get-start-section {
-        width: 320px;
-        height: 128px;
+        height: 190px;
+        width: 100%;
+        max-width: 100vw;
         display: flex;
-        justify-content: end;
         align-items: center;
-        padding-top: 5px;
-        outline: none;
+        justify-content: center;
     }
+
 
     .get-start-section span {
-        height: 25px;
-        width: 500px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: #fff;
-        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        width: 82%;
+        height: 55px;
+        padding-top: 0;
+        padding-bottom: 15px;
         text-align: center;
-        padding-top: 10px;
-        line-height: 25px;
+        padding-left: 0;
     }
 
-    .input-section {
-        padding-top: 26px;
+    .inner-section {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        min-height: 100%;
+        height: auto;
     }
 
     .get-start-button {
+        height: 45px;
+        width: 47%;
+    }
+
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 88vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        padding-top: 0;
+    }
+
+    .text-adv {
+        width: 99%;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-adv span {
+        width: 92%;
+        height: 85px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 29px;
+        padding-left: 0;
+    }
+
+    .price-plan {
+        width: 67%;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 0;
+        font-weight: 100;
+    }
+
+    .input-section {
+        margin: 0;
+        width: 100%;
+        height: 135px;
+        padding-top: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .inputs-box {
+        width: 90%;
+        height: 40px;
+        padding-left: 20px;
+    }
+
+    .input-tag {
+        width: 95%;
+    }
+
+
+    .input-tag label {
+        width: 90%;
+        color: beige;
+        padding-left: 15px;
+        color: #cccccccf;
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .get-start-button {
+        height: 45px;
+        width: 160px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    /* Hero section ends here */
+
+    /* Moives slider section starts here */
+    .Information-section,
+    .inner-info-sec,
+    .movies-slider,
+    .movies-slide {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Information-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 330px;
+        padding-bottom: 10px;
+        height: 300px;
+        min-height: 50vh;
+    }
+
+    .movie-posters {
+        width: 100%;
+        max-width: 100vw;
+        height: 498px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .poster {
+        width: 95%;
+        max-width: 100vw;
+        height: 380px;
+        position: relative;
+
+    }
+
+    .movies {
+        width: 82%;
+        padding-left: 25px;
+        display: flex;
+        gap: 8px;
+        height: 300px;
+    }
+
+    .movies-slide {
+        height: 223px;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+
+    .movies-cards {
+        position: relative;
+        height: 180px;
+        width: 126px;
+        display: flex;
+        flex-shrink: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    .movies-cards img {
+        width: 116px;
+        height: 154px;
+    }
+
+    .movies-cards span {
+        font-size: 61px;
+        font-weight: 800;
+        top: 68px;
+        right: 99px;
+    }
+
+    .poster-box {
+        height: 220px;
+        position: relative;
+        z-index: 998;
+    }
+
+    .poster-title {
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .poster-title p {
+        overflow: hidden;
         height: 55px;
-        width: 35%;
+        padding-left: 15px;
+    }
+
+    .poster-box img {
+        height: 215px;
+        width: 190px;
+    }
+
+    .poster-box h2 {
+        width: 90%;
+        height: 45px;
+        font-size: 35px;
+        position: relative;
+        bottom: 22%;
+        padding-left: 15px;
+    }
+
+    .trending-text {
+        position: relative;
+        left: 35px;
+    }
+
+    .poster-botton {
+        width: 90%;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    /* Movies slider saection ends here */
+
+    /* Details saection starts here */
+    .main-key-feature-section,
+    .main-key-feature-inner-section,
+    .inner-key-feature-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key-feature-cards {
+        width: 90%;
+        height: 200px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .main-key-feature-section h2 {
+        width: 90%;
+        font-size: 19px;
+    }
+
+    .key-feature-title {
+        font-size: 19px;
+        padding-top: 28px;
+        font-weight: 700;
+        width: 94%;
+    }
+
+    .key-feature-discription {
+        width: 84%;
+        height: 52px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .key-feature-img {
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        height: 63px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Details saection ends here */
+    /* FAQ saection starts here */
+    .frequently-ask-section,
+    .questions-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .main-question-box {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0px;
+    }
+
+    .frequently-ask-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frequently-ask-section h3 {
+        padding-left: 25px;
+        font-size: 18px;
+    }
+
+    .questions {
+        width: 82%;
+        height: 72px;
+        font-size: 17px;
+    }
+
+    .faqs-discription {
+        width: 80%;
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .fa-plus {
+        font-size: 35px;
+    }
+
+    /* FAQ saection ends here */
+    /* Input section starts here */
+    .get-start-input,
+    .get-start-inner-div {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .input-section2 {
+        width: 90%;
+        max-width: 100vw;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        padding-left: 24px;
+        margin: 0;
+    }
+
+    .get-start-input {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-box {
+        height: 46px;
+        width: 100%;
+    }
+
+    .discription {
+        width: 88%;
+        height: 50px;
+        padding-left: 25px;
+    }
+
+    .get-start-button2 {
+        width: 125px;
+        height: 47px;
         background: rgb(253, 22, 22);
         border-radius: 5px;
         display: flex;
         align-items: center;
         justify-content: space-evenly;
         color: #fff;
+        padding-right: 20px;
         font-size: 18px;
-        font-weight: 550;
+        font-weight: 600;
+        padding-left: 8px;
         transition: 0.2s ease-in;
+        margin-top: 6px;
     }
 
-    .input-tag {
-        height: 53px;
-        width: 61%;
-        background: #181616f6;
-        border: 1px solid #cccccc7b;
-        border-radius: 5px;
-        display: flex;
+    /* Input section ends here */
+    /* Footer section starts here */
+    .footer-main-div,
+    .footer-inner-div,
+    .Footer-links {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
         flex-direction: column;
+    }
+
+    .footer-inner-div {
+        width: 90%;
+        padding-left: 30px;
+    }
+
+    .Footer-links ul {
+        height: 80px;
+    }
+
+    .footer-bottom-div {
+        width: 90%;
+        padding-left: 20px;
+    }
+
+    .footer-bottom-div,
+    p {
+        padding-bottom: 0px;
+    }
+
+    /* Footer section ends here */
+
+}
+
+@media (min-width: 600px) and (max-width: 767px) {
+
+    /* Logic section starts here */
+    .Navbar,
+    .innerNav {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        height: 101px;
+    }
+
+    .logoDiv {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logoImg {
+        width: 50%;
+        max-width: 100vw;
+        padding-left: 0px;
+        padding-bottom: 0;
+        margin-left: 0;
+        height: 72px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 5px;
+        padding-top: 6px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 29px;
+    }
+
+    .HeaderButtons {
+        width: 40%;
+        display: flex;
+        justify-content: space-end;
+        padding-bottom: 10px;
+    }
+
+    .headerBtnDiv {
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 0;
+        margin-right: 0px;
+    }
+
+    .headSelectSign {
+        width: 51%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 31px;
+    }
+
+    .headSelectSign button {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
+    }
+
+    #langSelect {
+        display: block;
+    }
+
+    /* Logic section ends here */
+
+
+    /* Hero section starts here */
+    .hero-section,
+    .text-section,
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-section {
+        height: 90h;
+    }
+
+    .hero-section::before {
+        height: 88vh;
+    }
+
+    .get-start-section {
+        height: 123px;
+        width: 78%;
+        max-width: 100vw;
+        display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    .movies-slider,
-    .trending-text {
+
+    .get-start-section span {
+        width: 90%;
+        height: 32px;
+        padding-top: 0;
+        padding-bottom: 15px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .inner-section {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        min-height: 100%;
+        height: auto;
+    }
+
+    .get-start-button {
+        height: 45px;
+        width: 47%;
+    }
+
+    .text-section {
         width: 100%;
-        /* margin-left: 50px; */
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 88vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        padding-top: 0;
+    }
+
+    .text-adv {
+        width: 99%;
+        height: 90px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .text-adv span {
+        width: 85%;
+        height: 85px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 29px;
+        padding-left: 0;
+    }
+
+    .price-plan {
+        width: 67%;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 0;
+        font-weight: 900;
+    }
+
+    .input-section {
+        margin: 0;
+        width: 90%;
+        height: 65px;
+        padding-top: 0;
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-right: 30px;
+    }
+
+    .inputs-box {
+        width: 54%;
+        height: 56px;
+        padding-left: 10px;
+    }
+
+    .input-tag {
+        width: 94%;
+        height: 56px;
+    }
+
+
+    .input-tag label {
+        width: 90%;
+        color: beige;
+        padding-left: 15px;
+        color: #cccccccf;
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .get-start-button {
+        height: 54px;
+        width: 164px;
+        font-size: 18px;
+        border-radius: 5px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    /* Hero section ends here */
+
+    /* Moives slider section starts here */
+    .Information-section,
+    .inner-info-sec,
+    .movies-slider,
+    .movies-slide {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Information-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 330px;
+        padding-bottom: 10px;
+        height: 300px;
+        min-height: 50vh;
+    }
+
+    .movie-posters {
+        width: 100%;
+        max-width: 100vw;
+        height: 498px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .poster {
+        width: 95%;
+        max-width: 100vw;
+        height: 380px;
+        position: relative;
+
+    }
+
+    .movies {
+        width: 82%;
+        padding-left: 25px;
+        display: flex;
+        gap: 8px;
+        height: 300px;
+    }
+
+    .movies-slide {
+        height: 223px;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+
+    .movies-cards {
+        position: relative;
+        height: 180px;
+        width: 126px;
+        display: flex;
+        flex-shrink: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    .movies-cards img {
+        width: 116px;
+        height: 154px;
+    }
+
+    .movies-cards span {
+        font-size: 61px;
+        font-weight: 800;
+        top: 68px;
+        right: 99px;
+    }
+
+    .poster-box {
+        height: 220px;
+        position: relative;
+        z-index: 998;
+    }
+
+    .poster-title {
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .poster-title p {
+        overflow: hidden;
+        height: 55px;
+        padding-left: 15px;
+    }
+
+    .poster-box img {
+        height: 215px;
+        width: 190px;
+    }
+
+    .poster-box h2 {
+        width: 90%;
+        height: 45px;
+        font-size: 35px;
+        position: relative;
+        bottom: 22%;
+        padding-left: 15px;
     }
 
     .trending-text {
         position: relative;
-        left: 116px;
-        top: 21px;
+        left: 35px;
+    }
+
+    .poster-botton {
+        width: 90%;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    /* Movies slider saection ends here */
+
+    /* Details saection starts here */
+    .main-key-feature-section,
+    .main-key-feature-inner-section,
+    .inner-key-feature-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key-feature-cards {
+        width: 90%;
+        height: 200px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .main-key-feature-section h2 {
+        width: 90%;
+        font-size: 19px;
+    }
+
+    .key-feature-title {
+        font-size: 19px;
+        padding-top: 28px;
+        font-weight: 700;
+        width: 94%;
+    }
+
+    .key-feature-discription {
+        width: 84%;
+        height: 52px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .key-feature-img {
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        height: 63px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Details saection ends here */
+    /* FAQ saection starts here */
+    .frequently-ask-section,
+    .questions-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .main-question-box {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0px;
+    }
+
+    .frequently-ask-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frequently-ask-section h3 {
+        padding-left: 25px;
+        font-size: 18px;
+    }
+
+    .questions {
+        width: 82%;
+        height: 72px;
+        font-size: 17px;
+    }
+
+    .faqs-discription {
+        width: 80%;
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .fa-plus {
+        font-size: 35px;
+    }
+
+    /* FAQ saection ends here */
+    /* Input section starts here */
+    .get-start-input,
+    .get-start-inner-div {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+    }
+
+    .input-section2 {
+        width: 100%;
+        max-width: 100vw;
+        justify-content: center;
+        align-items: start;
+        margin: 0;
+    }
+
+    .get-start-input {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-box {
+        height: 55px;
+        width: 57%;
+    }
+
+    .discription {
+        width: 88%;
+        height: 50px;
+        padding-left: 25px;
+    }
+
+    .get-start-button2 {
+        width: 180px;
+        height: 56px;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        padding-right: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.2s ease-in;
+    }
+
+    /* Input section ends here */
+    /* Footer section starts here */
+    .footer-main-div,
+    .footer-inner-div,
+    .Footer-links {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .Footer-links {
+        height: 215px;
+    }
+
+    .footer-inner-div {
+        width: 90%;
+        padding-left: 30px;
+    }
+
+    .Footer-links ul {
+        height: 80px;
+    }
+
+    .footer-bottom-div {
+        width: 90%;
+        padding-left: 30px;
+    }
+
+    .footer-bottom-div,
+    p {
+        padding-bottom: 0px;
+    }
+
+    /* Footer section ends here */
+
+}
+
+@media (min-width: 767px) and (max-width: 967px) {
+
+    /* Logic section starts here */
+    .Navbar,
+    .innerNav {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        height: 101px;
+    }
+
+    .logoDiv {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logoImg {
+        width: 50%;
+        max-width: 100vw;
+        padding-left: 0px;
+        padding-bottom: 0;
+        margin-left: 0;
+        height: 72px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 5px;
+        padding-top: 6px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 40px;
+    }
+
+    .HeaderButtons {
+        width: 40%;
+        display: flex;
+        justify-content: space-end;
+        padding-bottom: 10px;
+    }
+
+    .headerBtnDiv {
+        width: 78%;
+        display: flex;
+        justify-content: space-evenly;
+        padding-right: 0;
+        margin-right: 0px;
+    }
+
+    .headSelectSign {
+        width: 51%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 31px;
+    }
+
+    .headSelectSign button {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
+    }
+
+    #langSelect {
+        display: block;
+    }
+
+    /* Logic section ends here */
+
+
+    /* Hero section starts here */
+    .hero-section,
+    .text-section,
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-section {
+        height: 90h;
+    }
+
+    .hero-section::before {
+        height: 88vh;
+    }
+
+    .get-start-section {
+        height: 123px;
+        width: 49%;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .get-start-section span {
+        width: 100%;
+        height: 32px;
+        padding-top: 0;
+        padding-bottom: 15px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .inner-section {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        min-height: 100%;
+        height: auto;
+    }
+
+    .get-start-button {
+        height: 45px;
+        width: 47%;
+    }
+
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 88vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        padding-top: 0;
+    }
+
+    .text-adv {
+        width: 72%;
+        height: 85px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 35px;
+        padding-left: 0;
+
+    }
+
+    .text-adv span {
+        width: 75%;
+        height: 85px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 29px;
+        padding-left: 0;
+    }
+
+    .price-plan {
+        width: 67%;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 0;
+        font-weight: 900;
+    }
+
+    .input-section {
+        margin: 0;
+        width: 90%;
+        height: 65px;
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inputs-box {
+        width: 54%;
+        height: 56px;
+        padding-left: 10px;
+    }
+
+    .input-tag {
+        width: 94%;
+        height: 56px;
+    }
+
+
+    .input-tag label {
+        width: 90%;
+        color: beige;
+        padding-left: 15px;
+        color: #cccccccf;
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .get-start-button {
+        height: 54px;
+        width: 164px;
+        font-size: 18px;
+        border-radius: 5px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    /* Hero section ends here */
+
+    /* Moives slider section starts here */
+    .Information-section,
+    .inner-info-sec,
+    .movies-slider,
+    .movies-slide {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Information-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 450px;
+        padding-bottom: 10px;
+        min-height: 50vh;
+    }
+
+    .movie-posters {
+        width: 100%;
+        max-width: 100vw;
+        height: 498px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .poster {
+        width: 95%;
+        max-width: 100vw;
+        height: 380px;
+        position: relative;
+
+    }
+
+    .movies {
+        width: 82%;
+        padding-left: 25px;
+        display: flex;
+        gap: 28px;
+        height: 300px;
     }
 
     .movies-slide {
-        /* width: 100%; */
-        padding-left: 70px;
-        padding-right: 70px;
-        height: 253px;
+        height: 280px;
+        padding-top: 0;
+        margin-top: 0;
     }
 
+
     .movies-cards {
-        height: 210px;
-        width: 145px;
+        position: relative;
+        height: 196px;
+        width: 150px;
+        display: flex;
+        flex-shrink: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    .movies-cards img {
+        width: 100%;
+        height: 100%;
     }
 
     .movies-cards span {
-        font-size: 84px;
+        font-size: 80px;
         font-weight: 800;
-        top: 95px;
-        right: 115px;
+        top: 85px;
+        right: 113px;
     }
+
+    .poster-box {
+        height: 220px;
+        position: relative;
+        z-index: 998;
+    }
+
+    .poster-title {
+        height: 160px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+
+    .poster-title p {
+        overflow: hidden;
+        height: 55px;
+        padding-left: 15px;
+    }
+
+    .poster-box img {
+        height: 215px;
+        width: 190px;
+    }
+
+    .poster-box h2 {
+        width: 90%;
+        height: 45px;
+        font-size: 35px;
+        position: relative;
+        bottom: 22%;
+        padding-left: 15px;
+    }
+
+    .trending-text {
+        position: relative;
+        left: 60px;
+    }
+
+    .poster-botton {
+        width: 90%;
+        padding-left: 0;
+        margin-left: 0;
+    }
+
+    /* Movies slider saection ends here */
+
+    /* Details saection starts here */
+    .main-key-feature-section,
+    .main-key-feature-inner-section,
+    .inner-key-feature-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-key-feature-inner-section {
+        height: 100%;
+        min-height: 93vh;
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inner-key-feature-section {
+        height: 100%;
+        min-height: 50vh;
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key-feature-cards {
+        width: 43%;
+        height: 250px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .main-key-feature-section h2 {
+        width: 89%;
+        font-size: 25px;
+        margin-bottom: 0;
+        padding-left: 25px;
+    }
+
+    .key-feature-title {
+        font-size: 19px;
+        padding-top: 28px;
+        font-weight: 700;
+        width: 94%;
+    }
+
+    .key-feature-discription {
+        width: 84%;
+        height: 52px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .key-feature-img {
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        height: 63px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Details saection ends here */
+    /* FAQ saection starts here */
+    .frequently-ask-section,
+    .questions-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .main-question-box {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0px;
+    }
+
+    .frequently-ask-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frequently-ask-section h3 {
+        padding-left: 59px;
+        font-size: 24px;
+    }
+
+    .questions {
+        width: 82%;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .faqs-discription {
+        width: 80%;
+        font-size: 18px;
+        padding: 18px;
+    }
+
+    .fa-plus {
+        font-size: 54px;
+    }
+
+    /* FAQ saection ends here */
+    /* Input section starts here */
+    .get-start-input,
+    .get-start-inner-div {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-section2 {
+        width: 80%;
+        max-width: 100vw;
+        justify-content: center;
+        align-items: start;
+        margin: 0;
+    }
+
+    .get-start-input {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-box {
+        height: 55px;
+        width: 57%;
+    }
+
+    .discription {
+        width: 88%;
+        height: 50px;
+        padding-left: 25px;
+    }
+
+    .get-start-button2 {
+        width: 180px;
+        height: 56px;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        padding-right: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.2s ease-in;
+    }
+
+    /* Input section ends here */
+    /* Footer section starts here */
+    .footer-main-div,
+    .footer-inner-div,
+    .Footer-links {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .Footer-links {
+        height: 215px;
+    }
+
+    .footer-inner-div {
+        width: 90%;
+        padding-left: 70px;
+    }
+
+    .Footer-links ul {
+        height: 80px;
+    }
+
+    .footer-bottom-div {
+        width: 90%;
+        padding-left: 70px;
+    }
+
+    .footer-bottom-div,
+    p {
+        padding-bottom: 0px;
+    }
+
+    /* Footer section ends here */
+
 }
 
+@media (min-width: 967px) and (max-width: 1024px) {
+
+    /* Logic section starts here */
+    .Navbar,
+    .innerNav {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        height: 101px;
+    }
+
+    .logoDiv {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .logoImg {
+        width: 50%;
+        max-width: 100vw;
+        padding-left: 0px;
+        padding-bottom: 0;
+        margin-left: 0;
+        height: 72px;
+    }
+
+    .logo {
+        width: 100%;
+        height: 40px;
+        padding-left: 5px;
+        padding-top: 6px;
+        margin: 0;
+        margin-bottom: 0px;
+        color: red;
+        font-size: 40px;
+    }
+
+    .HeaderButtons {
+        width: 40%;
+        display: flex;
+        justify-content: space-end;
+        padding-bottom: 10px;
+    }
+
+    .headerBtnDiv {
+        width: 72%;
+        display: flex;
+        justify-content: center;
+        padding-right: 0;
+        margin-right: 0px;
+        gap: 15px;
+    }
+
+    .headSelectSign {
+        width: 41%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 31px;
+    }
+
+    .headSelectSign button {
+        width: 33%;
+        max-width: 100vw;
+        padding-left: 0;
+        margin-right: 0;
+        margin-left: 0;
+        height: 30px;
+    }
+
+    #langSelect {
+        display: block;
+    }
+
+    /* Logic section ends here */
 
 
-/* Ye sirf 376px se 768px tak chalega */
+    /* Hero section starts here */
+    .hero-section,
+    .text-section,
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .hero-section {
+        height: 90h;
+    }
+
+    .hero-section::before {
+        height: 88vh;
+    }
+
+    .get-start-section {
+        height: 165px;
+        width: 55%;
+        max-width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .get-start-section span {
+        width: 90%;
+        height: 32px;
+        padding-top: 0;
+        padding-bottom: 15px;
+        text-align: center;
+        padding-left: 0;
+    }
+
+    .inner-section {
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        min-height: 100%;
+        height: auto;
+    }
+
+    .get-start-button {
+        height: 45px;
+        width: 47%;
+    }
+
+    .text-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        min-height: 88vh;
+        height: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        padding-top: 0;
+    }
+
+    .text-adv {
+        width: 72%;
+        height: 95px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 35px;
+        padding-left: 0;
+
+    }
+
+    .text-adv span {
+        width: 58%;
+        height: 100px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-size: 36px;
+        padding-left: 0;
+    }
+
+    .price-plan {
+        width: 67%;
+        height: 20px;
+        font-size: 16px;
+        padding-top: 0;
+        margin-bottom: 0;
+        font-weight: 900;
+    }
+
+    .input-section {
+        margin: 0;
+        width: 100%;
+        height: 65px;
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .inputs-box {
+        width: 75%;
+        height: 56px;
+        padding-left: 10px;
+    }
+
+    .input-tag {
+        width: 97%;
+        height: 56px;
+    }
+
+
+    .input-tag label {
+        width: 90%;
+        color: beige;
+        padding-left: 15px;
+        color: #cccccccf;
+        font-weight: 500;
+        font-size: 17px;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    .get-start-button {
+        height: 54px;
+        width: 260px;
+        font-size: 18px;
+        border-radius: 5px;
+        font-size: 18px;
+        border-radius: 5px;
+    }
+
+    /* Hero section ends here */
+
+    /* Moives slider section starts here */
+    .Information-section,
+    .inner-info-sec,
+    .movies-slider,
+    .movies-slide {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .Information-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 450px;
+        padding-bottom: 10px;
+        min-height: 50vh;
+    }
+
+    .movie-posters {
+        width: 100%;
+        max-width: 100vw;
+        height: 498px;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .poster {
+        width: 63%;
+        max-width: 100vw;
+        height: 565px;
+        position: relative;
+
+    }
+
+    .movies {
+        width: 82%;
+        padding-left: 25px;
+        display: flex;
+        gap: 28px;
+        height: 300px;
+    }
+
+    .movies-slide {
+        height: 280px;
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+
+    .movies-cards {
+        position: relative;
+        height: 196px;
+        width: 150px;
+        display: flex;
+        flex-shrink: 0;
+        transition: 0.2s ease-in-out;
+    }
+
+    .movies-cards img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .movies-cards span {
+        font-size: 80px;
+        font-weight: 800;
+        top: 85px;
+        right: 113px;
+    }
+
+    .poster-box {
+        height: 59%;
+        position: relative;
+        z-index: 998;
+        width: 100%;
+    }
+
+    .poster-title {
+        height: 41%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-evenly;
+    }
+
+    .poster-title p {
+        overflow: hidden;
+        height: 55px;
+        padding-left: 35px;
+    }
+
+    .poster-box img {
+        height: 100%;
+        width: 100%;
+    }
+
+    .poster-box h2 {
+        width: 90%;
+        height: 45px;
+        font-size: 35px;
+        position: relative;
+        bottom: 10%;
+        padding-left: 35px;
+    }
+
+    .trending-text {
+        position: relative;
+        left: 60px;
+    }
+
+    .poster-botton {
+        width: 30%;
+        padding-left: 0;
+        margin-left: 30px;
+    }
+
+    /* Movies slider saection ends here */
+
+    /* Details saection starts here */
+    .main-key-feature-section,
+    .main-key-feature-inner-section,
+    .inner-key-feature-section {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main-key-feature-inner-section {
+        height: 100%;
+        min-height: 93vh;
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .inner-key-feature-section {
+        height: 100%;
+        min-height: 50vh;
+        width: 100%;
+        max-width: 100vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .key-feature-cards {
+        width: 43%;
+        height: 250px;
+        display: flex;
+        align-items: start;
+        justify-content: start;
+    }
+
+    .main-key-feature-section h2 {
+        width: 89%;
+        font-size: 25px;
+        margin-bottom: 0;
+        padding-left: 25px;
+    }
+
+    .key-feature-title {
+        font-size: 19px;
+        padding-top: 28px;
+        font-weight: 700;
+        width: 94%;
+    }
+
+    .key-feature-discription {
+        width: 84%;
+        height: 52px;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin: 0;
+        font-size: 14px;
+    }
+
+    .key-feature-img {
+        width: 95%;
+        padding: 0;
+        margin: 0;
+        height: 63px;
+    }
+
+    .key-feature-img img {
+        height: 50px;
+        width: 50px;
+    }
+
+    /* Details saection ends here */
+    /* FAQ saection starts here */
+    .frequently-ask-section,
+    .questions-section {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+        align-items: start;
+        justify-content: center;
+    }
+
+    .main-question-box {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 26px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 0px;
+    }
+
+    .frequently-ask-section {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .frequently-ask-section h3 {
+        padding-left: 59px;
+        font-size: 24px;
+    }
+
+    .questions {
+        width: 82%;
+        height: 80px;
+        font-size: 25px;
+    }
+
+    .faqs-discription {
+        width: 83%;
+        font-size: 25px;
+        padding: 25px;
+    }
+
+    .fa-plus {
+        font-size: 54px;
+    }
+
+    /* FAQ saection ends here */
+    /* Input section starts here */
+    .get-start-input,
+    .get-start-inner-div {
+        width: 100%;
+        max-width: 100vw;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .input-section2 {
+        width: 80%;
+        max-width: 100vw;
+        justify-content: center;
+        align-items: start;
+        margin: 0;
+    }
+
+    .get-start-input {
+        height: 250px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-box {
+        height: 55px;
+        width: 57%;
+    }
+
+    .discription {
+        width: 88%;
+        height: 50px;
+        padding-left: 25px;
+    }
+
+    .get-start-button2 {
+        width: 180px;
+        height: 56px;
+        background: rgb(253, 22, 22);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        color: #fff;
+        padding-right: 20px;
+        font-size: 18px;
+        font-weight: 600;
+        transition: 0.2s ease-in;
+    }
+
+    /* Input section ends here */
+    /* Footer section starts here */
+    .footer-main-div,
+    .footer-inner-div,
+    .Footer-links {
+        width: 100%;
+        max-width: 100vw;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .Footer-links {
+        height: 215px;
+    }
+
+    .footer-inner-div {
+        width: 90%;
+        padding-left: 70px;
+    }
+
+    .Footer-links ul {
+        height: 80px;
+    }
+
+    .footer-bottom-div {
+        width: 90%;
+        padding-left: 70px;
+    }
+
+    .footer-bottom-div,
+    p {
+        padding-bottom: 0px;
+    }
+
+    /* Footer section ends here */
+
+}
