@@ -108,9 +108,9 @@ $(document).ready(function () {
     // logic for input focus on click fet button and input box
     
     // logic for go to signin page on click
-    $('.poster-botton').click(function(){
-       window.location.href='signin.html'
-    })
+    // $('.poster-botton').click(function(){
+    //    window.location.href='signin.html'
+    // })
 
 });
 
