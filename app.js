@@ -111,6 +111,11 @@ $(document).ready(function () {
     });
     // logic for input focus on click fet button and input box
     
+    // logic for go to signin page on click
+    $('.poster-botton').click(function(){
+        $(this).window.location.href='signin.html'
+    })
+
 });
 
 
