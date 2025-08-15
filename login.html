@@ -1,68 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="jquery-3.7.1.min.js"></script>
     <script src="app.js"></script>
     <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="style.css">
     <title>Netflix</title>
 </head>
-<body class="login-page" >
-    <div class="hero-section" >
-          <header>
-        <div class="header-container">
-        </div>
-    </header>
-    </div>
-    <!-- Hero section starts here -->
-     <div class="login-hero-sec" >
 
-     </div>
+<body>
+    <!-- Hero section starts here -->
+    <div class="hero-section">
+        <header>
+            <div class="header-container">
+            </div>
+        </header>
+        <div class="login-hero-sec">
+            <div class="form-main-box">
+                <form class="inner-form-box" id="signUpform">
+                    <div class="inputs-and-buttons">
+                        <h2>Sign Up</h2>
+                        <div class="inner-box">
+                            <div class="email-input">
+                                <label for="email">Email</label>
+                                <input type="input" name="email" id="email">
+                            </div>
+                            <div class="name-input">
+                                <label for="name">Name</label>
+                                <input type="input" name="name" id="name">
+                            </div>
+                            <div class="password-input">
+                                <label for="Password">Password</label>
+                                <input type="input" name="Password" id="Password">
+                            </div>
+                            <button class="signin-btn" type="submit">Sign Up</button>
+                        </div>
+                        <div class="radio-and-sigin-page">
+                            <button class="radio-btn" type="radio"></button>
+                            <label for="radio-btn">Remember me</label>
+                            <p class="para">New to Netflix? <span>Sign up now.</span></p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <!-- Hero section ends here -->
     <!-- Footer section -->
-      <div class="footer-main-div">
-        <div class="footer-inner-div">
-            <span>Questions? Call</span> <span class="numers">000-800-919-1743 (Toll Free)</span>
-            <div class="Footer-links">
-                <ul>
-                    <li>FAQ</li>
-                    <li>Cookie Preferences</li>
-                </ul>
-                <ul>
-                    <li>Help Centre</li>
-                    <li>Corporate Information</li>
-                </ul>
-                <ul>
-                    <li>Media Centre</li>
-                </ul>
-                <ul>
-                    <li>Privacy</li>
-                </ul>
 
-            </div>
-             <div class="footer-bottom-div">
-        <div class="footer-lang-button">
-            <div class="selectLogo">
-                <div class="netflix-lang-icon"><span>大</span>
-                    <span>
-                        A
-                    </span>
-                </div>
-
-            </div>
-            <select name="language" id="langSelect">
-                <option value="">English</option>
-                <option value="">Hindi</option>
-            </select>
-        </div>
-        <br>
-    <!-- <span>Sunny's Production.</span> -->
-    </div>
-        </div>
-   
-    </div>
     <!-- Footer section -->
 </body>
+<script src="form.js"></script>
+
 </html>
