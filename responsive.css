@@ -16,9 +16,15 @@
     }
 
     .logo {
-        text-transform: uppercase;
-        font-size: 24px;
-
+        width: 35%;
+        height: 40px;
+        padding-left: 13px;
+        padding-top: 0px;
+        padding-bottom: 8px;
+        margin: 0;
+        /* margin-bottom: 38px; */
+        color: red;
+        font-size: 27px;
     }
 
     .logoImg {
@@ -26,6 +32,8 @@
         height: 40px;
         max-width: 100vw;
         padding-left: 5px;
+        margin-top: 0;
+        padding-top: 19px;
     }
 
     .HeaderButtons {
@@ -38,6 +46,8 @@
         width: 91%;
         display: flex;
         justify-content: space-evenly;
+        margin-right: 10px;
+        margin-bottom: 13px;
     }
 
     .headSelectSign {
@@ -74,7 +84,7 @@
     }
 
     .get-start-section {
-        height: 220px;
+        height: 205px;
         width: 100%;
         max-width: 100vw;
         display: flex;
@@ -85,21 +95,24 @@
 
     .get-start-section span {
         width: 80%;
-        height: 55px;
+        height: 50px;
         padding-top: 0;
         padding-bottom: 20px;
         padding-left: 0;
+        text-align: center;
     }
 
     .inner-section {
         display: flex;
         align-items: start;
         justify-content: center;
-        height: 498px;
+        height: 84vh;
     }
 
     .get-start-button {
-        height: 45px;
+        height: 48px;
+        width: 160px;
+        font-size: 18px;
     }
 
     .text-section {
@@ -107,7 +120,7 @@
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        height: 88vh;
+        height: 68vh;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -115,31 +128,34 @@
 
     .text-adv {
         width: 99%;
-        height: 145px;
+        height: 125px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
     .text-adv span {
-        width: 89%;
+        width: 92%;
         height: 115px;
         padding-bottom: 10px;
         display: block;
+        font-size: 32px;
     }
 
     .price-plan {
-        width: 256px;
+        width: 92%;
         height: 20px;
         font-size: 16px;
         padding-top: 0;
         margin-bottom: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        padding-top: 10px;
     }
 
     .input-section {
         margin: 0;
         width: 100%;
-        height: 120px;
+        height: 135px;
         padding-top: 0;
         display: flex;
         flex-direction: column;
@@ -153,7 +169,8 @@
     }
 
     .input-tag {
-        width: 95%;
+        width: 100%;
+        height: 48px;
     }
 
     /* Hero section ends here */
@@ -161,20 +178,25 @@
     /* Moives slider section starts here */
     .Information-section,
     .inner-info-sec,
-    .movies-slider,
-    .movies-slide {
+    .movies-slider {
         width: 100%;
         max-width: 100vw;
         padding-left: 0;
         padding-right: 0;
-        height: 230px;
+        height: 300px;
     }
 
     .Information-section {
         width: 100%;
         max-width: 100vw;
-        height: 330px;
+        height: 385px;
         padding-bottom: 10px;
+    }
+
+    .movies-slide {
+        height: 200px;
+        padding: 10px;
+        padding-top: 0;
     }
 
     .movie-posters {
@@ -195,7 +217,32 @@
     }
 
     .movies {
-        width: 75%;
+        height: 100%;
+        width: 75vw;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        overflow: hidden;
+        padding-left: 10px;
+        margin-right: 15px;
+
+    }
+
+    .movies-cards {
+        height: 156px;
+        width: 112px;
+    }
+
+    .movies-cards span {
+        position: absolute;
+        font-size: 67px;
+        font-weight: 800;
+        top: 69px;
+        right: 80px;
+        color: #000;
+        -webkit-text-stroke: 2px white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        margin: 0;
     }
 
     .poster-box {

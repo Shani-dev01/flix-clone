@@ -130,16 +130,16 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
 }
 .inner-box{
     width: 100%;
-    height: 50%;
+    height: 63%;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .inputs-and-buttons{
@@ -170,6 +170,7 @@ body{
     padding-left: 20px;
     color: #ccc;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transition: 0.1s ease;
 }
 
 /* .name-input{
@@ -183,7 +184,7 @@ body{
     width: 100%;
     outline: none;
     border: none;
-    background: transparent;
+    background-color: transparent;
     color: white;
     font-size: 18px;
     display: none;
@@ -194,7 +195,17 @@ body{
 .name-input label,
 .password-input label{
     padding-top: 3px;
-    font-weight: normal;
+    font-size: 18px;
+    font-family: system-ui;
+}
+h3{
+    height: 00px;
+    color: red;
+    font-size: 11px;
+    text-align: left;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-bottom: 10px;
+    display: none;
 }
 
 .signin-btn{
@@ -204,9 +215,10 @@ body{
     outline: none;
     border: none;
     color: white;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 600;
     border-radius: 4px;
+    margin-top: 10px;
 }
 .radio-and-sigin-page{
     height: 20%;
@@ -235,7 +247,7 @@ body{
     display: flex;
     align-items: start;
     justify-content: start;
-    background: #fff;
+    /* background: #fff; */
 }
 .radio-btn{
     height: 20px;

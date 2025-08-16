@@ -1,7 +1,5 @@
 $(document).ready(function () {
     $('.header-container').load('/header.html');
-
-    console.log('FAQ BIND START hua - ', new Date().toISOString());
     console.log('FAQ bind hua');
 
     // FAQ logic section starts here
