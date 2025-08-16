@@ -3,11 +3,12 @@
     padding: 0;
     margin: 0;
 }
-body{
+
+body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden; 
+    overflow-x: hidden;
 }
 
 
@@ -123,7 +124,7 @@ body{
     padding: 20px;
 }
 
-.inner-form-box{
+.inner-form-box {
     width: 100%;
     height: 100%;
     display: flex;
@@ -132,7 +133,8 @@ body{
     align-items: center;
     gap: 25px;
 }
-.inner-box{
+
+.inner-box {
     width: 100%;
     height: 63%;
     display: flex;
@@ -142,22 +144,24 @@ body{
     gap: 12px;
 }
 
-.inputs-and-buttons{
+.inputs-and-buttons {
     height: 100%;
     width: 80%;
     margin: 10px;
     display: flex;
     flex-direction: column;
 }
-.inputs-and-buttons h2{
+
+.inputs-and-buttons h2 {
     font-size: 33px;
     height: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: white;
 }
+
 .email-input,
 .name-input,
-.password-input{
+.password-input {
     height: 55px;
     width: 100%;
     background: rgba(62, 67, 74, 0.448);
@@ -179,7 +183,7 @@ body{
 
 .email-input input,
 .name-input input,
-.password-input input{
+.password-input input {
     height: 50px;
     width: 100%;
     outline: none;
@@ -193,12 +197,13 @@ body{
 
 .email-input label,
 .name-input label,
-.password-input label{
+.password-input label {
     padding-top: 3px;
     font-size: 18px;
     font-family: system-ui;
 }
-h3{
+
+h3 {
     height: 00px;
     color: red;
     font-size: 11px;
@@ -208,7 +213,7 @@ h3{
     display: none;
 }
 
-.signin-btn{
+.signin-btn {
     width: 100%;
     height: 42px;
     background-color: red;
@@ -220,12 +225,14 @@ h3{
     border-radius: 4px;
     margin-top: 10px;
 }
-.radio-and-sigin-page{
+
+.radio-and-sigin-page {
     height: 20%;
     width: 100%;
     color: white;
     padding-top: 20px;
 }
+
 .para {
     width: 100%;
     height: 50px;
@@ -237,11 +244,13 @@ h3{
     justify-content: start;
     font-weight: 200;
 }
-.para span{
+
+.para span {
     color: white;
     font-weight: bold;
 }
-.radio-inner-page{
+
+.radio-inner-page {
     height: 10%;
     width: 100%;
     display: flex;
@@ -249,7 +258,204 @@ h3{
     justify-content: start;
     /* background: #fff; */
 }
-.radio-btn{
+
+.radio-btn {
     height: 20px;
     width: 20px;
 }
+
+
+
+
+/* Responsive styling starts here */
+@media (min-width: 320px) and (max-width: 376px) {
+    .logo {
+        width: 148px;
+        height: 40px;
+        /* padding-left: 30px; */
+        padding-top: 8px;
+        /* padding-bottom: 20px; */
+        margin: 0;
+        margin-bottom: 50px;
+        color: red;
+        font-size: 36px;
+    }
+
+    .logoDiv {
+        height: 80px;
+        width: 100%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-left: 0;
+    }
+
+    .logoImg {
+        height: 80px;
+        width: 320px;
+        padding-left: 17px;
+        padding-top: 15px;
+    }
+
+    .form-main-box {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .inputs-and-buttons {
+        height: 100%;
+        width: 85%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputs-and-buttons h2 {
+        height: 105px;
+        display: flex;
+        align-items: end;
+    }
+
+    .inner-box {
+        height: 43%;
+    }
+
+    .hero-section {
+        background: #000;
+    }
+}
+
+@media (min-width: 376px) and (max-width: 426px) {
+    .logo {
+        width: 148px;
+        height: 61px;
+        padding-left: 10px;
+        padding-top: 7px;
+        /* padding-bottom: 20px; */
+        margin: 0;
+        /* margin-bottom: 50px; */
+        color: red;
+        font-size: 40px;
+    }
+
+    .logoDiv {
+        height: 80px;
+        width: 100%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-left: 0;
+    }
+
+    .logoImg {
+        height: 80px;
+        width: 320px;
+        padding-left: 17px;
+        padding-top: 15px;
+    }
+
+    .form-main-box {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .inputs-and-buttons {
+        height: 100%;
+        width: 85%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputs-and-buttons h2 {
+        height: 105px;
+        display: flex;
+        align-items: end;
+    }
+
+    .inner-box {
+        height: 43%;
+    }
+
+    .hero-section {
+        background: #000;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 599px) {
+    .logo {
+        width: 148px;
+        height: 61px;
+        padding-left: 10px;
+        padding-top: 7px;
+        /* padding-bottom: 20px; */
+        margin: 0;
+        /* margin-bottom: 50px; */
+        color: red;
+        font-size: 40px;
+    }
+
+    .logoDiv {
+        height: 80px;
+        width: 100%;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        padding-left: 0;
+    }
+
+    .logoImg {
+        height: 80px;
+        width: 320px;
+        padding-left: 17px;
+        padding-top: 15px;
+    }
+
+    .form-main-box {
+        width: 100%;
+        max-width: 100vw;
+        height: 100%;
+        min-height: 100vh;
+        padding: 0;
+    }
+
+    .inputs-and-buttons {
+        height: 100%;
+        width: 85%;
+        margin: 10px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .inputs-and-buttons h2 {
+        height: 105px;
+        display: flex;
+        align-items: center;
+    }
+
+    .inner-box {
+        width: 100%;
+        height: 68%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .hero-section {
+        background: #000;
+    }
+}
+
+
+/* Responsive styling ends here */
