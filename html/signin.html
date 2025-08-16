@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="../jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
+    <title>Document</title>
+</head>
+<body>
+      <!-- Hero section starts here -->
+    <div class="hero-section">
+        <header>
+            <div class="header-container">
+            </div>
+        </header>
+        <div class="login-hero-sec">
+            <div class="form-main-box">
+                <div class="inner-form-box">
+                    <div class="inputs-and-buttons">
+                        <h2>Sign In</h2>
+                        <div class="inner-box">
+                            <div class="email-input input-container">
+                                <label for="email">Email</label>
+                                <input type="input" name="email" id="email">
+                            </div>
+                            <h3>Please enter a valid email or mobile number. </h3>
+                            <div class="password-input input-container">
+                                <label for="Password">Password</label>
+                                <input type="input" name="Password" id="password">
+                            </div>
+                            <h3>Your password must contain 4 to 10 characters. </h3>
+                            <button class="signin-btn" type="submit">Sign Up</button>
+                        </div>
+                        <div class="radio-and-sigin-page">
+                            <button class="radio-btn" type="radio"></button>
+                            <label for="radio">Remember me</label>
+                            <p class="para">New to Netflix?<span onclick="window.location.href='../html/signin2.html'" >Sign Up now.</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Hero section ends here -->
+    <!-- Footer section -->
+
+    <!-- Footer section -->
+</body>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+<script src="../js/firebase-config.js"></script>
+ <script src="../js/app.js"></script>
+<script src="../js/signin2.js"></script>
+</html>

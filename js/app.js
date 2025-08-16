@@ -1,6 +1,6 @@
 $(document).ready(function () {
-    $('.header-container').load('/header.html');
-    console.log('FAQ bind hua');
+    $('.header-container').load('../html/header.html');
+    // console.log('FAQ bind hua');
 
     // FAQ logic section starts here
     $('.main-question-box').on('click', function (e) {
