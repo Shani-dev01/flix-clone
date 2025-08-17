@@ -111,6 +111,4 @@ const firebaseConfig = {
     // });
     // logic for tick sign
     // logic for form submition ends here
-
-
 });
