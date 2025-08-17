@@ -50,19 +50,18 @@ $(document).ready(function () {
         } else {
             $email.siblings('h3')[1].style.display = 'none'
         }
-
-        let valid = true
-        if (valid === true) {
         window.auth.signInWithEmailAndPassword(email, password)
-            .then((userCredential) => {
+        .then((userCredential) => {
                 alert("Signin successful! ✅"); alert
                 window.location.href = '../html/home.html';
-                valid === false
+                var user = firebase.auth().currentUser;
+                console.log("Email:", user.email);
+                // LocalStorage me save karna
+                localStorage.setItem('userEmail', user.email);
             }).catch((error) => {
                 console.error(error.code, error.message);
                 alert(error.message);
             });
-        }
         // firebase authentication
     });
 

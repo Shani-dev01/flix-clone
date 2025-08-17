@@ -55,31 +55,30 @@ $(document).ready(function () {
         const $regex = /^(?=.{5,})(?=.*@).+$/
         if (!$regex.test(email)) {
             $email.parent().siblings('h3')[0].style.display = 'block'
-        } else{
+        } else {
             $email.parent().siblings('h3')[0].style.display = 'none'
         }
 
         // logic for name input
         if (name === '' || /\d/.test(name)) {
             $name.parent().siblings('h3')[1].style.display = 'block'
-        } else{
+        } else {
             $email.parent().siblings('h3')[1].style.display = 'none'
         }
         // logic for password input
         if (password.length < 4) {
             $password.parent().siblings('h3')[2].style.display = 'block'
-        } else{
+        } else {
             $email.parent().siblings('h3')[2].style.display = 'none'
         }
-
-       window.auth.createUserWithEmailAndPassword(email,password)
-      .then((userCredential) => {
-          console.log(userCredential.user);
-        alert("Signup successful! ✅");
-        // window.location.href='../html/home.html'
-      }).catch((error) => {
-        alert("Error: " + error.message);
-      });
+        window.auth.createUserWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                console.log(userCredential.user);
+                alert("Signup successful! ✅");
+                // window.location.href = '../html/signin.html';
+            }).catch((error) => {
+                alert("Error: " + error.message);
+            });
 
     });
 

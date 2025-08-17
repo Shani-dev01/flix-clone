@@ -1,0 +1,102 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #000;
+}
+
+.home-page .logoImg {
+    height: 65px;
+    width: 130px;
+    padding-top: 6px;
+    padding-left: 0;
+    margin-left: 35px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.home-page .Navbar {
+    height: 80px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: start;
+    justify-content: space-evenly;
+    z-index: 3;
+    position: absolute;
+    top: 0;
+}
+
+.home-page .innerNav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.home-page .logo {
+    width: 100px;
+    height: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 30px;
+}
+
+.home-page .HeaderButtons {
+    width: 84%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0;
+}
+
+.home-page .logoDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-page .headerBtnDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: gray;
+}
+.home-page .liSection{
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.home-page .liSection> ul{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100%;
+    text-decoration: none;
+    list-style: none;
+}
+.home-page .liSection> ul> li{
+    text-decoration: none;
+    font-size: 13px;
+    transition: 0.3s ease;
+}
+.home-page .liSection> ul> li:hover{
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s ease;
+}
