@@ -1,21 +1,5 @@
 $(document).ready(function () {
-    console.log('hello world')
-    const firebaseConfig = {
-        apiKey: "AIzaSyCW9nlPVWjH3Ve_cvmLNLtd-iJ4SCjCeMM",
-        authDomain: "setflix-63b2f.firebaseapp.com",
-        projectId: "setflix-63b2f",
-        storageBucket: "setflix-63b2f.firebasestorage.app",
-        messagingSenderId: "1085714291731",
-        appId: "1:1085714291731:web:97a1e7917f83742ea073e6",
-        measurementId: "G-HG8RZGP4P3"
-    };
-
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    // Ab yaha auth use kar sakte ho
-    const auth = firebase.auth();
-
+    
     $('.email-input , .name-input, .password-input').click(function () {
         const $current = $(this).find('.inner-box, input')
 
@@ -50,7 +34,7 @@ $(document).ready(function () {
 
         let email = $('#email').val().trim();
         let password = $('#password').val().trim();
-        // let $email = $('#name')
+        let $email = $('#name')
         // let $password = $('#name')
         console.log(email, password);
         // logic for email input
@@ -63,23 +47,20 @@ $(document).ready(function () {
         // logic for password input
         if (password.length < 4) {
             // $password.parent().siblings('h3')[2].style.display = 'block'
+            alert('password contain must 6 characters')
         } else {
             // $email.parent().siblings('h3')[2].style.display = 'none'
         }
         auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
-                console.log("User signed in:", userCredential.user.email);
-                window.location.href = '../html/home.html'
-                let userName = JSON.parse(localStorage.getItem('name'));
-                console.log(userName);
-            })
-            .catch((error) => {
+                console.log("User signed in:", userCredential.user.password);
+                window.location.href='../html/home.html';
+            }).catch((error) => {
                 console.error(error.code, error.message);
+                alert(error.message);
             });
-
+         
 
     });
-
-
 
 });
