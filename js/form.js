@@ -1,19 +1,4 @@
 $(document).ready(function () {
-const firebaseConfig = {
-    apiKey: "AIzaSyCW9nlPVWjH3Ve_cvmLNLtd-iJ4SCjCeMM",
-    authDomain: "setflix-63b2f.firebaseapp.com",
-    projectId: "setflix-63b2f",
-    storageBucket: "setflix-63b2f.firebasestorage.app",
-    messagingSenderId: "1085714291731",
-    appId: "1:1085714291731:web:97a1e7917f83742ea073e6",
-    measurementId: "G-HG8RZGP4P3"
-  };
-
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-  // Ab yaha auth use kar sakte ho
-  const auth = firebase.auth();
 
     $('.email-input , .name-input, .password-input').click(function () {
         const $current = $(this).find('.inner-box, input')
@@ -86,16 +71,18 @@ const firebaseConfig = {
         } else{
             $email.parent().siblings('h3')[2].style.display = 'none'
         }
-       auth.createUserWithEmailAndPassword(email,password)
+
+       window.auth.createUserWithEmailAndPassword(email,password)
       .then((userCredential) => {
           console.log(userCredential.user);
         alert("Signup successful! ✅");
         // window.location.href='../html/home.html'
-      })
-      .catch((error) => {
+      }).catch((error) => {
         alert("Error: " + error.message);
       });
+
     });
+
     // logic for tick sign
     // $('.radio-btn').click(function () {
     //     let $name = $('#name');
