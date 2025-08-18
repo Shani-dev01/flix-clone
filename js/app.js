@@ -1,6 +1,34 @@
 $(document).ready(function () {
-    $('.header-container').load('../html/header.html');
-    // console.log('FAQ bind hua');
+    $('.header-container').load('../html/header.html', function() {
+
+        // logic for get user data
+        let email = JSON.parse(localStorage.getItem('email'));
+        let password = JSON.parse(localStorage.getItem('pass'));
+        let userEmail = JSON.parse(localStorage.getItem('UserEmail'));
+        let userPassword = JSON.parse(localStorage.getItem('UserPassword'));
+        // logic for get user data
+        
+        // logic for goto home page and signin page
+        $('.signin-button').on('click', function () {
+                
+                if (email === userEmail && password === !userPassword) {
+                    alert("Signin successful! ✅");
+                    window.location.replace('../html/home.html');
+                } else {
+                    window.location.href='../html/signin.html';
+                    console.log('app js first condition');
+                }
+
+                if (!email || !userEmail || !password || !userPassword) {
+                    alert("Signin successful! ✅");
+                    console.log('app js second condition');
+                    window.location.href='../html/signin.html';
+                } else {
+                    window.location.replace('../html/home.html');
+                }
+    }); 
+    // logic for goto home page and signin page
+    });
 
     // FAQ logic section starts here
     $('.main-question-box').on('click', function (e) {

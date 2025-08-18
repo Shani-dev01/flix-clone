@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     $('.email-input , .name-input, .password-input').click(function () {
         const $current = $(this).find('.inner-box, input')
 
@@ -34,6 +33,10 @@ $(document).ready(function () {
 
         let email = $('#email').val().trim();
         let password = $('#password').val().trim();
+        localStorage.setItem('email', JSON.stringify(email));
+        localStorage.setItem('pass', JSON.stringify(password));
+
+
         let $email = $('.input-container')
         let $password = $('.input-container')
 
@@ -50,19 +53,35 @@ $(document).ready(function () {
         } else {
             $email.siblings('h3')[1].style.display = 'none'
         }
-        window.auth.signInWithEmailAndPassword(email, password)
-        .then((userCredential) => {
-                alert("Signin successful! ✅"); alert
-                window.location.href = '../html/home.html';
-                var user = firebase.auth().currentUser;
-                console.log("Email:", user.email);
-                // LocalStorage me save karna
-                localStorage.setItem('userEmail', user.email);
-            }).catch((error) => {
-                console.error(error.code, error.message);
-                alert(error.message);
-            });
-        // firebase authentication
-    });
 
-});
+        window.auth.signInWithEmailAndPassword(email, password)
+            .then((userCredential) => {
+                localStorage.setItem('UserEmail', JSON.stringify(email));
+                localStorage.setItem('UserPassword', JSON.stringify(password));
+                let userEmail = JSON.parse(localStorage.getItem('UserEmail'));
+                let userPassword = JSON.parse(localStorage.getItem('UserPassword'));
+
+
+                    if (email === userEmail && password === userPassword) {
+                        alert("Signin successful! ✅");
+                        window.location.href='../html/home.html';
+                    } else {
+                        window.location.replace('../html/signin.html');
+                    }
+
+                    if (!email || !userEmail || !password || !userPassword) {
+                        window.location.href = '../html/signin.html';
+                    } else {
+                        window.location.replace('../html/home.html');
+                    }
+
+                }).catch((error) => {
+                    console.error(error.code, error.message);
+                    alert(error.message);
+                    localStorage.clear();
+                });
+                // firebase authentication
+            });
+
+
+    });

@@ -1,19 +1,20 @@
 $(document).ready(function () {
+    history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1); // forward push kar deta hai → login page wapas nahi aayega
+        };
 
-    let name = localStorage.getItem('userEmail');
-    console.log(name);
-    $('#user-name').html(name);
-
+    let lastScroll = 0;
     $(window).on('scroll', function () {
-        let lastScroll = 0;
         let currentScroll = $(this).scrollTop();
 
         if (currentScroll > lastScroll) {
             $('.Navbar').addClass('scroll')
-            console.log('Down', currentScroll)
+            alert('sign out')
+            window.location.href='../html/index.html'
+            localStorage.clear()
         } else {
             $('.Navbar').removeClass('scroll')
-            console.log('Up:', currentScroll)
         }
 
         // console.log(lastScroll)
