@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,21 @@
     <link rel="stylesheet" href="../css/style.css">
     <title>Home-Setflix</title>
 </head>
+
 <body class="home-page">
-    <!-- Navbar logic starts here -->
-     <div class="header-container">
-         <div class="Navbar">
+    <!-- Navbar section starts here -->
+    <div class="header-container">
+        <div class="Navbar">
             <div class="innerNav">
                 <div class="logoDiv">
                     <!-- Netflix logo starts here -->
                     <div class="logoImg">
-                        <h2 onclick="window.location.href='../html/home.html'" class="logo" >SETFLIX</h2>
+                        <h2 onclick="window.location.href='../html/home.html'" class="logo">SETFLIX</h2>
                     </div>
                     <!-- Netflix logo ends here -->
                     <!-- Netflix language select and sign in button starts here -->
                     <div class="HeaderButtons">
-                        <div class="liSection" >
+                        <div class="liSection">
                             <ul>
                                 <li>Home</li>
                                 <li>TV Shows</li>
@@ -31,7 +33,11 @@
                         </div>
                         <div class="headerBtnDiv">
                             <!-- Select langauge option starts here -->
-                            <li class="fa-solid fa-magnifying-glass" ></li>  Headearbtn
+                            <div class="user-icons">
+                                <li class="fa-solid fa-magnifying-glass"></li>
+                                <img src="../assests/user-icon.png" alt="">
+                                <i class="fa-solid fa-caret-down"></i>
+                            </div>
                             <!-- Sign in button ends here -->
                         </div>
                     </div>
@@ -40,8 +46,13 @@
             </div>
         </div>
     </div>
-    <!-- Navbar logic ends here -->
-
+    <!-- Navbar section ends here -->
+    <!-- Hero section starts here  -->
+    <div class="home-page-hero-section">
+    </div>
+    <div class="home-page-hero-section2">
+    </div>
+    <!-- Hero section ends here  -->
 </body>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
@@ -49,4 +60,5 @@
 <script src="../jquery-3.7.1.min.js"></script>
 <script src="../js/home.js"></script>
 <script src="../js/form.js"></script>
+
 </html>

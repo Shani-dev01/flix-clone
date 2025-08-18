@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background: #000;
 }
 
 .home-page .logoImg {
@@ -25,9 +24,14 @@
     align-items: start;
     justify-content: space-evenly;
     z-index: 3;
-    position: absolute;
+    position: fixed;
     top: 0;
 }
+.home-page .Navbar.scroll{
+    background: #000;
+    transition: 0.3s ease;
+}
+
 
 .home-page .innerNav {
     width: 100%;
@@ -66,22 +70,24 @@
 
 .home-page .headerBtnDiv {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-    background: gray;
+    padding-right: 40px;
 }
-.home-page .liSection{
+
+.home-page .liSection {
     width: 75%;
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: start;
 }
-.home-page .liSection> ul{
+
+.home-page .liSection>ul {
     width: 60%;
     display: flex;
     align-items: center;
@@ -90,13 +96,49 @@
     text-decoration: none;
     list-style: none;
 }
-.home-page .liSection> ul> li{
+
+.home-page .liSection>ul>li {
     text-decoration: none;
     font-size: 13px;
     transition: 0.3s ease;
 }
-.home-page .liSection> ul> li:hover{
+
+.home-page .liSection>ul>li:hover {
     cursor: pointer;
     color: #ccc;
     transition: 0.3s ease;
 }
+
+.home-page .user-icons {
+    height: 50px;
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 80px;
+}
+
+.fa-solid {
+    font-size: 18px;
+}
+
+.home-page .user-icons>img {
+    height: 30px;
+    width: 30px;
+}
+
+/* home page styling starts here */
+.home-page .home-page-hero-section {
+    background-image: url('https://cdn.mos.cms.futurecdn.net/wPVEnoqRAzoVxUXvk4TMeR-1200-80.jpg');
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.home-page, .home-page-hero-section2{
+    height: 1009px;
+    width: 100%;
+}
+/* home page styling ends here */
