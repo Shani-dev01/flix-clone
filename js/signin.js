@@ -65,12 +65,14 @@ $(document).ready(function () {
                     if (email === userEmail && password === userPassword) {
                         alert("Signin successful! ✅");
                         window.location.href='../html/home.html';
+                        window.location.replace('../html/home.html')
                     } else {
                         window.location.replace('../html/signin.html');
                     }
 
                     if (!email || !userEmail || !password || !userPassword) {
                         window.location.href = '../html/signin.html';
+                        window.location.replace('../html/signin.html');
                     } else {
                         window.location.replace('../html/home.html');
                     }
@@ -82,6 +84,4 @@ $(document).ready(function () {
                 });
                 // firebase authentication
             });
-
-
     });

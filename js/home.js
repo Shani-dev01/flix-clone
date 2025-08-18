@@ -1,24 +1,29 @@
+$(window).on(function(){
+    window.location.replace('../html/index.html');    
+}); 
 $(document).ready(function () {
-    history.pushState(null, null, location.href);
-        window.onpopstate = function () {
-            history.go(3); // forward push kar deta hai → login page wapas nahi aayega
-        };
+    // --- stop navigation ---
 
+    // --- your scroll logic ---
     let lastScroll = 0;
     $(window).on('scroll', function () {
         let currentScroll = $(this).scrollTop();
 
         if (currentScroll > lastScroll) {
-            $('.Navbar').addClass('scroll')
+            $('.Navbar').addClass('scroll');
         } else {
-            $('.Navbar').removeClass('scroll')
+            $('.Navbar').removeClass('scroll');
         }
+        lastScroll = currentScroll; // yeh zaruri hai scroll detect ke liye
     });
 
-
-    $('.sign-out').on('click',function() {
-            alert('sign out')
-            window.location.href='../html/index.html'
-            localStorage.clear()
-        })
+    // --- sign out ---
+    $('.sign-out').on('click', function() {
+        alert('sign out');
+        localStorage.clear();   // pehle clear karo
+        window.location.href = '../html/index.html';
+        window.location.replace('../html/index.html');
+         // phir redirect
+    });
 });
+
