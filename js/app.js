@@ -131,11 +131,28 @@ $(document).ready(function () {
             border: 'none',
             paddingBottom: '0px'
         }).focus()
-
     });
+    
     // logic for input focus on click fet button and input box
 
+    // function trigger on click
+    $('.get-start-button').click(function(){
+        getInputVal()
+    })
+    
+    // logic for main page input value
+const getInputVal = () => { 
+     const input = $('.inputId').val().trim()===''
+        const email = JSON.parse(localStorage.getItem('email'))
+        console.log(input);
+        if (input === email) {
+            window.location.replace('../html/signin.html');
+        }else{
+            alert('Enter Valid  Id "Setflix@" or Create Id ');
+        }
+ }
 });
+
 
 
 //2):- logic for input infocus on click outside
