@@ -1,7 +1,7 @@
 $(document).ready(function () {
     history.pushState(null, null, location.href);
         window.onpopstate = function () {
-            history.go(2); // forward push kar deta hai → login page wapas nahi aayega
+            history.go(3); // forward push kar deta hai → login page wapas nahi aayega
         };
 
     let lastScroll = 0;
