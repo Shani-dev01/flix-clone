@@ -1,7 +1,5 @@
 $(document).ready(function () {
-    $('.header-container').load('../html/header.html', function() {
-
-        // logic for get user data
+         const validiateUserFunc = () => {  // logic for get user data
         let email = JSON.parse(localStorage.getItem('email'));
         let password = JSON.parse(localStorage.getItem('pass'));
         let userEmail = JSON.parse(localStorage.getItem('UserEmail'));
@@ -12,7 +10,6 @@ $(document).ready(function () {
         $('.signin-button').on('click', function () {
                 
                 if (email === userEmail && password === !userPassword) {
-                    alert("Signin successful! ✅");
                     window.location.replace('../html/home.html');
                 } else {
                     window.location.href='../html/signin.html';
@@ -20,20 +17,21 @@ $(document).ready(function () {
                 }
 
                 if (!email || !userEmail || !password || !userPassword) {
-                    alert("Signin successful! ✅");
                     console.log('app js second condition');
                     window.location.href='../html/signin.html';
                 } else {
                     window.location.replace('../html/home.html');
                 }
-    }); 
+    });
+ }
+    $('.header-container').load('../html/header.html', function() {
     // logic for goto home page and signin page
+    validiateUserFunc();
     });
 
     // FAQ logic section starts here
     $('.main-question-box').on('click', function (e) {
         e.stopPropagation()
-        console.log('cliked!')
 
         // logic for get all faq-discription boxes
         const $current = $(this).find('.faqs-discription');
@@ -130,6 +128,7 @@ $(document).ready(function () {
             border: 'none',
             paddingBottom: '0px'
         }).focus()
+        
     });
     // logic for input focus on click fet button and input box
 
@@ -173,3 +172,5 @@ $(document).click(function (e) {
     }
 })
 // logic for input infocus on click outside
+
+  
