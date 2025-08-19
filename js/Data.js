@@ -104,7 +104,7 @@ $(document).ready(function () {
             <div class="child-hero-div" >
                 <div class="title-div">
                     <h2>${Element.results[5].original_name}</h2>
-                    <button>Play</button>
+                    
                 </div>    
             </div>
             `;
