@@ -72,7 +72,6 @@ $(document).ready(function () {
     const moviesData = async () => {
         let res = await fetch(`${url}/genre/movie/list?api_key=${api_key}`)
         let data = await res.json()
-        console.log(data);
         // await SearchMovies()
         homePagePoster();
     }
@@ -90,11 +89,12 @@ $(document).ready(function () {
     const homePagePoster = async () => {
         const res = await fetch(`${url}/trending/all/day?api_key=${api_key}`);
         const data = await res.json();
-        const page = data;
+        const page = data.results
         console.log(data.results);
         const poster = $('.parent-hero-div')
-        $(page).each(function (i, Element) {
-            const posterImg = `${img_base_url}${Element.results[5].backdrop_path}`
+        page.forEach(function (Element) {
+            console.log(Element)
+            const posterImg = `${img_base_url}${Element.backdrop_path}`
             $('.parent-hero-div').css({
                 'background-image': `url("${posterImg}")`,
                 'background-size': 'cover',
@@ -103,14 +103,13 @@ $(document).ready(function () {
             const htmlData = `
             <div class="child-hero-div" >
                 <div class="title-div">
-                    <h2>${Element.results[5].original_name}</h2>
+                    <h2>${Element.original_name}</h2>
                     
                 </div>    
             </div>
             `;
-            //  <img src=${posterImg} alt="">
             poster.append(htmlData);
-            console.log(img_base_url, Element.results[5].original_name);
+            console.log(img_base_url, Element[5].original_name);
 
         })
     }
