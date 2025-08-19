@@ -6,11 +6,6 @@ const movieNmae = 'War'
 
 // --- logic for fetch data and render to the card ---
 $(document).ready(function () {
-    $('.header-container').load('/header.html', function () {
-        $('.headSignBtn button').click(function () {
-            $(this).window.location.href = 'login.html';
-        })
-    });
 
     $card = $('.movies')
     const renderMoviesCaed = async () => {
@@ -91,7 +86,7 @@ $(document).ready(function () {
         const data = await res.json();
         const page = data.results
         console.log(data.results);
-        const poster = $('.parent-hero-div')
+        const poster = $('.parent-hero-div');
         page.forEach(function (Element) {
             console.log(Element)
             const posterImg = `${img_base_url}${Element.backdrop_path}`
@@ -99,7 +94,7 @@ $(document).ready(function () {
                 'background-image': `url("${posterImg}")`,
                 'background-size': 'cover',
                 'background-position': 'center'
-            })
+            });
             const htmlData = `
             <div class="child-hero-div" >
                 <div class="title-div">
@@ -109,9 +104,7 @@ $(document).ready(function () {
             </div>
             `;
             poster.append(htmlData);
-            console.log(img_base_url, Element[5].original_name);
-
-        })
+        });
     }
 
     moviesData()

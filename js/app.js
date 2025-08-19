@@ -29,10 +29,8 @@ $(document).ready(function () {
             }
         });
     }
-    $('.header-container').load('../html/header.html', function () {
-        // logic for goto home page and signin page
-        validiateUserFunc();
-    });
+    
+    validiateUserFunc();
 
     // FAQ logic section starts here
     $('.main-question-box').on('click', function (e) {
