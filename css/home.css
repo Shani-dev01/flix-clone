@@ -29,8 +29,8 @@
     position: fixed;
     top: 0;
     padding-top: 10px;
-    background: linear-gradient( to top,  rgba(0, 0, 0, 0.0) 3%, /* bottom side dark */
-      rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient( to top,  rgba(0, 0, 0, 0.0) 1%, /* bottom side dark */
+      rgba(0, 0, 0, 0.5) 100%);
     transition: 0.9s ease;
 }
 .home-page .Navbar.scroll{
@@ -162,15 +162,30 @@
 .home-page, .parent-hero-div{
     height: 100%;
     width: 100%;
+    padding-left: 30px;
+    padding-right: 40px;
 }
 .home-page, .child-hero-div{
     height: 100%;
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
 }
 .home-page, .child-hero-div > img {
     height: 100%;
     width: 100%;
     object-fit: cover;
 }
-
+.title-div{
+    height: 50%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 50px;
+}
+/* .title-div> h2{
+} */
 /* --- home page styling ends here --- */
