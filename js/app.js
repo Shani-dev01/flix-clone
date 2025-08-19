@@ -1,7 +1,9 @@
-$(window).on(function(){
-       window.location.replace('../html/index.html');
-    }) 
 $(document).ready(function () {
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1); // back button ko disable kar dega
+    };
+
     const validiateUserFunc = () => {  // logic for get user data
         let email = JSON.parse(localStorage.getItem('email'));
         let password = JSON.parse(localStorage.getItem('pass'));
@@ -19,7 +21,7 @@ $(document).ready(function () {
             }
 
             if (!email || !userEmail || !password || !userPassword) {
-                window.location.href='../html/signin.html';
+                window.location.href = '../html/signin.html';
                 window.location.replace('../html/signin.html');
             } else {
                 window.location.replace('../html/home.html');
@@ -132,25 +134,28 @@ $(document).ready(function () {
             paddingBottom: '0px'
         }).focus()
     });
-    
+
     // logic for input focus on click fet button and input box
 
     // function trigger on click
-    $('.get-start-button').click(function(){
+    $('.get-start-button').click(function () {
         getInputVal()
     })
-    
+
     // logic for main page input value
-const getInputVal = () => { 
-     const input = $('.inputId').val().trim()===''
+    const getInputVal = () => {
+        const $value = $('#email2').val()
+        console.log($value);
+        localStorage.setItem('email', JSON.stringify($value))
         const email = JSON.parse(localStorage.getItem('email'))
-        console.log(input);
-        if (input === email) {
-            window.location.replace('../html/signin.html');
-        }else{
+
+        const $regex = /^(?=.{5,})(?=.*@).+$/
+        if ($regex.test($value)) {
+            window.location.href = '../html/signin.html';
+        } else {
             alert('Enter Valid  Id "Setflix@" or Create Id ');
         }
- }
+    }
 });
 
 

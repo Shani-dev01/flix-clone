@@ -1,8 +1,9 @@
-$(window).on(function(){
-    window.location.replace('../html/index.html');    
-}); 
 $(document).ready(function () {
-    // --- stop navigation ---
+    
+    history.pushState(null, null, location.href);
+    window.onpopstate = function () {
+        history.go(1); // back button ko disable kar dega
+    };
 
     // --- your scroll logic ---
     let lastScroll = 0;
@@ -14,16 +15,19 @@ $(document).ready(function () {
         } else {
             $('.Navbar').removeClass('scroll');
         }
-        lastScroll = currentScroll; // yeh zaruri hai scroll detect ke liye
     });
+    // --- your scroll logic ---
+
 
     // --- sign out ---
-    $('.sign-out').on('click', function() {
+    $('.sign-out').on('click', function () {
         alert('sign out');
         localStorage.clear();   // pehle clear karo
-        window.location.href = '../html/index.html';
         window.location.replace('../html/index.html');
-         // phir redirect
+        // phir redirect
     });
+    // --- sign out ---
+
+
 });
 

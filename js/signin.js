@@ -40,19 +40,20 @@ $(document).ready(function () {
         let $email = $('.input-container')
         let $password = $('.input-container')
 
-        // logic for email input
+        // --- logic for email input ---
         const $regex = /^(?=.{5,})(?=.*@).+$/
         if (!$regex.test(email)) {
             $email.siblings('h3')[0].style.display = 'block'
         } else {
             $email.siblings('h3')[0].style.display = 'none'
         }
-        // logic for password input
+        // --- logic for password input ---
         if (password.length < 4 && password.length === 0) {
             $password.siblings('h3')[1].style.display = 'block'
         } else {
             $email.siblings('h3')[1].style.display = 'none'
         }
+        // --- logic for password input ---
 
         window.auth.signInWithEmailAndPassword(email, password)
             .then((userCredential) => {
@@ -64,15 +65,15 @@ $(document).ready(function () {
 
                     if (email === userEmail && password === userPassword) {
                         alert("Signin successful! ✅");
-                        window.location.href='../html/home.html';
+                        console.log(email,password,userEmail,userPassword)
+                        // window.location.href='../html/home.html'
                         window.location.replace('../html/home.html')
                     } else {
-                        window.location.replace('../html/signin.html');
+                        window.location.href = '../html/signin.html';
                     }
 
                     if (!email || !userEmail || !password || !userPassword) {
                         window.location.href = '../html/signin.html';
-                        window.location.replace('../html/signin.html');
                     } else {
                         window.location.replace('../html/home.html');
                     }
