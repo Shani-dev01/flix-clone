@@ -9,24 +9,64 @@ function onYouTubeIframeAPIReady() {
         videoId: '',
         playerVars: {
             autoplay: 0,
+            mute:1,
             rel: 0,
+            controls: 0,
             modestbranding: 1,
             playsinline: 1,
             wmode: 'transparent'
         },
         events: {
-            'onReady': onPlayerReady
+            'onReady': onPlayerReady,
+             'onStateChange': onPlayerStateChange
         }
     })
 }
 function onPlayerReady(event) {
-    console.log("Player is ready!");
     playerReady = true;
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
     }
-    event.target.playVideo(); // autoplay bhi kara sakte ho
+    event.target.playVideo(); // autoplay
+    hidePosterBackground();   // video play hone se bg remove
 }
+$(document).on("click", ".volumBtn", function () {
+    if (player && player.isMuted()) {
+        player.unMute();
+        $(this).text("Mute"); // Button text change
+    } else {
+        player.mute();
+        $(this).text("Unmute");
+    }
+});
+
+
+// Document ready ke bahar function
+function hidePosterBackground() {
+    if ($('.parent-hero-div').length) {
+        $('.parent-hero-div').css('background-image', 'none');
+    }
+}
+
+function showPosterBackground(posterImg) {
+    if ($('.parent-hero-div').length) {
+        $('.parent-hero-div').css({
+            'background-image': `url('${posterImg}')`,
+            'background-size': 'cover',
+            'background-repeat': 'no-repeat',
+            'background-position': 'center'
+        });
+    }
+}
+
+
+// YouTube state change me call (pause/end)
+function onPlayerStateChange(event) {
+    if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED){
+        showPosterBackground(posterImg); // bg wapas
+    }
+}
+
 
 $(document).ready(async function () {
 
@@ -96,22 +136,23 @@ $(document).ready(async function () {
     videoIdKey = urlKey;
     if (data.results.length > 0) {
         videoIdKey
-
         // Sirf tab load karo jab player ready ho
         if (playerReady) {
             player.loadVideoById(videoIdKey);
-        } else {
-            const posterImg = `${img_base_url}${page[3].backdrop_path}`;
+        } 
+        const posterImg = `${img_base_url}${page[3].backdrop_path}`;
             $('.parent-hero-div').css({
-                'background-image': `url("${posterImg}")`,
-                'background-size': 'cover',
-                'background-repeat': 'no-repeat',
-                'background-position': 'center',
-                'position': 'relative',
-                'z-index': '1',
-            });
-            const parentDiv = $('.parent-hero-div')
-            const bannerPoster = `
+                    'background-image': `url('${posterImg}')`,
+                    'background-size': 'cover',
+                    'background-repeat': 'no-repeat',
+                    'background-position': 'center',
+                    'position': 'relative',
+                    'z-index': '1',
+                });
+
+         
+        const parentDiv = $('.parent-hero-div')
+        const bannerPoster = `
                 <div class="child-hero-div" >
                 <div class="title-div">
                     <h2>${page[3].original_title}</h2>
@@ -124,8 +165,8 @@ $(document).ready(async function () {
                     </div>
                 </div>    
             </div>`
-            parentDiv.append(bannerPoster);
-        }
+        parentDiv.append(bannerPoster);
+
     }
     const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
 });
