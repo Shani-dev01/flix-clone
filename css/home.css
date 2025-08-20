@@ -104,6 +104,7 @@
     width: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
     list-style: none;
     gap: 20px;
@@ -153,122 +154,65 @@
 /* --- Navbar section --- */
 
 /* --- home page styling starts here --- */
-.home-page .home-page-hero-section {
-    height: 100%;
+/* CSS */
+.home-page-hero-section {
+    position: relative; /* important for z-index stacking */
     width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.home-page,
-.home-page-hero-section2 {
-    height: 1009px;
-    width: 100%;
-}
-
-.home-page,
-.parent-hero-div {
-    height: 100%;
-    width: 100%;
-    /* padding-left: 30px;
-    padding-right: 40px; */
-    position: relative;
-    z-index: 2;
-}
-
-.home-page,
-.parent-hero-div::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.0) 0%,
-            rgba(0, 0, 0, 0.3) 90%);
-    z-index: 0;
-}
-
-
-.home-page,
-.child-hero-div {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
-
-.home-page,
-.child-hero-div>img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-}
-
-.title-div {
-    height: 50%;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: end;
-    position: relative;
-    z-index: 1;
-}
-
-.title-div>h2 {
-    height: 70px;
-    width: 100%;
-    font-size: 40px;
-    text-transform: uppercase;
-}
-
-.title-div>span {
-    height: 90px;
-    width: 85%;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    font-weight: bold;
+    height: 100vh;
     overflow: hidden;
 }
 
-.home-page-play-button {
-    height: 36px;
-    width: 96px;
-    border: none;
-    border-radius: 5px;
-    background: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.videoLink {
+#player-container {
     position: absolute;
-    height: 100%;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding-left: 0;
-    pointer-events: none;
-    border: none;
+    height: 100%;
+    z-index: 2; /* video behind */
 }
 
-.btnDivs {
+#player-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    pointer-events: none; /* iframe ke upar clicks allow content ko */
+}
+
+.parent-hero-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
     display: flex;
-    gap: 10px;
-    width: 200px;
+    align-items: flex-end;
+    padding-left: 35px;
+    padding-bottom: 50px;
+    color: #fff;
 }
 
-.volumBtn {
-    height: 36px;
-    width: 100px;
-    border: none;
-    border-radius: 5px;
-    background: #fff;
+.title-div {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 999;
 }
+
+.title-div h2,
+.title-div span,
+.btnDivs,
+.home-page-play-button,
+.volumBtn {
+    position: relative;
+    z-index: 999; /* content above video */
+}
+
 
 /* --- home page styling ends here --- */
 
@@ -293,31 +237,33 @@
         position: relative;
         z-index: 1;
     }
-    .title-div>h2{
+
+    .title-div>h2 {
         font-size: 30px;
         width: 100%;
     }
-        .home-page .liSection {
-            display: none;
-        }
 
-        .home-page .logoImg {
-            display: flex;
-            justify-content: end;
-            align-items: end;
-        }
-
-        .home-page .headerBtnDiv {
-            margin-right: 0;
-            display: flex;
-            justify-content: end;
-            align-items: end;
-            padding: 0;
-        }
-
-        .home-page .user-icons {
-            padding: 0;
-            margin: 0;
-            width: 160px;
-        }
+    .home-page .liSection {
+        display: none;
     }
+
+    .home-page .logoImg {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+
+    .home-page .headerBtnDiv {
+        margin-right: 0;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        padding: 0;
+    }
+
+    .home-page .user-icons {
+        padding: 0;
+        margin: 0;
+        width: 160px;
+    }
+}
