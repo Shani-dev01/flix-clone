@@ -161,15 +161,17 @@
     height: 100vh;
     overflow: hidden;
 }
-.home-page-hero-section::before{
+
+.home-page-hero-section::before {
     content: '';
     position: absolute;
     height: 100%;
     width: 100%;
     background: linear-gradient(to left,
-    rgba(0,0,0,0.2)10%,
-    rgba(0,0,0,0.2)10% /*left side dark  */
-    );
+            rgba(0, 0, 0, 0.2)10%,
+            rgba(0, 0, 0, 0.2)10%
+            /*left side dark  */
+        );
     z-index: 1;
 }
 
@@ -194,10 +196,11 @@
     /* iframe ke upar clicks allow content ko */
 }
 
+
 /* overlay content */
 .parent-hero-div {
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 100%;
     height: 100%;
@@ -205,8 +208,25 @@
     display: flex;
     align-items: end;
     padding-left: 35px;
-    padding-bottom: 100px;
     color: #fff;
+}
+
+.child-hero-div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    padding-bottom: 150px;
+}
+
+.second-div {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 30px;
 }
 
 .title-div {
@@ -221,10 +241,10 @@
 }
 
 .title-div h2 {
-    font-size: 43px;
+    font-size: 50px;
     height: 109px;
     display: flex;
-    align-items: end;
+    align-items: center;
     justify-content: end;
 }
 
@@ -236,10 +256,27 @@
     overflow: hidden;
 }
 
+.second-div>.volumBtn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    gap: 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #fff;
+    cursor: pointer;
+}
+
 .home-page-play-button,
-.volumBtn {
+.infoBtn {
     height: 36px;
     width: 85px;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -247,10 +284,22 @@
     border-radius: 2px;
     border: none;
     outline: none;
+    background-color: #ccc;
+    transition: 0.3s ease;
 }
+.infoBtn{
+    background-color: #c7b5b5ca;
+}
+.infoBtn:hover{
+    background-color: #ccc;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
 
 .btnDivs {
     display: flex;
+    align-items: center;
     width: 190px;
     gap: 10px;
 }

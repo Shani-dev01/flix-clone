@@ -2,45 +2,60 @@ let posterImg = '';
 var player;
 var videoIdKey;
 var playerReady = false;
-console.log(videoIdKey)
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-container', {
         'height': '100%',
-        'width': '100vw',
+        'width': '100%',
         videoId: '',
         playerVars: {
             autoplay: 1,
-            mute: 0,
+            mute: 1,
             rel: 0,
             controls: 0,
             modestbranding: 1,
             playsinline: 1,
             wmode: 'transparent',
-             fs: 1 
+            iv_load_policy: 3,
+            fs: 0,               // fullscreen button off
+            showinfo: 0,         // (deprecated but kuch browsers me work)
+            enablejsapi: 1
         },
         events: {
             'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
+            'onStateChange': onPlayerStateChange,
+            'onError': onPlayerError
         }
     })
 }
+function onPlayerError(event) {
+    console.warn("YouTube Player Error:", event.data);
+
+    // Sirf poster wapas dikhane ke liye
+    showPosterBackground(posterImg);
+
+    // Agar player container chhupana ho to
+    $('#player-container').hide();
+}
+
 function onPlayerReady(event) {
     playerReady = true;
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
-    }
-    event.target.playVideo(); // autoplay
-    event.target.mute()
-    hidePosterBackground();   // video play hone se bg remove
+    }event.target.playVideo(); // autoplay
+     event.target.mute()
+     hidePosterBackground();   // video play hone se bg remove
 }
 
 $(document).on("click", ".volumBtn", function () {
     if (player && player.isMuted()) {
         player.unMute();
-        $(this).text("Mute"); // Button text change
+        $('#volumeIcon').removeClass('fa-volume-mute');
+        $('#volumeIcon').toggleClass('fa-volume-high');
     } else {
         player.mute();
-        $(this).text("Unmute");
+        $('#volumeIcon').removeClass('fa-volume-high');
+        $('#volumeIcon').toggleClass('fa-volume-mute');
+
     }
 });
 
@@ -48,6 +63,8 @@ $(document).on("click", ".volumBtn", function () {
 // Document ready ke bahar function
 function hidePosterBackground() {
     if ($('.parent-hero-div').length) {
+        $('.parent-hero-div').css('background-image', 'none');
+    } else if (!videoIdKey) {
         $('.parent-hero-div').css('background-image', 'none');
     }
 }
@@ -66,8 +83,18 @@ function showPosterBackground(posterImg) {
 
 // YouTube state change me call (pause/end)
 function onPlayerStateChange(event) {
-    if(event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED){
+    const $icon = $('#volumeIcon');
+    if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
+        $icon.removeClass('fa-volume-mute fa-volume-high').addClass('fa-rotate-right');
+    } else {
+        const $icon = $('#volumeIcon');
+        const $replayButton = $icon.removeClass('fa-rotate-right')
+        $($replayButton).on('click', function () {
+            event.target.playVideo();
+            $('.parent-hero-div').css('background-image', 'none');
+        })
+
     }
 }
 
@@ -94,7 +121,7 @@ $(document).ready(async function () {
         $card.append(cardHtml);
     });
 
-    // Click listener outside the loop
+    // logic for poster home poster images of slider
     $('.movies').on('click', '.movies-cards', function () {
         const $movieId = $(this).data('id');
         const movie = pages.find(m => m.id === $movieId);
@@ -114,63 +141,71 @@ $(document).ready(async function () {
         $('.movie-posters').fadeOut(250);
         $('body').css('overflow-y', 'scroll');
     });
-
     $(document).on('click', function (e) {
         if (!$(e.target).closest('.movies-cards').length) {
             $('.movie-posters').fadeOut(250);
             $('body').css('overflow-y', 'scroll');
         }
     });
+    // logic for poster home poster images of slider
 
     //  --- logic for movies poster homepage  --- 
     const posterRes = await fetch(`${url}/trending/all/day?api_key=${api_key}`);
     const posterData = await posterRes.json();
     const page = posterData.results;
-    const movie = page[1];
+    const movie = page[9];
     const movieId = movie.id;
-    console.log(page,);
-    
+    console.log(page[4]);
+
 
 
     //  --- logic for fetch moives for poster ---
 
     const res = await fetch(`${url}/movie/${movieId}/videos?api_key=${api_key}`)
     const data = await res.json()
-    console.log(data.results)
     const urlKey = data.results[0].key;
+    const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     videoIdKey = urlKey;
     if (data.results && data.results.length > 0) {
         videoIdKey
         // Sirf tab load karo jab player ready ho
         if (playerReady) {
             player.loadVideoById(videoIdKey);
-        } 
-
-        posterImg = `${img_base_url}${movie.backdrop_path}`;
+        } else {
+            posterImg = `${img_base_url}${movie.backdrop_path}`;
             $('.parent-hero-div').css({
-                    'background-image': `url('${posterImg}')`,
-                    'background-size': 'cover',
-                    'background-repeat': 'no-repeat',
-                    'background-position': 'center',
-                    'position': 'relative',
-                    'z-index': '1',
-                }); 
-        const parentDiv = $('.parent-hero-div')
-        const bannerPoster = `
+                'background-image': `url('${posterImg}')`,
+                'background-size': 'cover',
+                'background-repeat': 'no-repeat',
+                'background-position': 'center',
+                'position': 'relative',
+                'z-index': '1',
+            });
+            const parentDiv = $('.parent-hero-div')
+            const bannerPoster = `
                 <div class="child-hero-div" >
                 <div class="title-div">
                     <h2>${movie.original_title}</h2>
                     <span>${movie.overview}</span>
-                    <div class="btnDivs">
+                   <div class="btnDivs">
                     <button class="home-page-play-button" >
                     <li class="fa-solid fa-play"></li>Play
                     </button>
-                    <button class="volumBtn" >unmute</button>
+                    <button class="infoBtn">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Info
+                    </button>
                     </div>
                 </div>    
+                <div class="second-div" >
+                   <button class="volumBtn">
+                    <li id="volumeIcon" class="fa-solid fa-volume-mute"></li>
+                    </button>
+                </div>  
             </div>`
-        parentDiv.append(bannerPoster);
+            parentDiv.append(bannerPoster);
+        }
 
     }
-    const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
+    
 });
