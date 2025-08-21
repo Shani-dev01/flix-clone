@@ -126,7 +126,7 @@ $(document).ready(async function () {
     const posterRes = await fetch(`${url}/trending/all/day?api_key=${api_key}`);
     const posterData = await posterRes.json();
     const page = posterData.results;
-    const movie = page[7];
+    const movie = page[1];
     const movieId = movie.id;
     console.log(page,);
     
