@@ -106,8 +106,8 @@ $(document).ready(async function () {
     const url = 'https://api.themoviedb.org/3';
     const img_base_url = 'https://image.tmdb.org/t/p/original';
     const proxy = "https://api.allorigins.win/raw?url=";
-    
-    
+
+
 
     // --- logic for fetch data and render to the card ---
     $card = $('.movies')
@@ -159,9 +159,8 @@ $(document).ready(async function () {
     const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
     const posterData = await posterRes.json();
     const page = posterData.results;
-    const movies = page[8];
+    const movies = page[2];
     const movieId = movies.id;
-    console.log(page[4]);
 
 
 
@@ -169,16 +168,12 @@ $(document).ready(async function () {
     const ulrRes = `${url}/movie/${movieId}/videos?api_key=${api_key}`
     const movieKeyRes = await fetch(proxy + encodeURIComponent(ulrRes));
     const data = await movieKeyRes.json();
-    console.log(data);
-    const urlKey = data.results[0].key;
-    const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
-    videoIdKey = urlKey;
     if (data.results && data.results.length > 0) {
+        const urlKey = data.results[0].key;
+        videoIdKey = urlKey;
         videoIdKey
-        // Sirf tab load karo jab player ready ho
-        if (playerReady) {
-            player.loadVideoById(videoIdKey);
-        } else {
+        if (playerReady) player.loadVideoById(videoIdKey);
+        else {
             posterImg = `${img_base_url}${movies.backdrop_path}`;
             $('.parent-hero-div').css({
                 'background-image': `url('${posterImg}')`,
@@ -190,20 +185,20 @@ $(document).ready(async function () {
             });
             const parentDiv = $('.parent-hero-div')
             const bannerPoster = `
-                <div class="child-hero-div" >
-                <div class="title-div">
-                    <h2>${movies.original_title}</h2>
-                    <span>${movies.overview}</span>
-                   <div class="btnDivs">
-                    <button class="home-page-play-button" >
-                    <li class="fa-solid fa-play"></li>Play
-                    </button>
-                    <button class="infoBtn">
-                    <i class="fa-solid fa-circle-info"></i>
-                    Info
-                    </button>
-                    </div>
-                </div>    
+            <div class="child-hero-div" >
+            <div class="title-div">
+            <h2>${movies.original_title}</h2>
+            <span>${movies.overview}</span>
+            <div class="btnDivs">
+            <button class="home-page-play-button" >
+            <li class="fa-solid fa-play"></li>Play
+            </button>
+            <button class="infoBtn">
+            <i class="fa-solid fa-circle-info"></i>
+            Info
+            </button>
+            </div>
+            </div>    
                 <div class="second-div" >
                    <button class="volumBtn">
                     <li id="volumeIcon" class="fa-solid fa-volume-mute"></li>
@@ -212,17 +207,53 @@ $(document).ready(async function () {
             </div>`
             parentDiv.append(bannerPoster);
         }
-
+        const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     }
 
     // logic for get all movies genre code
-    const genreCode = await fetch(`${url}/genre/movie/list?api_key=${api_key}`);
-    const genreData = await genreCode.json();
-    const genreId = genreData.genres[3].id
-    const catogaries = $('#movies-title');
+    let errArr = []
+    const genreCode = `${url}/genre/movie/list?api_key=${api_key}`
+    const genreKey = await fetch(proxy + encodeURIComponent(genreCode));
+    const genreData = await genreKey.json();
+    const genres = genreData.genres || []
+    const catogaries = $('.slider-div');
+    
+    for( let genre of genres){
+        const genreName = genre.name
+        const genreId = genre.id
 
-    const allMovies = await fetch(`${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`);
-    const allMoviesData = await allMovies.json();
-    console.log(allMoviesData);
+        const html = `<h2 class="movies-title" >${genreName}</h2>
+        <div class="slider-cards-buttons">
+            <button class="buttons left">
+                <li class="fas fa-chevron-left" ></li>
+            </button>
+            <div class="movie-images">
+                <div class="movies-img">
+                </div>
+            </div>
+            <button class="buttons right">
+                <li class="fas fa-chevron-right" ></li>
+            </button>
+        </div>
+        </div>
+        `
+        catogaries.append(html);
 
+    const allMovies = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`
+    const moviesCategory = await fetch(proxy + encodeURIComponent(allMovies));
+    const allMoviesData = await moviesCategory.json();
+
+    allMoviesData.results.slice(10).forEach((index) => {
+        console.log(index);
+        const posterImages = `${img_base_url}${index.poster_path}`
+
+        const htmlData = `
+                <img src=${posterImages} class="lazy-load"  alt="">
+                    <iframe src="" frameborder="0">
+                    </iframe>`
+        const sliderBox = $('.movies-img')
+        sliderBox.append(htmlData);
+        console.log(sliderBox)
+    });
+    }
 });
