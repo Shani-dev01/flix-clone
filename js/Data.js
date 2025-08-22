@@ -218,10 +218,9 @@ $(document).ready(async function () {
     const genres = genreData.genres || []
     const catogaries = $('.slider-div');
     
-    for( let genre of genres){
+    for( let genre of genres.slice(5,20)){
         const genreName = genre.name
         const genreId = genre.id
-
         const html = `<h2 class="movies-title" >${genreName}</h2>
         <div class="slider-cards-buttons">
             <button class="buttons left">
@@ -243,17 +242,16 @@ $(document).ready(async function () {
     const moviesCategory = await fetch(proxy + encodeURIComponent(allMovies));
     const allMoviesData = await moviesCategory.json();
 
-    allMoviesData.results.slice(10).forEach((index) => {
-        console.log(index);
+    allMoviesData.results.slice(0, 5).forEach((index) => {
+        console.log(index.original_title);
         const posterImages = `${img_base_url}${index.poster_path}`
 
         const htmlData = `
+            <div class="movies-card" > 
                 <img src=${posterImages} class="lazy-load"  alt="">
-                    <iframe src="" frameborder="0">
-                    </iframe>`
-        const sliderBox = $('.movies-img')
-        sliderBox.append(htmlData);
-        console.log(sliderBox)
+                    <iframe class="iframeContainer" src=""  frameborder="0"></iframe>
+                    </div>`
+         $('.movies-img').append(htmlData);
     });
     }
 });
