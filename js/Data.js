@@ -43,8 +43,8 @@ function onPlayerReady(event) {
         player.loadVideoById(videoIdKey);
     }
     //  event.target.playVideo(); // autoplay
-     event.target.mute()
-     hidePosterBackground();   // video play hone se bg remove
+    event.target.mute()
+    hidePosterBackground();   // video play hone se bg remove
 }
 
 $(document).on("click", ".volumBtn", function () {
@@ -105,13 +105,17 @@ $(document).ready(async function () {
     const api_key = 'abd6102284b0a6e60a5a118ba23efedb';
     const url = 'https://api.themoviedb.org/3';
     const img_base_url = 'https://image.tmdb.org/t/p/original';
-
+    const proxy = "https://api.allorigins.win/raw?url=";
+    
+    
 
     // --- logic for fetch data and render to the card ---
     $card = $('.movies')
-    const cardRes = await fetch(`${url}/trending/movie/day?api_key=${api_key}`);
+    const baseUrl = `${url}/trending/movie/day?api_key=${api_key}`;
+    const cardRes = await fetch(proxy + encodeURIComponent(baseUrl));
     const cardData = await cardRes.json();
     const pages = cardData.results;
+    // console.log(pages)
     pages.slice(0, 9).forEach((Element, i) => {
         const img = `${img_base_url}${Element.poster_path}`;
         const cardHtml = `
@@ -151,7 +155,8 @@ $(document).ready(async function () {
     // logic for poster home poster images of slider
 
     //  --- logic for movies poster homepage  --- 
-    const posterRes = await fetch(`${url}/trending/all/day?api_key=${api_key}`);
+    const posterUrl = `${url}/trending/all/day?api_key=${api_key}`;
+    const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
     const posterData = await posterRes.json();
     const page = posterData.results;
     const movies = page[8];
@@ -161,9 +166,11 @@ $(document).ready(async function () {
 
 
     //  --- logic for fetch moives for poster ---
-    const res = await fetch(`${url}/movie/${movieId}/videos?api_key=${api_key}`)
-    const data = await res.json()
-    // const urlKey = data.results[0].key;
+    const ulrRes = `${url}/movie/${movieId}/videos?api_key=${api_key}`
+    const movieKeyRes = await fetch(proxy + encodeURIComponent(ulrRes));
+    const data = await movieKeyRes.json();
+    console.log(data);
+    const urlKey = data.results[0].key;
     const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     videoIdKey = urlKey;
     if (data.results && data.results.length > 0) {
@@ -212,9 +219,10 @@ $(document).ready(async function () {
     const genreCode = await fetch(`${url}/genre/movie/list?api_key=${api_key}`);
     const genreData = await genreCode.json();
     const genreId = genreData.genres[3].id
-    
+    const catogaries = $('#movies-title');
+
     const allMovies = await fetch(`${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`);
     const allMoviesData = await allMovies.json();
     console.log(allMoviesData);
-    
+
 });
