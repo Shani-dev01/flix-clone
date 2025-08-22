@@ -287,10 +287,12 @@
     background-color: #ccc;
     transition: 0.3s ease;
 }
-.infoBtn{
+
+.infoBtn {
     background-color: #c7b5b5ca;
 }
-.infoBtn:hover{
+
+.infoBtn:hover {
     background-color: #ccc;
     transition: 0.3s ease;
     cursor: pointer;
@@ -315,6 +317,47 @@
 
 
 /* --- home page styling ends here --- */
+
+/* logic for slider */
+.home-page-slider-div {
+    height: 300px;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.slider-cards-buttons {
+    height: 85%;
+    width: 100%;
+    background-color: #ccc;
+    display: flex;
+}
+
+.movie-images {
+    width: 100%;
+}
+
+
+.buttons {
+    height: 100%;
+    width: 50px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.fa-chevron-right {
+    font-size: 50x;
+}
+
+/* logic for slider */
+
+
+
+
+
 
 /* responssiveness */
 

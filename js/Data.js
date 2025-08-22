@@ -41,7 +41,8 @@ function onPlayerReady(event) {
     playerReady = true;
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
-    }event.target.playVideo(); // autoplay
+    }
+    //  event.target.playVideo(); // autoplay
      event.target.mute()
      hidePosterBackground();   // video play hone se bg remove
 }
@@ -153,17 +154,16 @@ $(document).ready(async function () {
     const posterRes = await fetch(`${url}/trending/all/day?api_key=${api_key}`);
     const posterData = await posterRes.json();
     const page = posterData.results;
-    const movie = page[9];
-    const movieId = movie.id;
+    const movies = page[8];
+    const movieId = movies.id;
     console.log(page[4]);
 
 
 
     //  --- logic for fetch moives for poster ---
-
     const res = await fetch(`${url}/movie/${movieId}/videos?api_key=${api_key}`)
     const data = await res.json()
-    const urlKey = data.results[0].key;
+    // const urlKey = data.results[0].key;
     const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     videoIdKey = urlKey;
     if (data.results && data.results.length > 0) {
@@ -172,7 +172,7 @@ $(document).ready(async function () {
         if (playerReady) {
             player.loadVideoById(videoIdKey);
         } else {
-            posterImg = `${img_base_url}${movie.backdrop_path}`;
+            posterImg = `${img_base_url}${movies.backdrop_path}`;
             $('.parent-hero-div').css({
                 'background-image': `url('${posterImg}')`,
                 'background-size': 'cover',
@@ -185,8 +185,8 @@ $(document).ready(async function () {
             const bannerPoster = `
                 <div class="child-hero-div" >
                 <div class="title-div">
-                    <h2>${movie.original_title}</h2>
-                    <span>${movie.overview}</span>
+                    <h2>${movies.original_title}</h2>
+                    <span>${movies.overview}</span>
                    <div class="btnDivs">
                     <button class="home-page-play-button" >
                     <li class="fa-solid fa-play"></li>Play
@@ -207,5 +207,14 @@ $(document).ready(async function () {
         }
 
     }
+
+    // logic for get all movies genre code
+    const genreCode = await fetch(`${url}/genre/movie/list?api_key=${api_key}`);
+    const genreData = await genreCode.json();
+    const genreId = genreData.genres[3].id
+    
+    const allMovies = await fetch(`${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`);
+    const allMoviesData = await allMovies.json();
+    console.log(allMoviesData);
     
 });
