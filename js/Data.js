@@ -218,7 +218,7 @@ $(document).ready(async function () {
     const genres = genreData.genres || []
     const catogaries = $('.slider-div');
     
-    for( let genre of genres.slice(5,20)){
+    for( let genre of genres.slice(5,15)){
         const genreName = genre.name
         const genreId = genre.id
         const html = `<h2 class="movies-title" >${genreName}</h2>
@@ -236,19 +236,21 @@ $(document).ready(async function () {
         </div>
         </div>
         `
-        catogaries.append(html);
-
-    const allMovies = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`
+    catogaries.append(html);
+    
+    const pageNum = Math.floor(Math.random() * 5 ) + 1
+    const allMovies = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}&page=${pageNum}`
     const moviesCategory = await fetch(proxy + encodeURIComponent(allMovies));
     const allMoviesData = await moviesCategory.json();
-
-    allMoviesData.results.slice(0, 5).forEach((index) => {
-        console.log(index.original_title);
-        const posterImages = `${img_base_url}${index.poster_path}`
+    allMoviesData.results.slice(0, 5).forEach((movie) => {
+        console.log(genreId,genreName)
+        console.log(movie);
+        const posterImages = `${img_base_url}${movie.backdrop_path}`
 
         const htmlData = `
             <div class="movies-card" > 
                 <img src=${posterImages} class="lazy-load"  alt="">
+                <h3 class="movies-name">${movie.title}</h3> 
                     <iframe class="iframeContainer" src=""  frameborder="0"></iframe>
                     </div>`
          $('.movies-img').append(htmlData);
