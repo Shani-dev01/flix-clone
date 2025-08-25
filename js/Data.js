@@ -152,6 +152,7 @@ $(document).ready(async function () {
             $('body').css('overflow-y', 'scroll');
         }
     });
+
     // logic for poster home poster images of slider
 
     //  --- logic for movies poster homepage  --- 
@@ -209,51 +210,5 @@ $(document).ready(async function () {
         }
         const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     }
-
-    // logic for get all movies genre code
-    let errArr = []
-    const genreCode = `${url}/genre/movie/list?api_key=${api_key}`
-    const genreKey = await fetch(proxy + encodeURIComponent(genreCode));
-    const genreData = await genreKey.json();
-    const genres = genreData.genres || []
-    const catogaries = $('.slider-div');
     
-    for( let genre of genres.slice(5,15)){
-        const genreName = genre.name
-        const genreId = genre.id
-        const html = `<h2 class="movies-title" >${genreName}</h2>
-        <div class="slider-cards-buttons">
-            <button class="buttons left">
-                <li class="fas fa-chevron-left" ></li>
-            </button>
-            <div class="movie-images">
-                <div class="movies-img">
-                </div>
-            </div>
-            <button class="buttons right">
-                <li class="fas fa-chevron-right" ></li>
-            </button>
-        </div>
-        </div>
-        `
-    catogaries.append(html);
-    
-    const pageNum = Math.floor(Math.random() * 5 ) + 1
-    const allMovies = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}&page=${pageNum}`
-    const moviesCategory = await fetch(proxy + encodeURIComponent(allMovies));
-    const allMoviesData = await moviesCategory.json();
-    allMoviesData.results.slice(0, 5).forEach((movie) => {
-        console.log(genreId,genreName)
-        console.log(movie);
-        const posterImages = `${img_base_url}${movie.backdrop_path}`
-
-        const htmlData = `
-            <div class="movies-card" > 
-                <img src=${posterImages} class="lazy-load"  alt="">
-                <h3 class="movies-name">${movie.title}</h3> 
-                    <iframe class="iframeContainer" src=""  frameborder="0"></iframe>
-                    </div>`
-         $('.movies-img').append(htmlData);
-    });
-    }
 });
