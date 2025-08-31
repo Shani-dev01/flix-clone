@@ -1,7 +1,9 @@
 let posterImg = '';
-var player;
-var videoIdKey;
-var playerReady = false;
+let player;
+let videoIdKey;
+let playerReady = false;
+let currentGenre = '';
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-container', {
         'height': '100%',
@@ -42,6 +44,7 @@ function onPlayerReady(event) {
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
     }
+    
     //  event.target.playVideo(); // autoplay
     event.target.mute()
     hidePosterBackground();   // video play hone se bg remove
@@ -88,6 +91,8 @@ function onPlayerStateChange(event) {
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
         $icon.removeClass('fa-volume-mute fa-volume-high').addClass('fa-rotate-right');
+        currentGenre = event.target.getVideoData();
+        console.log(currentGenre);
     } else {
         const $icon = $('#volumeIcon');
         const $replayButton = $icon.removeClass('fa-rotate-right')
@@ -100,109 +105,60 @@ function onPlayerStateChange(event) {
 }
 
 $(document).ready(async function () {
-
     // Api call logic starts
     const api_key = 'abd6102284b0a6e60a5a118ba23efedb';
     const url = 'https://api.themoviedb.org/3';
     const img_base_url = 'https://image.tmdb.org/t/p/original';
     const proxy = "https://api.allorigins.win/raw?url=";
 
+    let heroMovie = null;   // global variable for movie info
+    async function fetchMovieWithVideo(movieIndex = 11) {
+        try {
+            const posterUrl = `${url}/trending/tv/day?api_key=${api_key}`;
+            const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
+            const posterData = await posterRes.json();
+            const movies = posterData.results[movieIndex];
 
+            if (!movies) return;
+            const videoUrl = `${url}/tv/${movies.id}/videos?api_key=${api_key}`;
+            const movieKeyRes = await fetch(proxy + encodeURIComponent(videoUrl));
+            const data = await movieKeyRes.json();
+            const videoKey = data.results[0].key || null;
 
-    // --- logic for fetch data and render to the card ---
-    $card = $('.movies')
-    const baseUrl = `${url}/trending/movie/day?api_key=${api_key}`;
-    const cardRes = await fetch(proxy + encodeURIComponent(baseUrl));
-    const cardData = await cardRes.json();
-    const pages = cardData.results;
-    // console.log(pages)
-    pages.slice(0, 9).forEach((Element, i) => {
-        const img = `${img_base_url}${Element.poster_path}`;
-        const cardHtml = `
-                <div class="movies-cards" data-id=${Element.id}>
-                    <img class="movies-thumb" src="${img}" alt="" loading="lazy">
-                    <span>${i + 1}</span>
-                </div>`;
-        $card.append(cardHtml);
-    });
+            // 🔹 Assign to global variables
+            heroMovie = movies;
+            videoIdKey = videoKey;
 
-    // logic for poster home poster images of slider
-    $('.movies').on('click', '.movies-cards', function () {
-        const $movieId = $(this).data('id');
-        const movie = pages.find(m => m.id === $movieId);
-        const img2 = `${img_base_url}${movie.backdrop_path}`;
-        $('.poster-movie-title').html(movie.original_title);
-        $('.poster-discription').html(movie.overview);
-        $('.thumb').attr('src', img2);
-        $('.movie-posters').fadeIn(200).css({
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center'
-        });
-        $('body').css('overflow', 'hidden');
-    });
+            // ✅ safe check for video key    
+            urlKey = videoIdKey;
+            const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
 
-    $('.icon').click(function () {
-        $('.movie-posters').fadeOut(250);
-        $('body').css('overflow-y', 'scroll');
-    });
-    $(document).on('click', function (e) {
-        if (!$(e.target).closest('.movies-cards').length) {
-            $('.movie-posters').fadeOut(250);
-            $('body').css('overflow-y', 'scroll');
+        } catch (err) {
+            console.error("Error fetching movie + video:", err);
         }
-    });
-    // --- logic for fetch data and render to the card ---
-
-let heroMovie = null;   // global variable for movie info
-
-async function fetchMovieWithVideo(movieIndex = 11) {
-    try {
-        const posterUrl = `${url}/trending/all/day?api_key=${api_key}`;
-        const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
-        const posterData = await posterRes.json();
-        const movies = posterData.results[movieIndex];
-        if (!movies) return;
-
-        const videoUrl = `${url}/movie/${movies.id}/videos?api_key=${api_key}`;
-        const movieKeyRes = await fetch(proxy + encodeURIComponent(videoUrl));
-        const data = await movieKeyRes.json();
-        const videoKey = data.results?.[0]?.key || null;
-
-        // 🔹 Assign to global variables
-        heroMovie = movies;
-        videoIdKey = videoKey;
-
-    } catch (err) {
-        console.error("Error fetching movie + video:", err);
     }
-}
-    await fetchMovieWithVideo(11);
+    await fetchMovieWithVideo(17);
     if (heroMovie) {
-    // ✅ safe check for video key
-    const urlKey = heroMovie.results[0].key || null;
-    videoIdKey = urlKey;
+        // Poster fallback turant show
+        posterImg = `${img_base_url}${heroMovie.backdrop_path}`;
+        $('.parent-hero-div').css({
+            'background-image': `url('${posterImg}')`,
+            'background-size': 'cover',
+            'background-repeat': 'no-repeat',
+            'background-position': 'center',
+            'position': 'relative',
+            'z-index': '1',
+        });
 
-    // Poster fallback turant show
-    posterImg = `${img_base_url}${heroMovie.backdrop_path}`;
-    $('.parent-hero-div').css({
-        'background-image': `url('${posterImg}')`,
-        'background-size': 'cover',
-        'background-repeat': 'no-repeat',
-        'background-position': 'center',
-        'position': 'relative',
-        'z-index': '1',
-    });
-
-    // Banner HTML
-    const parentDiv = $('.parent-hero-div');
-    const bannerPoster = `
+        // Banner HTML
+        const parentDiv = $('.parent-hero-div');
+        const bannerPoster = `
         <div class="child-hero-div" >
             <div class="title-div">
-                <h2>${heroMovie.original_title}</h2>
+                <h2>${heroMovie.name}</h2>
                 <span>${heroMovie.overview}</span>
                 <div class="btnDivs">
-                    <button class="home-page-play-button" >
+                    <button class="tv-shows-page-play-button" >
                         <li class="fa-solid fa-play"></li>Play
                     </button>
                     <button class="infoBtn">
@@ -217,16 +173,13 @@ async function fetchMovieWithVideo(movieIndex = 11) {
                 </button>
             </div>  
         </div>`;
-    parentDiv.append(bannerPoster);
+        parentDiv.append(bannerPoster);
 
-    // Agar player ready hai aur key mil gayi hai, video load karo
-    if (playerReady && videoIdKey) {
-        player.loadVideoById(videoIdKey);
-        hidePosterBackground(); // video play hone pe bg hide
+        // Agar player ready hai aur key mil gayi hai, video load karo
+        if (playerReady && videoIdKey) {
+            player.loadVideoById(videoIdKey);
+            hidePosterBackground(); // video play hone pe bg hide
+        }
     }
-    const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
-}
 
-
-    
 });

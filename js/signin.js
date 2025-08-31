@@ -65,7 +65,6 @@ $(document).ready(function () {
 
                     if (email === userEmail && password === userPassword) {
                         alert("Signin successful! ✅");
-                        console.log(email,password,userEmail,userPassword)
                         // window.location.href='../html/home.html'
                         window.location.replace('../html/home.html')
                     } else {

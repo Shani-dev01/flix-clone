@@ -14,8 +14,8 @@ $(document).ready(function () {
         // logic for goto home page and signin page
         $('.signin-button').on('click', function () {
 
-            if (email === userEmail && password === !userPassword) {
-                window.location.replace('../html/home.html');
+            if (email === userEmail && password === userPassword) {
+                window.location.href='../html/home.html';
             } else {
                 window.location.href = '../html/signin.html';
             }

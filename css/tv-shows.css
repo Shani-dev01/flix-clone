@@ -7,7 +7,7 @@
 
 /* --- Navbar section --- */
 
-.home-page .logoImg {
+.tv-shows-page .logoImg {
     height: 65px;
     width: 130px;
     padding-top: 6px;
@@ -19,7 +19,7 @@
 
 }
 
-.home-page .Navbar {
+.tv-shows-page .Navbar {
     height: 60px;
     width: 100%;
     background: transparent;
@@ -30,19 +30,19 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.0) 0%,
-            /* bottom side dark */
-            rgba(0, 0, 0, 0.4) 95%);
     transition: 0.9s ease;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.0) 20%, rgba(0, 0, 0, 0.3) 70%
+
+    );
 }
 
-.home-page .Navbar.scroll {
+.tv-shows-page .Navbar.scroll {
     background: #000;
     transition: 0.5s ease;
 }
 
 
-.home-page .innerNav {
+.tv-shows-page .innerNav {
     width: 100%;
     height: 45px;
     display: flex;
@@ -50,7 +50,7 @@
 }
 
 
-.home-page .logo {
+.tv-shows-page .logo {
     width: 100px;
     height: 40px;
     padding-left: 0px;
@@ -62,7 +62,7 @@
     font-size: 30px;
 }
 
-.home-page .HeaderButtons {
+.tv-shows-page .HeaderButtons {
     width: 84%;
     height: 100%;
     display: flex;
@@ -71,7 +71,7 @@
     padding: 0;
 }
 
-.home-page .logoDiv {
+.tv-shows-page .logoDiv {
     width: 100%;
     height: 60px;
     display: flex;
@@ -79,7 +79,7 @@
     align-items: center;
 }
 
-.home-page .headerBtnDiv {
+.tv-shows-page .headerBtnDiv {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -90,7 +90,7 @@
     padding-right: 40px;
 }
 
-.home-page .liSection {
+.tv-shows-page .liSection {
     width: 100%;
     height: 100%;
     display: flex;
@@ -98,7 +98,7 @@
     justify-content: center;
 }
 
-.home-page .liSection>ul {
+.tv-shows-page .liSection>ul {
     height: 100%;
     width: 100%;
     display: flex;
@@ -109,19 +109,19 @@
     gap: 20px;
 }
 
-.home-page .liSection>ul>li {
+.tv-shows-page .liSection>ul>li {
     text-decoration: none;
     font-size: 15px;
     transition: 0.3s ease;
 }
 
-.home-page .liSection>ul>li:hover {
+.tv-shows-page .liSection>ul>li:hover {
     cursor: pointer;
     color: #ccc;
     transition: 0.3s ease;
 }
 
-.home-page .user-icons {
+.tv-shows-page .user-icons {
     height: 50px;
     width: 180px;
     display: flex;
@@ -134,7 +134,7 @@
     font-size: 18px;
 }
 
-.home-page .user-icons>img {
+.tv-shows-page .user-icons>img {
     height: 30px;
     width: 30px;
 }
@@ -154,24 +154,21 @@
 
 /* --- home page styling starts here --- */
 /* CSS */
-.home-page-hero-section {
+.tv-shows-page-hero-section {
     position: relative;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    z-index: 0;
 }
 
-.home-page-hero-section::before {
+.tv-shows-page-hero-section::before {
     content: '';
-    position: absolute;
     height: 100%;
     width: 100%;
-    background: linear-gradient(to left,
-            rgba(0, 0, 0, 0.2)10%,
-            rgba(0, 0, 0, 0.2)10%
-            /*left side dark  */
-        );
+    position: absolute;
     z-index: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1%, rgba(0, 0, 0, 0.1) 100%);
 }
 
 /* iframe container behind */
@@ -197,20 +194,20 @@
 
 
 /* overlay content */
-.parent-hero-div {
+.tv-shows-page .parent-hero-div {
     position: absolute;
+    z-index: 10;
     top: 0px;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 10;
     display: flex;
     align-items: end;
     padding-left: 35px;
     color: #fff;
 }
 
-.child-hero-div {
+.tv-shows-page .child-hero-div {
     position: relative;
     width: 100%;
     height: 100%;
@@ -271,8 +268,8 @@
     cursor: pointer;
 }
 
-.home-page-play-button,
-.infoBtn {
+.tv-shows-page-play-button,
+.infoBtn{
     height: 36px;
     width: 125px;
     cursor: pointer;
@@ -283,12 +280,12 @@
     border-radius: 2px;
     border: none;
     outline: none;
-    background-color: #ccc;
+    background-color: #ffffffcf;
     transition: 0.3s ease;
 }
 
 .infoBtn {
-    background-color: #dfdada50;
+    background-color: #ffffff43;
     height: 36px;
     width: 160px;
 }
@@ -300,7 +297,7 @@
 }
 
 
-.btnDivs {
+.tv-shows-page .btnDivs {
     display: flex;
     align-items: center;
     width: 260px;
@@ -310,7 +307,7 @@
 .title-div h2,
 .title-div span,
 .btnDivs,
-.home-page-play-button,
+.tv-shows-page-play-button,
 .volumBtn {
     position: relative;
     z-index: 999;
@@ -320,7 +317,7 @@
 /* --- home page styling ends here --- */
 
 /* logic for slider */
-.home-page-slider-div {
+.tv-shows-page-slider-div {
     height: 100vh;
     width: 100%;
     padding-bottom: 30px;
@@ -557,15 +554,15 @@ i.fa-solid.fa-plus {
 /* responssiveness */
 
 @media (max-width: 425px) {
-    .home-page .logoImg {
+    .tv-shows-page .logoImg {
         margin-left: 10px;
     }
 
-    .home-page .logoImg>h2 {
+    .tv-shows-page .logoImg>h2 {
         font-size: 28px;
     }
 
-    .home-page .title-div {
+    .tv-shows-page .title-div {
         height: 80%;
         width: 100%;
         display: flex;
@@ -581,17 +578,17 @@ i.fa-solid.fa-plus {
         width: 100%;
     }
 
-    .home-page .liSection {
+    .tv-shows-page .liSection {
         display: none;
     }
 
-    .home-page .logoImg {
+    .tv-shows-page .logoImg {
         display: flex;
         justify-content: end;
         align-items: end;
     }
 
-    .home-page .headerBtnDiv {
+    .tv-shows-page .headerBtnDiv {
         margin-right: 0;
         display: flex;
         justify-content: end;
@@ -599,7 +596,7 @@ i.fa-solid.fa-plus {
         padding: 0;
     }
 
-    .home-page .user-icons {
+    .tv-shows-page .user-icons {
         padding: 0;
         margin: 0;
         width: 160px;
