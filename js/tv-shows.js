@@ -2,7 +2,6 @@ let posterImg = '';
 let player;
 let videoIdKey;
 let playerReady = false;
-let currentGenre = '';
 
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-container', {
@@ -31,20 +30,24 @@ function onYouTubeIframeAPIReady() {
 }
 function onPlayerError(event) {
     console.warn("YouTube Player Error:", event.data);
+    
+    // Agar player container chhupana ho to
+    $('#player-container').hide();
 
     // Sirf poster wapas dikhane ke liye
     showPosterBackground(posterImg);
 
-    // Agar player container chhupana ho to
-    $('#player-container').hide();
+    
+    
 }
 
 function onPlayerReady(event) {
+
     playerReady = true;
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
     }
-    
+ 
     //  event.target.playVideo(); // autoplay
     event.target.mute()
     hidePosterBackground();   // video play hone se bg remove
@@ -88,11 +91,15 @@ function showPosterBackground(posterImg) {
 // YouTube state change me call (pause/end)
 function onPlayerStateChange(event) {
     const $icon = $('#volumeIcon');
+     if (event.data === YT.PlayerState.PLAYING) {
+        let videoData = event.target.getVideoData();
+        localStorage.setItem('link', JSON.stringify(videoData));
+        console.log(videoData.video_id);  // yahan se video id milega
+    }
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
         $icon.removeClass('fa-volume-mute fa-volume-high').addClass('fa-rotate-right');
-        currentGenre = event.target.getVideoData();
-        console.log(currentGenre);
+        
     } else {
         const $icon = $('#volumeIcon');
         const $replayButton = $icon.removeClass('fa-rotate-right')
@@ -137,7 +144,7 @@ $(document).ready(async function () {
             console.error("Error fetching movie + video:", err);
         }
     }
-    await fetchMovieWithVideo(17);
+    await fetchMovieWithVideo(6);
     if (heroMovie) {
         // Poster fallback turant show
         posterImg = `${img_base_url}${heroMovie.backdrop_path}`;
@@ -148,6 +155,9 @@ $(document).ready(async function () {
             'background-position': 'center',
             'position': 'relative',
             'z-index': '1',
+        });
+        $(document).on('click', '.tv-shows-page-play-button', function(){
+           window.location.href='../html/watch.html';
         });
 
         // Banner HTML

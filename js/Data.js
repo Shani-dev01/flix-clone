@@ -177,10 +177,10 @@ async function fetchMovieWithVideo(movieIndex = 11) {
         console.error("Error fetching movie + video:", err);
     }
 }
-    await fetchMovieWithVideo(11);
+    await fetchMovieWithVideo(9);
     if (heroMovie) {
     // ✅ safe check for video key
-    const urlKey = heroMovie.results[0].key || null;
+    const urlKey = heroMovie.results[0]?.key || null;
     videoIdKey = urlKey;
 
     // Poster fallback turant show
