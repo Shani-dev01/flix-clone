@@ -17,7 +17,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 5%,rgba(0, 0, 0, 0.5) 90%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.4) 5%, rgba(0, 0, 0, 0.5) 90%);
     z-index: 11;
     height: 100%;
     width: 100%;
@@ -45,7 +45,9 @@
     height: 120px;
     width: 95%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
     background: transparent;
     padding-left: 20px;
 }
@@ -55,6 +57,7 @@
     position: relative;
     z-index: 12;
     cursor: pointer;
+    font-size: 25px;
 }
 
 .icons>button {
@@ -64,9 +67,10 @@
     border: none;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     background: transparent;
     width: 50px;
+    border: none;
 }
 
 #seek-backward,
@@ -77,6 +81,8 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    background: transparent;
+    border: none;
 }
 
 .full-screen-icons {
@@ -110,4 +116,67 @@
     position: relative;
     z-index: 12;
     cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    width: 100%;
+}
+
+#play {
+    height: 50px;
+    width: 55px;
+    background: transparent;
+    border: none;
+}
+
+.controls {
+    background: transparent;
+}
+
+/* Seekbar ko target karna */
+#seekbar {
+    -webkit-appearance: none;
+    /* Default style hatane ke liye */
+    width: 100%;
+    height: 6px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 12;
+}
+
+/* Track (line jaha thumb move hota hai) */
+#seekbar::-webkit-slider-runnable-track {
+    height: 6px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Thumb (jo gol button hota hai) */
+#seekbar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #ff6600;
+    border: 2px solid #ff6600;
+    cursor: pointer;
+    margin-top: -5px;
+    /* center align */
+}
+.input-div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: transparent;
+}
+.input-div, span{
+    background: transparent;
+    color: white;
+    position: relative;
+    z-index: 13;
 }

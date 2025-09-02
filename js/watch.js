@@ -4,6 +4,7 @@ const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`; // sirf referenc
 
 // IFrame API me use karna ho to sirf videoId pass karo:
 let player;
+let intervalId;
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player-container", {
@@ -18,40 +19,65 @@ function onYouTubeIframeAPIReady() {
       modestbranding: 1,
       fs: 0
     },
-      events: {
-      onReady: onPlayerReady
+    events: {
+      onReady: onPlayerReady,
+      onStateChange: onPlayerStateChange
     }
   });
 }
+
+
+
+let timer = () => { 
+   intervalId = setInterval(() => {
+    console.log(player.getCurrentTime(), player.getDuration() - 2);
+    let currentTime = player.getCurrentTime() - 2;
+    let duration = player.getDuration();
+    let progress = (currentTime / duration) * 100
+    let roundedProgess = Math.round(progress);
+    if (roundedProgess > 0) {
+    $('.input-div').find('span').text(roundedProgess,':00');
+    $('#seekbar').val(progress);
+    }
+  }, 1000);
+  }
+
 function onPlayerReady(event) {
   // example: automatically mute and play
-//   event.target.mute();
+  //   event.target.mute();
+}
+
+function onPlayerStateChange(e) {
+  if (e.data === YT.PlayerState.PLAYING) {
+   timer();
+  }else{
+    clearInterval(intervalId);
+  }
 }
 
 
 $(document).ready(function () {
-    // logic for go back to home page
-    $('#leftBtn').on('click', function () {
-        history.go(-1)
-    });
+  // logic for go back to home page
+  $('#leftBtn').on('click', function () {
+    history.go(-1)
+  });
 
-    // logic for play video on click
-    $('#play').on('click', function () {
-          if (player && player.getPlayerState() === 1) {
-        // If playing → pause
-        player.pauseVideo();
-        $('#play').find('i')
-            .removeClass('fa-pause')
-            .addClass('fa-play');
+  // logic for play video on click
+  $('#play').on('click', function () {
+    if (player && player.getPlayerState() === 1) {
+      // If playing → pause
+      player.pauseVideo();
+      $('#play').find('i')
+        .removeClass('fa-pause')
+        .addClass('fa-play');
     } else {
-        // If not playing → play
-        player.playVideo();
-        $('#play').find('i')
-            .removeClass('fa-play')
-            .addClass('fa-pause');
+      // If not playing → play
+      player.playVideo();
+      $('#play').find('i')
+        .removeClass('fa-play')
+        .addClass('fa-pause');
     }
-
-    });
+  });
 
 
 })
