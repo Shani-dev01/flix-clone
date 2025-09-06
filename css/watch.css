@@ -50,6 +50,7 @@
     justify-content: center;
     background: transparent;
     padding-left: 20px;
+    padding-right: 20px;
 }
 
 .icons i {
@@ -90,7 +91,6 @@
     display: flex;
     justify-content: end;
     align-items: center;
-    padding-right: 20px;
     background: transparent;
 }
 
@@ -125,9 +125,12 @@
 
 #play {
     height: 50px;
-    width: 55px;
+    width: 50px;
     background: transparent;
     border: none;
+    display: flex;
+    justify-content: start;
+    align-items: center;
 }
 
 .controls {
@@ -167,16 +170,27 @@
     margin-top: -5px;
     /* center align */
 }
-.input-div{
+
+.input-div {
     width: 100%;
     display: flex;
     align-items: center;
-    gap: 10px;
     background: transparent;
 }
-.input-div, span{
+
+.sec-min-div {
     background: transparent;
     color: white;
     position: relative;
     z-index: 13;
+    left: 10px;
+    display: flex;
+    gap: 3px;
+}
+
+.seconds,
+.minutes {
+    background: transparent;
+    font-weight: 600;
+    font-size: 18px;
 }

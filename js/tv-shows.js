@@ -31,26 +31,25 @@ function onYouTubeIframeAPIReady() {
 function onPlayerError(event) {
     console.warn("YouTube Player Error:", event.data);
     
-    // Agar player container chhupana ho to
-    $('#player-container').hide();
-
     // Sirf poster wapas dikhane ke liye
     showPosterBackground(posterImg);
 
-    
-    
+    // Agar player container chhupana ho to
+    $('#player-container').hide();
+
 }
 
 function onPlayerReady(event) {
 
     playerReady = true;
-    if (videoIdKey) {
+      if (videoIdKey) {
         player.loadVideoById(videoIdKey);
+        event.target.mute()
+        hidePosterBackground(); // video play hote hi poster gayab
+    } else {
+        showPosterBackground(posterImg); // agar key nahi hai to poster show rahe
     }
  
-    //  event.target.playVideo(); // autoplay
-    event.target.mute()
-    hidePosterBackground();   // video play hone se bg remove
 }
 
 $(document).on("click", ".volumBtn", function () {
@@ -119,12 +118,13 @@ $(document).ready(async function () {
     const proxy = "https://api.allorigins.win/raw?url=";
 
     let heroMovie = null;   // global variable for movie info
-    async function fetchMovieWithVideo(movieIndex = 11) {
+    async function fetchMovieWithVideo(movieIndex) {
         try {
             const posterUrl = `${url}/trending/tv/day?api_key=${api_key}`;
             const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
             const posterData = await posterRes.json();
             const movies = posterData.results[movieIndex];
+            console.log(movies);
 
             if (!movies) return;
             const videoUrl = `${url}/tv/${movies.id}/videos?api_key=${api_key}`;
@@ -144,7 +144,7 @@ $(document).ready(async function () {
             console.error("Error fetching movie + video:", err);
         }
     }
-    await fetchMovieWithVideo(6);
+    await fetchMovieWithVideo(11);
     if (heroMovie) {
         // Poster fallback turant show
         posterImg = `${img_base_url}${heroMovie.backdrop_path}`;

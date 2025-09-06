@@ -1,16 +1,20 @@
-let link = JSON.parse(localStorage.getItem('link'));
-const urlKey = link.video_id; // video id
-const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`; // sirf reference ke liye (agar link banana ho)
+let link = JSON.parse(localStorage.getItem("link"));
+const urlKey = link.video_id;
 
-// IFrame API me use karna ho to sirf videoId pass karo:
 let player;
 let intervalId;
+
+// Cache DOM elements (performance ke liye)
+const $seconds = $(".seconds");
+const $minutes = $(".minutes");
+const $seekbar = $("#seekbar");
+const $playBtn = $("#play i");
 
 function onYouTubeIframeAPIReady() {
   player = new YT.Player("player-container", {
     height: "100%",
     width: "100%",
-    videoId: urlKey, // your videoId
+    videoId: urlKey,
     playerVars: {
       autoplay: 0,
       controls: 0,
@@ -26,58 +30,68 @@ function onYouTubeIframeAPIReady() {
   });
 }
 
+// ✅ Helper: format time
+function formatTime(value) {
+  return value < 10 ? `0${value}` : value;
+}
 
+// ✅ Timer logic
+function startTimer() {
+  if (intervalId) return; // already running
 
-let timer = () => { 
-   intervalId = setInterval(() => {
-    console.log(player.getCurrentTime(), player.getDuration() - 2);
-    let currentTime = player.getCurrentTime() - 2;
-    let duration = player.getDuration();
-    let progress = (currentTime / duration) * 100
-    let roundedProgess = Math.round(progress);
-    if (roundedProgess > 0) {
-    $('.input-div').find('span').text(roundedProgess,':00');
-    $('#seekbar').val(progress);
-    }
+  intervalId = setInterval(() => {
+    const currentTime = player.getCurrentTime();
+    const duration = player.getDuration();
+
+    const secondsValue = Math.floor(currentTime % 60);
+    const minutesValue = Math.floor(currentTime / 60);
+    const progress = (currentTime / duration) * 100;
+
+    // update DOM
+    $seconds.text(formatTime(secondsValue));
+    $minutes.text(formatTime(minutesValue));
+    $seekbar.val(progress);
   }, 1000);
-  }
+}
 
+function stopTimer() {
+  clearInterval(intervalId);
+  intervalId = null;
+}
+
+// ✅ Events
 function onPlayerReady(event) {
-  // example: automatically mute and play
-  //   event.target.mute();
+  // autoplay/mute if needed
 }
 
 function onPlayerStateChange(e) {
   if (e.data === YT.PlayerState.PLAYING) {
-   timer();
-  }else{
-    clearInterval(intervalId);
+    startTimer();
+  } else {
+    stopTimer();
   }
 }
 
-
 $(document).ready(function () {
-  // logic for go back to home page
-  $('#leftBtn').on('click', function () {
-    history.go(-1)
-  });
+  // Go back
+  $("#leftBtn").on("click", () => history.go(-1));
 
-  // logic for play video on click
-  $('#play').on('click', function () {
-    if (player && player.getPlayerState() === 1) {
-      // If playing → pause
+  // Play/Pause toggle
+  $("#play").on("click", function () {
+    if (player && player.getPlayerState() === YT.PlayerState.PLAYING) {
       player.pauseVideo();
-      $('#play').find('i')
-        .removeClass('fa-pause')
-        .addClass('fa-play');
+      $playBtn.removeClass("fa-pause").addClass("fa-play");
     } else {
-      // If not playing → play
       player.playVideo();
-      $('#play').find('i')
-        .removeClass('fa-play')
-        .addClass('fa-pause');
+      $playBtn.removeClass("fa-play").addClass("fa-pause");
     }
   });
 
-
-})
+  // Seekbar
+  $seekbar.on("input", function () {
+    const seekPercent = $(this).val();
+    const duration = player.getDuration();
+    const seekTime = (seekPercent / 100) * duration;
+    player.seekTo(seekTime, true);
+  });
+});
