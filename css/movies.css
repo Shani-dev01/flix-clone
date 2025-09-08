@@ -1,0 +1,610 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+/* --- Navbar section --- */
+
+.movies-page .logoImg {
+    height: 65px;
+    width: 130px;
+    padding-top: 6px;
+    padding-left: 0;
+    margin-left: 35px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.movies-page .Navbar {
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.0) 0%,
+            /* bottom side dark */
+            rgba(0, 0, 0, 0.4) 95%);
+    transition: 0.9s ease;
+}
+
+.movies-page .Navbar.scroll {
+    background: #000;
+    transition: 0.5s ease;
+}
+
+
+.movies-page .innerNav {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+
+.movies-page .logo {
+    width: 100px;
+    height: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 30px;
+}
+
+.movies-page .HeaderButtons {
+    width: 84%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0;
+}
+
+.movies-page .logoDiv {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movies-page .headerBtnDiv {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-right: 40px;
+}
+
+.movies-page .liSection {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movies-page .liSection>ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+    list-style: none;
+    gap: 20px;
+}
+
+.movies-page .liSection>ul>li {
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.movies-page .liSection>ul>li:hover {
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s ease;
+}
+
+.movies-page .user-icons {
+    height: 50px;
+    width: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-right: 80px;
+}
+
+.fa-solid {
+    font-size: 18px;
+}
+
+.movies-page .user-icons>img {
+    height: 30px;
+    width: 30px;
+}
+
+.sign-out {
+    background-color: red;
+    color: white;
+    width: 70px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* --- Navbar section --- */
+
+/* --- home page styling starts here --- */
+/* CSS */
+.movies-page-hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.movies-page-hero-section::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(to left,
+            rgba(0, 0, 0, 0.2)10%,
+            rgba(0, 0, 0, 0.2)10%
+            /*left side dark  */
+        );
+    z-index: 1;
+}
+
+/* iframe container behind */
+#player-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* peeche */
+    border: none;
+}
+
+#player-container iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    border: none;
+    /* iframe ke upar clicks allow content ko */
+}
+
+
+/* overlay content */
+.parent-hero-div {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    align-items: end;
+    padding-left: 35px;
+    color: #fff;
+}
+
+.child-hero-div {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: end;
+    padding-bottom: 65px;
+}
+
+.second-div {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    padding-right: 30px;
+}
+
+.title-div {
+    height: 300px;
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: end;
+    gap: 15px;
+    z-index: 999;
+}
+
+.title-div h2 {
+    font-size: 50px;
+    height: 109px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.title-div span {
+    font-size: 18px;
+    height: 29%;
+    width: 60%;
+    text-align: left;
+    overflow: hidden;
+}
+
+.second-div>.volumBtn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    gap: 5px;
+    border: none;
+    outline: none;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #fff;
+    cursor: pointer;
+}
+
+.movies-page-play-button{
+    height: 36px;
+    width: 125px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    background-color: #ccc;
+    transition: 0.3s ease;
+}
+
+.infoBtn {
+    background-color: #dfdada50;
+    height: 36px;
+    width: 160px;
+    border: none;
+}
+
+.infoBtn:hover {
+    background-color: #ccc;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+
+.btnDivs {
+    display: flex;
+    align-items: center;
+    width: 260px;
+    gap: 10px;
+}
+
+.title-div h2,
+.title-div span,
+.btnDivs,
+.movies-page-play-button,
+.volumBtn {
+    position: relative;
+    z-index: 999;
+}
+
+
+/* --- home page styling ends here --- */
+
+/* logic for slider */
+.movies-page-slider-div {
+    min-height: 100vh;
+    width: 100%;
+    padding-bottom: 150px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 70%, rgba(128, 128, 128, 0.6) 97%);
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.slider-div {
+    height: 200px;
+    width: 95%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.slider-div h2 {
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+
+.slider-cards-buttons {
+    height: 200px;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    flex-shrink: 0;
+}
+
+.movie-images {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.movies-img {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.movies-card {
+    position: relative;
+    width: 250px;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    align-items: flex-start;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.movies-card.hover-active {
+    position: relative;
+    z-index: 10;
+    font-size: none;
+    height: 240px;
+    transform: scale(1.4);
+    transition: 0.4s ease;
+    box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.5);
+    background: rgb(20, 20, 20);
+    
+}
+
+.title-bar-icons {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    gap: 8px;
+    width: 80%;
+    transition: none;
+}
+
+.moives-images,
+img {
+    width: 100%;
+    height: 60%;
+    object-fit: cover;
+    transition: none;
+}
+
+.movies-name {
+    position: absolute;
+    top: 0;
+    width: 250px;
+    height: 60%;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    display: flex;
+    align-items: end;
+    justify-content: flex-start;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    transition: none;
+}
+
+.button-play i {
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    transition: none;
+}
+
+.button-play {
+    height: 27px;
+    width: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    outline: none;
+    border: none;
+    transition: none;
+    opacity: 90%;
+}
+
+.second {
+    border: 1px solid #fff;
+    background: #c3c3c31a;
+    color: #fff;
+}
+
+.iframeContainer {
+    position: absolute;
+    z-index: -1;
+    width: 265px;
+    height: 60%;
+    transition: 0.3s ease;
+    pointer-events: none;
+}
+
+.title-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: white;
+    opacity: 0;
+    padding-top: 15px;
+    padding-left: 15px;
+    height: 40%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    transition: none;
+}
+
+.movies-card:hover .title-bar {
+    opacity: 1;
+    transition: none;
+    transform: translateY(0);
+}
+
+.buttons {
+    height: 117px;
+    width: 50px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: none;
+    position: relative;
+    z-index: 99999;
+}
+
+.btn-div {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 17%;
+    display: none;
+    transition: 0.3s ease;
+}
+
+.movies-detail {
+    height: 150px;
+    width: 80%;
+}
+
+.movies-detail ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+.movies-detail ul>li {
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+
+
+i.fa-solid.fa-plus {
+    font-size: 21px;
+    transition: none;
+}
+
+.fa-chevron-right {
+    font-size: 50x;
+}
+
+/* logic for slider */
+
+
+
+
+
+
+/* responssiveness */
+
+@media (max-width: 425px) {
+    .movies-page .logoImg {
+        margin-left: 10px;
+    }
+
+    .movies-page .logoImg>h2 {
+        font-size: 28px;
+    }
+
+    .movies-page .title-div {
+        height: 80%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: end;
+        position: relative;
+        z-index: 1;
+    }
+
+    .title-div>h2 {
+        font-size: 30px;
+        width: 100%;
+    }
+
+    .movies-page .liSection {
+        display: none;
+    }
+
+    .movies-page .logoImg {
+        display: flex;
+        justify-content: end;
+        align-items: end;
+    }
+
+    .movies-page .headerBtnDiv {
+        margin-right: 0;
+        display: flex;
+        justify-content: end;
+        align-items: end;
+        padding: 0;
+    }
+
+    .movies-page .user-icons {
+        padding: 0;
+        margin: 0;
+        width: 160px;
+    }
+}

@@ -38,13 +38,13 @@ function onPlayerError(event) {
 }
 
 function onPlayerReady(event) {
-    
 
-        playerReady = true;
-        if (videoIdKey) {
-            player.loadVideoById(videoIdKey);
-        }
-    
+
+    playerReady = true;
+    if (videoIdKey) {
+        player.loadVideoById(videoIdKey);
+    }
+
     event.target.mute()
     hidePosterBackground();   // video play hone se bg remove
 }
@@ -87,9 +87,9 @@ function showPosterBackground(posterImg) {
 // YouTube state change me call (pause/end)
 function onPlayerStateChange(event) {
     const $icon = $('#volumeIcon');
-        let videoData = event.target.getVideoData();
-        localStorage.setItem('link', JSON.stringify(videoData));
-        console.log(videoData.video_id);  // yahan se video id milega
+    let videoData = event.target.getVideoData();
+    localStorage.setItem('link', JSON.stringify(videoData));
+    console.log(videoData.video_id);  // yahan se video id milega
 
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
@@ -137,7 +137,8 @@ $(document).ready(async function () {
             console.error("Error fetching movie + video:", err);
         }
     }
-    await fetchMovieWithVideo(3);
+    
+    await fetchMovieWithVideo(12);
     if (heroMovie) {
         // ✅ safe check for video key
 
@@ -156,11 +157,11 @@ $(document).ready(async function () {
 
         // Banner HTML
         const parentDiv = $('.parent-hero-div');
-        console.log(heroMovie);
+        const displayName = heroMovie?.name || heroMovie?.title || "Unknown Title";
         const bannerPoster = `
         <div class="child-hero-div" >
             <div class="title-div">
-                <h2>${heroMovie.original_title}</h2>
+                <h2>${displayName}</h2>
                 <span>${heroMovie.overview}</span>
                 <div class="btnDivs">
                     <button class="home-page-play-button" >
@@ -185,8 +186,10 @@ $(document).ready(async function () {
 
         // Agar player ready hai aur key mil gayi hai, video load karo
         if (playerReady && videoIdKey) {
-            player.loadVideoById(videoIdKey);
-            hidePosterBackground(); // video play hone pe bg hide
+            setTimeout(() => {
+                player.loadVideoById(videoIdKey);
+                hidePosterBackground(); // video play hone pe bg hide
+            }, 6000);
         }
         const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     }

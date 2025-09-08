@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 
 /* --- Navbar section --- */
 
@@ -103,7 +106,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     text-decoration: none;
     list-style: none;
     gap: 20px;

@@ -4,6 +4,10 @@
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 /* --- Navbar section --- */
 
@@ -103,7 +107,7 @@
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: start;
     text-decoration: none;
     list-style: none;
     gap: 20px;
@@ -326,7 +330,7 @@
     flex-direction: column;
     align-items: center;
     gap: 50px;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 70%, rgba(128, 128, 128, 0.6) 97%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 50%, rgba(95, 95, 95, 0.2) 99%);
     overflow: hidden;
     position: relative;
     z-index: 1;
@@ -493,7 +497,7 @@ img {
 }
 
 .buttons {
-    height: 117px;
+    height: 108px;
     width: 50px;
     color: #fff;
     display: flex;
@@ -512,7 +516,7 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 40%;
+    height: 17%;
     display: none;
     transition: 0.3s ease;
 }

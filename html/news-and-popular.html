@@ -3,12 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/news.css">
-</head>
-<body>
-    <h1>welcome to new & poppular page</h1>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Movies</title>
+</head >
+<body class='news-page' >
+      <!-- Navbar section starts here -->
+    <div class="header-container">
+        <div class="Navbar">
+            <div class="innerNav">
+                <div class="logoDiv">
+                    <!-- Netflix logo starts here -->
+                    <div class="logoImg">
+                        <h2 onclick="window.location.href='../html/home.html'" class="logo">METAFLIX</h2>
+                    </div>
+                    <!-- Netflix logo ends here -->
+                    <!-- Netflix language select and sign in button starts here -->
+                    <div class="HeaderButtons">
+                        <div class="liSection">
+                            <ul>
+                                <li onclick="window.location.href='../html/home.html'">Home</li>
+                                <li onclick="window.location.href='../html/tv-shows.html'">TV Shows</li>
+                                <li onclick="window.location.href='../html/movies.html'">Movies</li>
+                                <li onclick="window.location.href='../html/news-and-popular.html'">New & Popular</li>
+                            </ul>
+                        </div>
+                        <div class="headerBtnDiv">
+                            <!-- Select langauge option starts here -->
+                            <div class="user-icons">
+                                <li class="fa-solid fa-magnifying-glass"></li>
+                                <img src="../assests/user-icon.png" alt="">
+                                <i class="fa-solid fa-caret-down"></i>
+                                <button class="sign-out">Sign Out </button>
+                            </div>
+                            <!-- Sign in button ends here -->
+                        </div>
+                    </div>
+                    <!-- Netflix language select and sign in button ends here -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Navbar section ends here -->
+
+    <!-- Hero section starts here  -->
+    <div class="news-page-hero-section">
+        <div id="player-container" ></div>
+        <div class="parent-hero-div">
+            <!-- <div class="child-hero-div" >
+                <div class="title-div">
+                    <h2>Title</h2>
+                    <span id="titleErr" ></span>
+                    <div class="btnDivs">
+                    <button class="news-page-play-button">
+                    <li class="fa-solid fa-play"></li>Play
+                    </button>
+                    <button class="infoBtn">
+                    <i class="fa-solid fa-circle-info"></i>
+                    Info
+                    </button>
+                    </div>
+                </div>    
+                <div class="second-div" >
+                   <button class="volumBtn">
+                    <li id="volumeIcon" class="fa-solid fa-volume-mute"></li>
+                    Info
+                    </button>
+                </div>
+            </div> -->
+        </div>
+    </div>
+    <!-- Hero section ends here  -->
+
+    <!-- movies slider section starts here -->
+    <div class="news-page-slider-div">
+          <!-- <div class="slider-div">
+        <h2 class="movies-title">Action</h2>
+        <div class="slider-cards-buttons">
+            <button class="buttons left">
+                <li class="fas fa-chevron-left"></li>
+            </button>
+            <div class="movie-images" id="movie-images1">
+                <div class="movies-img">
+                    <div class="movies-card">
+                        <h3 class="movies-name">tiltle</h3>
+                        <img src="" alt="" class="lazy-load">
+                        <iframe class="iframeContainer" src="" frameborder="0"></iframe>
+                    <div class="title-bar">
+                        <div class="title-bar-icons">
+                            <button class="button-play"><i class="fa-solid fa-play"></i></button>
+                            <button class="button-play second"><i class="fa-solid fa-plus"></i></button>
+                            <button class="button-play second"><i class="far fa-thumbs-up"></i></button>
+                        </div>
+                        <div class="movies-detail">
+                            <ul>
+                                <li> - video</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <button class="buttons right">
+                <li class="fas fa-chevron-right"></li>
+            </button>
+        </div>
+    </div>  -->
+    </div>
+
+    <!-- movies slider section ends here -->
+
+    <!-- Footer section ends here -->
+     <div class="footer-main-div">
+        <div class="footer-inner-div">
+            <span>Questions? Call</span> <span class="numers">000-800-919-1743</span>
+            <div class="Footer-links">
+                <ul>
+                    <li>FAQ</li>
+                    <li>Investor Relations
+                    </li>
+                    <li>Privacy</li>
+                    <li>Speed Test</li>
+                </ul>
+                <ul>
+                    <li>Help Centre
+                    </li>
+                    <li>Jobs
+                    </li>
+                    <li>Cookie Preferences</li>
+                    <li>Legal Notices</li>
+                </ul>
+                <ul>
+                    <li>Accoun</li>
+                    <li>Ways to Watch</li>
+                    <li>Corporate Information</li>
+                    <li>Only on Netflix</li>
+                </ul>
+                <ul>
+                    <li>Media Centre</li>
+                    <li>Terms of Use</li>
+                    <li>Contact Us</li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="footer-bottom-div">
+            <div class="footer-lang-button">
+                <div class="selectLogo">
+                    <div class="netflix-lang-icon"><span>大</span>
+                        <span>
+                            A
+                        </span>
+                    </div>
+
+                </div>
+                <select name="langSelect" id="langSelect">
+                    <option value="">English</option>
+                    <option value="">Hindi</option>
+                </select>
+            </div>
+            <span>
+                Netflix India
+            </span>
+            <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span>Learn more.</span>
+                <br>
+                <br>
+                <span>Sunny's Production.</span>
+            </p>
+
+        </div>
+    </div>
+    <!-- Footer section starts here -->
 </body>
+<script src="https://www.youtube.com/iframe_api"></script>
 <script src="../jquery-3.7.1.min.js"></script>
 <script src="../js/newsAndPop.js"></script>
+<script src="../js/news-movies-cards.js"></script>
 </html>

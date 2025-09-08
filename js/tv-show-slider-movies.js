@@ -23,7 +23,6 @@ $(document).ready(async function () {
       try {
         const res = await fetch(proxy + encodeURIComponent(endpoint));
         if (res.ok) {
-          console.log("✅ Working proxy:", proxy);
           return res.json();
         }
       } catch (err) {
@@ -69,14 +68,15 @@ $(document).ready(async function () {
       const endpoint = `${url}/discover/tv?api_key=${api_key}&with_genres=${genreId}`;
       const allMoviesData = await fetchWithFallback(endpoint);
 
+      
       $(`#movie-images${containerIndex}`).empty();
 
       const moviePromises = allMoviesData.results.slice(0, 10).map(async (movie) => {
         const videoEndpoint = `${url}/tv/${movie.id}/videos?api_key=${api_key}`;
         const vidId = await fetchWithFallback(videoEndpoint);
         const videoKey = vidId.results.length ? vidId.results[0].key : null;
-
         return { movie, videoKey };
+
       });
       const moviesWithVideos = await Promise.all(moviePromises);
 
@@ -84,8 +84,8 @@ $(document).ready(async function () {
         const poster_img = `${img_base_url}${movie.backdrop_path}`;
         const htmlRender = `
         <div class="movies-card"  data-movieid="${movie.id}" data-video-key="${videoKey}" >
-          <h3 class="movies-name">${movie.title}</h3>
-          <img src="${poster_img}" alt="${movie.title}" class="lazy-load" loading="lazy" >
+          <h3 class="movies-name">${movie.name}</h3>
+          <img src="${poster_img}" alt="${movie.name}" class="lazy-load" loading="lazy" >
           <iframe class="iframeContainer" data-loaded="false" frameborder="0"></iframe>
           <div class="title-bar">
             <div class="title-bar-icons">

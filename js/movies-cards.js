@@ -1,12 +1,4 @@
 // Api call logic starts
-const proxies = [
-  "https://api.allorigins.win/raw?url=",
-  "https://thingproxy.freeboard.io/fetch/",
-  "https://api.codetabs.com/v1/proxy/?quest="
-];
-
-$(document).ready(async function () {
-
   const api_key = 'abd6102284b0a6e60a5a118ba23efedb';
   const url = 'https://api.themoviedb.org/3';
   const img_base_url = 'https://image.tmdb.org/t/p/original';
@@ -57,7 +49,7 @@ $(document).ready(async function () {
             <div class="movie-images" id="movie-images${index + 1}"></div>
           </div>
         </div>`;
-        $('.home-page-slider-div').append(sliderHtml);
+        $('.movies-page-slider-div').append(sliderHtml);
 
         moviesPoster(genreId, genreName, index + 1);
       });
@@ -104,8 +96,6 @@ $(document).ready(async function () {
       });
 
     }
-
-  });
 
 
   $(document).on('mouseleave', '.movies-card', function (e) {
