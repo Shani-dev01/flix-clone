@@ -30,7 +30,7 @@ function onYouTubeIframeAPIReady() {
 }
 function onPlayerError(event) {
     console.warn("YouTube Player Error:", event.data);
-    
+
     // Sirf poster wapas dikhane ke liye
     showPosterBackground(posterImg);
 
@@ -40,16 +40,16 @@ function onPlayerError(event) {
 }
 
 function onPlayerReady(event) {
-
     playerReady = true;
-      if (videoIdKey) {
+    
+    if (videoIdKey) {
         player.loadVideoById(videoIdKey);
         event.target.mute()
         hidePosterBackground(); // video play hote hi poster gayab
     } else {
         showPosterBackground(posterImg); // agar key nahi hai to poster show rahe
     }
- 
+
 }
 
 $(document).on("click", ".volumBtn", function () {
@@ -89,16 +89,16 @@ function showPosterBackground(posterImg) {
 
 // YouTube state change me call (pause/end)
 function onPlayerStateChange(event) {
+    
+    let videoData = event.target.getVideoData();
+    localStorage.setItem('link', JSON.stringify(videoData));
+    console.log(videoData.video_id);  // yahan se video id milega
+    
     const $icon = $('#volumeIcon');
-     if (event.data === YT.PlayerState.PLAYING) {
-        let videoData = event.target.getVideoData();
-        localStorage.setItem('link', JSON.stringify(videoData));
-        console.log(videoData.video_id);  // yahan se video id milega
-    }
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
         $icon.removeClass('fa-volume-mute fa-volume-high').addClass('fa-rotate-right');
-        
+
     } else {
         const $icon = $('#volumeIcon');
         const $replayButton = $icon.removeClass('fa-rotate-right')
@@ -156,8 +156,8 @@ $(document).ready(async function () {
             'position': 'relative',
             'z-index': '1',
         });
-        $(document).on('click', '.tv-shows-page-play-button', function(){
-           window.location.href='../html/watch.html';
+        $(document).on('click', '.tv-shows-page-play-button', function () {
+            window.location.href = '../html/watch.html';
         });
 
         // Banner HTML

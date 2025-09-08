@@ -37,7 +37,7 @@ $(document).ready(async function () {
 
     // ✅ Get all genres
     const genreCodes = async () => {
-      const endpoint = `${url}/genre/movie/list?api_key=${api_key}`;
+      const endpoint = `${url}/genre/tv/list?api_key=${api_key}`;
       const genreData = await fetchWithFallback(endpoint);
       const genres = genreData.genres || [];
 
@@ -57,7 +57,7 @@ $(document).ready(async function () {
             <div class="movie-images" id="movie-images${index + 1}"></div>
           </div>
         </div>`;
-        $('.home-page-slider-div').append(sliderHtml);
+        $('.tv-shows-slider-div').append(sliderHtml);
 
         moviesPoster(genreId, genreName, index + 1);
       });
@@ -66,19 +66,18 @@ $(document).ready(async function () {
 
     // ✅ Fetch movies by genre
     const moviesPoster = async (genreId, genreName, containerIndex) => {
-      const endpoint = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`;
+      const endpoint = `${url}/discover/tv?api_key=${api_key}&with_genres=${genreId}`;
       const allMoviesData = await fetchWithFallback(endpoint);
 
       $(`#movie-images${containerIndex}`).empty();
 
       const moviePromises = allMoviesData.results.slice(0, 10).map(async (movie) => {
-        const videoEndpoint = `${url}/movie/${movie.id}/videos?api_key=${api_key}`;
+        const videoEndpoint = `${url}/tv/${movie.id}/videos?api_key=${api_key}`;
         const vidId = await fetchWithFallback(videoEndpoint);
         const videoKey = vidId.results.length ? vidId.results[0].key : null;
 
         return { movie, videoKey };
       });
-
       const moviesWithVideos = await Promise.all(moviePromises);
 
       moviesWithVideos.forEach(({ movie, videoKey }) => {

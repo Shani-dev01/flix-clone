@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    z-index: 3;
+    z-index: 999;
     position: fixed;
     top: 0;
     left: 0;
@@ -321,9 +321,9 @@
 
 /* logic for slider */
 .home-page-slider-div {
-    height: 100vh;
+    height: 100%;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 150px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;
@@ -515,7 +515,7 @@ img {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 40%;
+    height: 17%;
     display: none;
     transition: 0.3s ease;
 }

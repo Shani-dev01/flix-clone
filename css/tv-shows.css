@@ -317,10 +317,10 @@
 /* --- home page styling ends here --- */
 
 /* logic for slider */
-.tv-shows-page-slider-div {
-    height: 100vh;
+.tv-shows-slider-div {
+    min-height: 100vh;
     width: 100%;
-    padding-bottom: 30px;
+    padding-bottom: 150px;
     padding-top: 10px;
     display: flex;
     flex-direction: column;

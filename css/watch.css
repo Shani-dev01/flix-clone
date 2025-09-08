@@ -41,12 +41,46 @@
     z-index: 1;
 }
 
+.play-pause-button {
+    height: 80%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    position: relative;
+    z-index: 999;
+    cursor: pointer;
+}
+
+button#play-pause-btn {
+    height: 75px;
+    width: 75px;
+    font-size: 32px;
+    color: #ccc;
+    background: transparent;
+    border-radius: 100%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 14;
+    background: #0000004f;
+}
+
+button#play-pause-btn i {
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .icons {
-    height: 120px;
+    height: 170px;
     width: 95%;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: center;
     justify-content: center;
     background: transparent;
     padding-left: 20px;
@@ -56,9 +90,24 @@
 .icons i {
     background: transparent;
     position: relative;
-    z-index: 12;
+    z-index: 18;
     cursor: pointer;
-    font-size: 25px;
+    font-size: 35px;
+    position: relative;
+    color: white;
+    transition: 0.7s ease;
+    cursor: pointer;
+}
+
+.overlay-text {
+    position: relative;
+    right: 28px;
+    font-size: 13px;
+    font-weight: bold;
+    background: transparent;
+    color: white;
+    z-index: 11;
+    cursor: pointer;
 }
 
 .icons>button {
@@ -119,8 +168,10 @@
 }
 
 .controls {
-    display: flex;
     width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
 }
 
 #play {
@@ -142,7 +193,7 @@
     -webkit-appearance: none;
     /* Default style hatane ke liye */
     width: 100%;
-    height: 6px;
+    height: 3px;
     background: #ddd;
     border-radius: 5px;
     outline: none;
@@ -156,18 +207,19 @@
     height: 6px;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s ease;
 }
 
 /* Thumb (jo gol button hota hai) */
 #seekbar::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 16px;
-    width: 16px;
+    height: 12px;
+    width: 12px;
     border-radius: 50%;
     background: #ff6600;
     border: 2px solid #ff6600;
     cursor: pointer;
-    margin-top: -5px;
+    margin-top: -3px;
     /* center align */
 }
 
@@ -185,12 +237,11 @@
     z-index: 13;
     left: 10px;
     display: flex;
-    gap: 3px;
 }
 
 .seconds,
 .minutes {
     background: transparent;
-    font-weight: 600;
+    font-weight: 100;
     font-size: 18px;
 }
