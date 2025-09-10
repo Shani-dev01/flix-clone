@@ -124,7 +124,7 @@ $(document).ready(async function () {
             const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
             const posterData = await posterRes.json();
             const movies = posterData.results[movieIndex];
-            console.log(movies);
+
 
             if (!movies) return;
             const videoUrl = `${url}/tv/${movies.id}/videos?api_key=${api_key}`;

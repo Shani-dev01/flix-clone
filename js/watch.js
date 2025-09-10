@@ -16,7 +16,7 @@ function onYouTubeIframeAPIReady() {
     width: "100%",
     videoId: urlKey,
     playerVars: {
-      autoplay: 0,
+      autoplay: 1,
       controls: 0,
       mute: 0,
       rel: 0,
@@ -61,7 +61,13 @@ function stopTimer() {
 
 // ✅ Events
 function onPlayerReady(event) {
-  // autoplay/mute if needed
+  event.target.playVideo();
+  const $btn = $('#play-pause-btn');
+  const $icon = $btn.find("i");
+  $icon.removeClass("fa-play").addClass("fa-pause");
+  $playBtn.removeClass("fa-play").addClass("fa-pause");
+  $btn.fadeToggle(300).hide(250);
+
 }
 
 function onPlayerStateChange(e) {
@@ -74,11 +80,11 @@ function onPlayerStateChange(e) {
 
 $(document).ready(function () {
   // Go back
-  $("#leftBtn").on("click", function(){  
+  $("#leftBtn").on("click", function () {
     localStorage.removeItem(link);
     history.go(-1);
   });
-  
+
 
   // Play/Pause toggle
   $("#play").on("click", function () {
@@ -93,10 +99,10 @@ $(document).ready(function () {
 
   // logic for play pause on click player-div
   $('.play-pause-button').on('click', function () {
-  if (!player) return;
+    if (!player) return;
 
-  const $btn = $('#play-pause-btn');
-  const $icon = $btn.find("i");
+    const $btn = $('#play-pause-btn');
+    const $icon = $btn.find("i");
 
     // Icon switch karo
     if (player.getPlayerState() === YT.PlayerState.PLAYING) {
@@ -110,8 +116,8 @@ $(document).ready(function () {
       $playBtn.removeClass("fa-play").addClass("fa-pause");
       $btn.fadeToggle(300).hide(250);
     }
-  
-});
+
+  });
 
 
 
@@ -139,23 +145,23 @@ $(document).ready(function () {
     player.seekTo(newTime, true);
   });
 
-// logic for hide controls and icons 
-let hideControlsTimeout;
+  // logic for hide controls and icons 
+  let hideControlsTimeout;
 
-$('.player-div').on('mousemove', function () {
-  // Saare controls show karo
-  $('.icons').fadeIn(300);
-  $('#leftBtn').fadeIn(300);
+  $('.player-div').on('mousemove', function () {
+    // Saare controls show karo
+    $('.icons').fadeIn(300);
+    $('#leftBtn').fadeIn(300);
 
-  // Agar pehle se koi timeout set hai to clear karo
-  clearTimeout(hideControlsTimeout);
+    // Agar pehle se koi timeout set hai to clear karo
+    clearTimeout(hideControlsTimeout);
 
-  // Naya timeout set karo jo 3s baad controls hide karega
-  hideControlsTimeout = setTimeout(() => {
-    $('.icons').fadeOut(300);
-    $('#leftBtn').fadeOut(300);
-  }, 2500);
-});
+    // Naya timeout set karo jo 3s baad controls hide karega
+    hideControlsTimeout = setTimeout(() => {
+      $('.icons').fadeOut(300);
+      $('#leftBtn').fadeOut(300);
+    }, 2500);
+  });
 
 
 });

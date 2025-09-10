@@ -89,7 +89,6 @@ function onPlayerStateChange(event) {
     const $icon = $('#volumeIcon');
     let videoData = event.target.getVideoData();
     localStorage.setItem('link', JSON.stringify(videoData));
-    console.log(videoData.video_id);  // yahan se video id milega
 
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
         showPosterBackground(posterImg); // bg wapas
@@ -129,6 +128,7 @@ $(document).ready(async function () {
             const data = await movieKeyRes.json();
             const videoKey = data.results?.[0]?.key || null;
 
+
             // 🔹 Assign to global variables
             heroMovie = movies;
             videoIdKey = videoKey;
@@ -137,7 +137,7 @@ $(document).ready(async function () {
             console.error("Error fetching movie + video:", err);
         }
     }
-    
+
     await fetchMovieWithVideo(12);
     if (heroMovie) {
         // ✅ safe check for video key
@@ -193,37 +193,6 @@ $(document).ready(async function () {
         }
         const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
     }
-
-
-
-
-    history.pushState(null, null, location.href);
-    window.onpopstate = function () {
-        history.go(1); // back button ko disable kar dega
-    };
-
-    // --- your scroll logic ---
-    let lastScroll = 0;
-    $(window).on('scroll', function () {
-        let currentScroll = $(this).scrollTop();
-
-        if (currentScroll > lastScroll) {
-            $('.Navbar').addClass('scroll');
-        } else {
-            $('.Navbar').removeClass('scroll');
-        }
-    });
-    // --- your scroll logic ---
-
-
-    // --- sign out ---
-    $('.sign-out').on('click', function () {
-        alert('sign out');
-        localStorage.clear();   // pehle clear karo
-        window.location.replace('../html/index.html');
-        // phir redirect
-    });
-    // --- sign out ---
 
 
 

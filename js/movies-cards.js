@@ -33,7 +33,7 @@
       const genreData = await fetchWithFallback(endpoint);
       const genres = genreData.genres || [];
 
-      const slicedMovies = genres.slice(0, 5);
+      const slicedMovies = genres.slice(6, 11);
       slicedMovies.forEach((genre, index) => {
         const genreName = genre.name;
         const genreId = genre.id;

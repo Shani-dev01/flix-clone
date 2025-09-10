@@ -92,7 +92,6 @@ function onPlayerStateChange(event) {
     
     let videoData = event.target.getVideoData();
     localStorage.setItem('link', JSON.stringify(videoData));
-    console.log(videoData.video_id);  // yahan se video id milega
     
     const $icon = $('#volumeIcon');
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
@@ -121,21 +120,25 @@ $(document).ready(async function () {
     let heroMovie = null;   // global variable for movie info
     async function fetchMovieWithVideo(movieIndex) {
         try {
-            const posterUrl = `${url}/trending/tv/day?api_key=${api_key}`;
+            const posterUrl = `${url}/movie/popular?api_key=${api_key}`;
             const posterRes = await fetch(proxy + encodeURIComponent(posterUrl));
             const posterData = await posterRes.json();
             const movies = posterData.results[movieIndex];
-            console.log(movies);
-
+            const movieId =  movies.id
+            
             if (!movies) return;
-            const videoUrl = `${url}/tv/${movies.id}/videos?api_key=${api_key}`;
+            const videoUrl = `${url}/movie/${movieId}/videos?api_key=${api_key}`;
             const movieKeyRes = await fetch(proxy + encodeURIComponent(videoUrl));
             const data = await movieKeyRes.json();
             const videoKey = data.results[0].key || null;
 
+    
+
             // 🔹 Assign to global variables
             heroMovie = movies;
             videoIdKey = videoKey;
+        
+
 
             // ✅ safe check for video key    
             urlKey = videoIdKey;
@@ -157,16 +160,17 @@ $(document).ready(async function () {
             'position': 'relative',
             'z-index': '1',
         });
-        $(document).on('click', '.tv-shows-page-play-button', function () {
+        $(document).on('click', '.news-page-play-button', function () {
             window.location.href = '../html/watch.html';
         });
 
         // Banner HTML
         const parentDiv = $('.parent-hero-div');
+        const name = heroMovie.name || heroMovie.title
         const bannerPoster = `
         <div class="child-hero-div" >
             <div class="title-div">
-                <h2>${heroMovie.name}</h2>
+                <h2>${name}</h2>
                 <span>${heroMovie.overview}</span>
                 <div class="btnDivs">
                     <button class="news-page-play-button" >

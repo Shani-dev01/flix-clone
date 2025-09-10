@@ -1,0 +1,174 @@
+/* --- Navbar section --- */
+
+.logoImg {
+    height: 65px;
+    width: 130px;
+    padding-top: 6px;
+    padding-left: 0;
+    margin-left: 35px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+.Navbar {
+    height: 60px;
+    width: 100%;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    z-index: 999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.0) 0%,
+            /* bottom side dark */
+            rgba(0, 0, 0, 0.4) 95%);
+    transition: 0.9s ease;
+}
+
+.Navbar.scroll {
+    background: #000;
+    transition: 0.5s ease;
+}
+
+
+.innerNav {
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+}
+
+
+.logo {
+    width: 100px;
+    height: 40px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin: 0;
+    margin-bottom: 0px;
+    color: red;
+    font-size: 30px;
+}
+
+.HeaderButtons {
+    width: 84%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 0;
+}
+
+.logoDiv {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headerBtnDiv {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-right: 40px;
+}
+
+.liSection {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.liSection>ul {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    text-decoration: none;
+    list-style: none;
+    gap: 20px;
+}
+
+.liSection>ul>li {
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.3s ease;
+}
+
+.liSection>ul>li:hover {
+    cursor: pointer;
+    color: #ccc;
+    transition: 0.3s ease;
+}
+
+.user-icons .search-input  {
+    width: 30px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    background: transparent;
+    gap: 5px;
+    padding-left: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in;
+}
+
+
+
+.user-icons .search-input > input{
+    height: 35px;
+    width: 90%;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    padding-left: 10px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+.user-icons {
+    height: 35px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-right: 200px;
+    gap: 10px;
+}
+
+.fa-solid {
+    font-size: 20px;
+}
+
+.user-icons>img {
+    height: 30px;
+    width: 30px;
+}
+
+.sign-out {
+    background-color: red;
+    color: white;
+    width: 70px;
+    height: 30px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+/* --- Navbar section --- */
