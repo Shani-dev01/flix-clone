@@ -106,7 +106,7 @@ function onPlayerStateChange(event) {
 }
 
 $(document).ready(async function () {
-    
+
     const proxy = [
         "https://api.allorigins.win/raw?url=",
         "https://thingproxy.freeboard.io/fetch/",
@@ -118,7 +118,9 @@ $(document).ready(async function () {
     const api_key = 'abd6102284b0a6e60a5a118ba23efedb';
     const url = 'https://api.themoviedb.org/3';
     const img_base_url = 'https://image.tmdb.org/t/p/original';
-    
+    // /discover/movie 14 to 19 genre code
+    let a = 0, b = 0;
+
 
     // logic for homepage movies render
     const homePage = async (proxy) => {
@@ -148,7 +150,7 @@ $(document).ready(async function () {
             }
         }
 
-        await fetchMovieWithVideo(10,proxy);
+        await fetchMovieWithVideo(10, proxy);
         if (heroMovie) {
             // ✅ safe check for video key
 
@@ -226,12 +228,12 @@ $(document).ready(async function () {
         }
 
         // ✅ Get all genres
-        const genreCodes = async () => {
-            const endpoint = `${url}/genre/movie/list?api_key=${api_key}`;
+        const genreCodes = async (a, b, containerSelector, type) => {
+            const endpoint = `${url}/genre/${type}/list?api_key=${api_key}`;
             const genreData = await fetchWithFallback(endpoint, proxy);
             const genres = genreData.genres || [];
-
-            const slicedMovies = genres.slice(0, 5);
+            console.log(a, b, type)
+            const slicedMovies = genres.slice(a, b);
             slicedMovies.forEach((genre, index) => {
                 const genreName = genre.name;
                 const genreId = genre.id;
@@ -247,22 +249,23 @@ $(document).ready(async function () {
             <div class="movie-images" id="movie-images${index + 1}"></div>
           </div>
         </div>`;
-                $('.home-page-slider-div').append(sliderHtml);
-
+                $(containerSelector).append(sliderHtml);
                 moviesPoster(genreId, genreName, index + 1);
             });
+
         }
-        genreCodes();
+        genreCodes(a, b, containerSelector, type);
 
         // ✅ Fetch movies by genre
         const moviesPoster = async (genreId, genreName, containerIndex) => {
-            const endpoint = `${url}/discover/movie?api_key=${api_key}&with_genres=${genreId}`;
+            const endpoint = `${url}/discover/${type}?api_key=${api_key}&with_genres=${genreId}`;
             const allMoviesData = await fetchWithFallback(endpoint, proxy);
+            console.log()
 
             $(`#movie-images${containerIndex}`).empty();
 
             const moviePromises = allMoviesData.results.slice(0, 10).map(async (movie) => {
-                const videoEndpoint = `${url}/movie/${movie.id}/videos?api_key=${api_key}`;
+                const videoEndpoint = `${url}/${type}/${movie.id}/videos?api_key=${api_key}`;
                 const vidId = await fetchWithFallback(videoEndpoint, proxy);
                 const videoKey = vidId.results.length ? vidId.results[0].key : null;
 
@@ -272,11 +275,13 @@ $(document).ready(async function () {
             const moviesWithVideos = await Promise.all(moviePromises);
 
             moviesWithVideos.forEach(({ movie, videoKey }) => {
-                const poster_img = `${img_base_url}${movie.backdrop_path}`;
-                const htmlRender = `
+            const poster_img = `${img_base_url}${movie.backdrop_path}`;
+
+            const name = movie.name || movie.title;
+            const htmlRender = `
         <div class="movies-card"  data-movieid="${movie.id}" data-video-key="${videoKey}" >
-          <h3 class="movies-name">${movie.title}</h3>
-          <img src="${poster_img}" alt="${movie.title}" class="lazy-load" loading="lazy" >
+          <h3 class="movies-name">${name}</h3>
+          <img src="${poster_img}" alt="${name}" class="lazy-load" loading="lazy" >
           <iframe class="iframeContainer" data-loaded="false" frameborder="0"></iframe>
           <div class="title-bar">
             <div class="title-bar-icons">
@@ -289,7 +294,6 @@ $(document).ready(async function () {
             </div>
           </div>
         </div>`;
-
                 $(`#movie-images${containerIndex}`).append(htmlRender);
             });
 
@@ -398,10 +402,41 @@ $(document).ready(async function () {
             alert('clicked');
         });
     }
+
+
+    // logic for change pages by path
     if (window.location.href.includes('home.html')) {
+
+        type = 'movie'
+        containerSelector = '.home-page-slider-div'
+        a = 0, b = 9
         homePage(proxy);
-        moviesCards(proxy)
+        moviesCards(proxy, containerSelector, type)
+
     } else if (window.location.href.includes('news-and-popular.html')) {
-        console.log('welcom to home page')
+
+        type = 'movie'
+        containerSelector = '.news-page-slider-div'
+        a = 14, b = 19
+        homePage(proxy);
+        moviesCards(proxy, containerSelector, type)
+
+
+    } else if (window.location.href.includes('movies.html')) {
+
+        type = 'movie'
+        containerSelector = '.movies-page-slider-div'
+        a = 6, b = 12
+        homePage(proxy);
+        moviesCards(proxy, containerSelector, type)
+
+    } else if (window.location.href.includes('tv-shows.html')) {
+
+        type = 'tv'
+        containerSelector = '.tv-shows-slider-div'
+        a = 0, b = 5
+        homePage(proxy);
+        moviesCards(proxy, containerSelector, type)
+
     }
 })
