@@ -144,7 +144,7 @@ $(document).ready(async function () {
             console.error("Error fetching movie + video:", err);
         }
     }
-    await fetchMovieWithVideo(11);
+    await fetchMovieWithVideo(11,endpointType);
     if (heroMovie) {
         // Poster fallback turant show
         posterImg = `${img_base_url}${heroMovie.backdrop_path}`;

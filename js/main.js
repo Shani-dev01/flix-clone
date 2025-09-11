@@ -1,7 +1,10 @@
-var posterImg = '';
+// var posterImg = '';
 var player;
 var videoIdKey;
 var playerReady = false;
+var players = {};  // For movie cards players
+
+// Configure the YouTube hero player
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-container', {
         'height': '100%',
@@ -17,7 +20,7 @@ function onYouTubeIframeAPIReady() {
             wmode: 'transparent',
             iv_load_policy: 3,
             fs: 0,               // fullscreen button off
-            showinfo: 0,         // (deprecated but kuch browsers me work)
+            showinfo: 0,         // (deprecated but works in some browsers)
             enablejsapi: 1
         },
         events: {
@@ -25,46 +28,35 @@ function onYouTubeIframeAPIReady() {
             'onStateChange': onPlayerStateChange,
             'onError': onPlayerError
         }
-    })
+    });
 }
+
 function onPlayerError(event) {
     console.warn("YouTube Player Error:", event.data);
-
-    // Sirf poster wapas dikhane ke liye
     showPosterBackground(posterImg);
-
-    // Agar player container chhupana ho to
     $('#player-container').hide();
 }
 
 function onPlayerReady(event) {
-
-
     playerReady = true;
     if (videoIdKey) {
         player.loadVideoById(videoIdKey);
     }
-
-    event.target.mute()
-    hidePosterBackground();   // video play hone se bg remove
+    event.target.mute();
+    hidePosterBackground();
 }
-
 
 $(document).on("click", ".volumBtn", function () {
     if (player && player.isMuted()) {
         player.unMute();
-        $('#volumeIcon').removeClass('fa-volume-mute');
-        $('#volumeIcon').toggleClass('fa-volume-high');
+        $('#volumeIcon').removeClass('fa-volume-mute').toggleClass('fa-volume-high');
     } else {
         player.mute();
-        $('#volumeIcon').removeClass('fa-volume-high');
-        $('#volumeIcon').toggleClass('fa-volume-mute');
-
+        $('#volumeIcon').removeClass('fa-volume-high').toggleClass('fa-volume-mute');
     }
 });
 
-
-// Document ready ke bahar function
+// Hide hero background once video starts playing
 function hidePosterBackground() {
     if ($('.parent-hero-div').length) {
         $('.parent-hero-div').css('background-image', 'none');
@@ -84,99 +76,97 @@ function showPosterBackground(posterImg) {
     }
 }
 
-
-// YouTube state change me call (pause/end)
 function onPlayerStateChange(event) {
     const $icon = $('#volumeIcon');
     let videoData = event.target.getVideoData();
     localStorage.setItem('link', JSON.stringify(videoData));
-
     if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
-        showPosterBackground(posterImg); // bg wapas
+        showPosterBackground(posterImg);
         $icon.removeClass('fa-volume-mute fa-volume-high').addClass('fa-rotate-right');
     } else {
         const $icon = $('#volumeIcon');
-        const $replayButton = $icon.removeClass('fa-rotate-right')
+        const $replayButton = $icon.removeClass('fa-rotate-right');
         $($replayButton).on('click', function () {
             event.target.playVideo();
             $('.parent-hero-div').css('background-image', 'none');
-        })
-
+        });
     }
 }
 
-$(document).ready(async function () {
+// ===================
+// Caching Utility
+// ===================
+async function fetchWithCache(endpoint, proxy) {
+    const cacheKey = endpoint;
+    const cached = localStorage.getItem(cacheKey);
+    if (cached) return JSON.parse(cached);
+  
+    for (let prox of proxy) {
+        try {
+            const res = await fetch(prox + encodeURIComponent(endpoint));
+            if (res.ok) {
+                const data = await res.json();
+                // Cache the response for future use
+                localStorage.setItem(cacheKey, JSON.stringify(data));
+                return data;
+            }
+        } catch (err) {
+            console.warn("Proxy failed: ", prox, err);
+        }
+    }
+    throw new Error("All proxies failed for " + endpoint);
+}
 
+$(document).ready(async function () {
     const proxy = [
         "https://api.allorigins.win/raw?url=",
-        "https://thingproxy.freeboard.io/fetch/",
         "https://api.codetabs.com/v1/proxy/?quest="
     ];
-
-
-    // logic for home page data render
     const api_key = 'abd6102284b0a6e60a5a118ba23efedb';
     const url = 'https://api.themoviedb.org/3';
     const img_base_url = 'https://image.tmdb.org/t/p/original';
-    // /discover/movie 14 to 19 genre code
     let a = 0, b = 0;
 
+    // Home page movies render
+    const homePage = async (proxy, type, page, endPoint) => {
+        let heroMovie = null;
+        async function fetchMovieWithVideo(movieIndex, proxy, type, page, endPoint) {
 
-    // logic for homepage movies render
-    const homePage = async (proxy) => {
-
-        let heroMovie = null;   // global variable for movie info
-
-        async function fetchMovieWithVideo(movieIndex, proxy) {
             try {
-                const posterUrl = `${url}/trending/all/day?api_key=${api_key}`;
-                const posterRes = await fetch(proxy[0] + encodeURIComponent(posterUrl));
-                const posterData = await posterRes.json();
+                const posterUrl = `${url}/${endPoint}?api_key=${api_key}`;
+                const posterData = await fetchWithCache(posterUrl, proxy);
                 const movies = posterData.results[movieIndex];
-                // if (!movies) return;
-
-                const videoUrl = `${url}/movie/${movies.id}/videos?api_key=${api_key}`;
-                const movieKeyRes = await fetch(proxy[0] + encodeURIComponent(videoUrl));
-                const data = await movieKeyRes.json();
+                const videoUrl = `${url}/${type}/${movies.id}/videos?api_key=${api_key}`;
+                const data = await fetchWithCache(videoUrl, proxy);
                 const videoKey = data.results?.[0]?.key || null;
-
-
-                // 🔹 Assign to global variables
                 heroMovie = movies;
                 videoIdKey = videoKey;
-
             } catch (err) {
                 console.error("Error fetching movie + video:", err);
             }
+            
         }
-
-        await fetchMovieWithVideo(10, proxy);
+        await fetchMovieWithVideo(10, proxy, type, page, endPoint);
         if (heroMovie) {
-            // ✅ safe check for video key
-
             const urlKey = videoIdKey;
-
-            // Poster fallback turant show
             posterImg = `${img_base_url}${heroMovie.backdrop_path}`;
-            $('.parent-hero-div').css({
+            $(page).css({
                 'background-image': `url('${posterImg}')`,
                 'background-size': 'cover',
                 'background-repeat': 'no-repeat',
                 'background-position': 'center',
                 'position': 'relative',
-                'z-index': '1',
+                'z-index': '1'
             });
-
-            // Banner HTML
-            const parentDiv = $('.parent-hero-div');
+            const parentDiv = $(page);
             const displayName = heroMovie?.name || heroMovie?.title || "Unknown Title";
             const bannerPoster = `
-        <div class="child-hero-div" >
+        <div class="child-hero-div">
             <div class="title-div">
                 <h2>${displayName}</h2>
                 <span>${heroMovie.overview}</span>
                 <div class="btnDivs">
-                    <button class="home-page-play-button" >
+                    <button class="home-page-play-button">
                         <li class="fa-solid fa-play"></li>Play
                     </button>
                     <button class="infoBtn">
@@ -185,7 +175,7 @@ $(document).ready(async function () {
                     </button>
                 </div>
             </div>    
-            <div class="second-div" >
+            <div class="second-div">
                 <button class="volumBtn">
                     <li id="volumeIcon" class="fa-solid fa-volume-mute"></li>
                 </button>
@@ -194,50 +184,27 @@ $(document).ready(async function () {
             parentDiv.append(bannerPoster);
             $('.home-page-play-button').on('click', function () {
                 window.location.href = '../html/watch.html';
-            })
-
-            // Agar player ready hai aur key mil gayi hai, video load karo
+            });
             if (playerReady && videoIdKey) {
                 setTimeout(() => {
                     player.loadVideoById(videoIdKey);
-                    hidePosterBackground(); // video play hone pe bg hide
+                    hidePosterBackground();
                 }, 6000);
             }
             const youtubeUrl = `https://www.youtube.com/watch?v=${urlKey}`;
         }
+    };
 
-    }
-
-    // logic for movies cards render
-    const moviesCards = async (proxy) => {
-
-
-        // ✅ Helper function to fetch with fallback
-        async function fetchWithFallback(endpoint, proxy) {
-            for (let prox of proxy) {
-                try {
-                    const res = await fetch(prox + encodeURIComponent(endpoint));
-                    if (res.ok) {
-                        return res.json();
-                    }
-                } catch (err) {
-                    console.warn("❌ Proxy failed:", prox, err);
-                }
-            }
-            throw new Error("All proxy failed for " + endpoint);
-        }
-
-        // ✅ Get all genres
-        const genreCodes = async (a, b, containerSelector, type) => {
+    // Movies cards render
+    const moviesCards = async (proxy, containerSelector, type) => {
+        async function genreCodes(a, b, containerSelector, type) {
             const endpoint = `${url}/genre/${type}/list?api_key=${api_key}`;
-            const genreData = await fetchWithFallback(endpoint, proxy);
+            const genreData = await fetchWithCache(endpoint, proxy);
             const genres = genreData.genres || [];
-            console.log(a, b, type)
             const slicedMovies = genres.slice(a, b);
             slicedMovies.forEach((genre, index) => {
                 const genreName = genre.name;
                 const genreId = genre.id;
-
                 let sliderHtml = `
         <div class="slider-div">
           <h2 class="movies-title">${genreName}</h2>
@@ -252,36 +219,29 @@ $(document).ready(async function () {
                 $(containerSelector).append(sliderHtml);
                 moviesPoster(genreId, genreName, index + 1);
             });
-
         }
         genreCodes(a, b, containerSelector, type);
 
-        // ✅ Fetch movies by genre
         const moviesPoster = async (genreId, genreName, containerIndex) => {
             const endpoint = `${url}/discover/${type}?api_key=${api_key}&with_genres=${genreId}`;
-            const allMoviesData = await fetchWithFallback(endpoint, proxy);
-            console.log()
-
+            const allMoviesData = await fetchWithCache(endpoint, proxy);
             $(`#movie-images${containerIndex}`).empty();
+
 
             const moviePromises = allMoviesData.results.slice(0, 10).map(async (movie) => {
                 const videoEndpoint = `${url}/${type}/${movie.id}/videos?api_key=${api_key}`;
-                const vidId = await fetchWithFallback(videoEndpoint, proxy);
+                const vidId = await fetchWithCache(videoEndpoint, proxy);
                 const videoKey = vidId.results.length ? vidId.results[0].key : null;
-
                 return { movie, videoKey };
             });
-
             const moviesWithVideos = await Promise.all(moviePromises);
-
             moviesWithVideos.forEach(({ movie, videoKey }) => {
-            const poster_img = `${img_base_url}${movie.backdrop_path}`;
-
-            const name = movie.name || movie.title;
-            const htmlRender = `
-        <div class="movies-card"  data-movieid="${movie.id}" data-video-key="${videoKey}" >
+                const poster_img = `${img_base_url}${movie.backdrop_path}`;
+                const name = movie.name || movie.title;
+                const htmlRender = `
+        <div class="movies-card" data-movieid="${movie.id}" data-video-key="${videoKey}">
           <h3 class="movies-name">${name}</h3>
-          <img src="${poster_img}" alt="${name}" class="lazy-load" loading="lazy" >
+          <img src="${poster_img}" alt="${name}" class="lazy-load" loading="lazy">
           <iframe class="iframeContainer" data-loaded="false" frameborder="0"></iframe>
           <div class="title-bar">
             <div class="title-bar-icons">
@@ -296,9 +256,7 @@ $(document).ready(async function () {
         </div>`;
                 $(`#movie-images${containerIndex}`).append(htmlRender);
             });
-
-        }
-
+        };
 
         $(document).on('mouseleave', '.movies-card', function (e) {
             e.stopPropagation();
@@ -310,38 +268,17 @@ $(document).ready(async function () {
             });
         });
 
-
-        var players = {}; // global object to store all iframe players
-
-        function onYouTubeIframeAPIReady() {
-            $('.iframeContainer').each(function (index, iframe) {
-                var movieId = $(iframe).closest('.movies-card').data('movieid');
-                players[movieId] = new YT.Player(iframe, {
-                    events: {
-                        'onReady': onPlayerReady
-                    }
-                });
-            });
-        }
-
-        function onPlayerReady(event) {
-            // event.target is the player object
-        }
-
-
         // Logic for play videos on card hover
         $(document).on('mouseenter', '.movies-card', function (e) {
             e.stopPropagation();
             const card = $(this);
-            const iframeContainer = card.find('.iframeContainer')
-
+            const iframeContainer = card.find('.iframeContainer');
             card.closest('.slider-div').find('.btn-div').css({ 'display': 'flex' });
             if ($(e.target).closest('.buttons').length) {
                 card.closest('.slider-div').find('.btn-div').css({ 'display': 'flex' });
                 card.removeClass('hover-active');
             }
             card.addClass('hover-active');
-
             card.find('.iframeContainer').css({
                 'display': 'flex',
                 'position': 'absolute',
@@ -351,7 +288,6 @@ $(document).ready(async function () {
                 'width': '265px',
                 'height': '60%'
             });
-
             $('.movies-card').not(card).find('.iframeContainer').css({
                 'display': 'flex',
                 'position': 'absolute',
@@ -359,15 +295,13 @@ $(document).ready(async function () {
                 'pointer-events': 'none'
             });
             const videoKey = card.data('video-key');
-
             // Agar iframe already loaded nahi hai
             if (iframeContainer.data('loaded') === false) {
                 // Set iframe src only on hover
                 const embedUrl = `https://www.youtube.com/embed/${videoKey}?controls=0&rel=0&enablejsapi=1&autoplay=1&mute=1`;
                 iframeContainer.attr('src', embedUrl);
                 iframeContainer.data('loaded', true);
-
-                // Initialize YT.Player for hover control
+                // Initialize YT.Player using the players object
                 players[videoKey] = new YT.Player(iframeContainer[0], {
                     events: {
                         onReady: (event) => {
@@ -389,54 +323,50 @@ $(document).ready(async function () {
             $(this).removeClass('hover-active');
             const card = $(this);
             const videoKey = card.data('video-key');
-
             if (players[videoKey] && typeof players[videoKey].pauseVideo === "function") {
                 console.log('mouse leaved');
                 players[videoKey].pauseVideo();
             }
-
         });
 
         $(document).on('mouseenter', '.buttons', function (e) {
             e.stopPropagation();
             alert('clicked');
         });
-    }
+    };
 
-
-    // logic for change pages by path
+    let endPoint, page, type, containerSelector;
     if (window.location.href.includes('home.html')) {
-
-        type = 'movie'
-        containerSelector = '.home-page-slider-div'
-        a = 0, b = 9
-        homePage(proxy);
-        moviesCards(proxy, containerSelector, type)
-
+        a = 0, b = 9;
+        endPoint = 'trending/movie/week';
+        page = '.parent-hero-div';
+        type = 'movie';
+        containerSelector = '.home-page-slider-div';
+        homePage(proxy, type, page, endPoint);
+        moviesCards(proxy, containerSelector, type);
     } else if (window.location.href.includes('news-and-popular.html')) {
-
-        type = 'movie'
-        containerSelector = '.news-page-slider-div'
-        a = 14, b = 19
-        homePage(proxy);
-        moviesCards(proxy, containerSelector, type)
-
-
+        a = 14, b = 19;
+        endPoint = 'movie/popular';
+        page = '.parent-hero-div';
+        type = 'movie';
+        containerSelector = '.news-page-slider-div';
+        homePage(proxy, type, page, endPoint);
+        moviesCards(proxy, containerSelector, type);
     } else if (window.location.href.includes('movies.html')) {
-
-        type = 'movie'
-        containerSelector = '.movies-page-slider-div'
-        a = 6, b = 12
-        homePage(proxy);
-        moviesCards(proxy, containerSelector, type)
-
+        a = 6, b = 12;
+        endPoint = 'movie/top_rated';
+        page = '.parent-hero-div';
+        type = 'movie';
+        containerSelector = '.movies-page-slider-div';
+        homePage(proxy, type, page, endPoint);
+        moviesCards(proxy, containerSelector, type);
     } else if (window.location.href.includes('tv-shows.html')) {
-
-        type = 'tv'
-        containerSelector = '.tv-shows-slider-div'
-        a = 0, b = 5
-        homePage(proxy);
-        moviesCards(proxy, containerSelector, type)
-
+        a = 0, b = 5;
+        endPoint = 'trending/tv/day';
+        page = '.parent-hero-div';
+        type = 'tv';
+        containerSelector = '.tv-shows-slider-div';
+        homePage(proxy, type, page, endPoint);
+        moviesCards(proxy, containerSelector, type);
     }
-})
+});
