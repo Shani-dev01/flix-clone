@@ -42,6 +42,8 @@ html {
     z-index: 0;
     /* peeche */
     border: none;
+    padding: 0;
+    margin: 0;
 }
 
 #player-container iframe {
@@ -129,6 +131,9 @@ html {
     cursor: pointer;
 }
 
+.ytp-large-play-button {
+    display: none !important;
+  }
 .home-page-play-button,
 .infoBtn {
     height: 36px;
@@ -225,6 +230,7 @@ html {
     display: flex;
     align-items: center;
     gap: 5px;
+    transition: none;
 }
 
 .movies-img {
@@ -245,6 +251,7 @@ html {
     align-items: flex-start;
     border-radius: 3px;
     overflow: hidden;
+    transform: none;
 }
 
 .movies-card.hover-active {

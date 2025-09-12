@@ -7,21 +7,19 @@ var players = {};  // For movie cards players
 // Configure the YouTube hero player
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player-container', {
-        'height': '100%',
-        'width': '100%',
+        'height': '100vh',
+        'width': '100vw',
         videoId: '',
         playerVars: {
-            autoplay: 1,
-            mute: 1,
-            rel: 0,
-            controls: 0,
-            modestbranding: 1,
-            playsinline: 1,
-            wmode: 'transparent',
-            iv_load_policy: 3,
-            fs: 0,               // fullscreen button off
-            showinfo: 0,         // (deprecated but works in some browsers)
-            enablejsapi: 1
+        autoplay: 1,
+        mute: 1,
+        controls: 0,
+        modestbranding: 1,
+        rel: 0,
+        showinfo: 0,
+        iv_load_policy: 3,
+        fs: 0,
+        playsinline: 1
         },
         events: {
             'onReady': onPlayerReady,
@@ -216,8 +214,8 @@ $(document).ready(async function () {
             <div class="movie-images" id="movie-images${index + 1}"></div>
           </div>
         </div>`;
-                $(containerSelector).append(sliderHtml);
-                moviesPoster(genreId, genreName, index + 1);
+        $(containerSelector).append(sliderHtml);
+        moviesPoster(genreId, genreName, index + 1);
             });
         }
         genreCodes(a, b, containerSelector, type);
@@ -225,6 +223,7 @@ $(document).ready(async function () {
         const moviesPoster = async (genreId, genreName, containerIndex) => {
             const endpoint = `${url}/discover/${type}?api_key=${api_key}&with_genres=${genreId}`;
             const allMoviesData = await fetchWithCache(endpoint, proxy);
+            
             $(`#movie-images${containerIndex}`).empty();
 
 
@@ -234,16 +233,17 @@ $(document).ready(async function () {
                 const videoKey = vidId.results.length ? vidId.results[0].key : null;
                 return { movie, videoKey };
             });
+
             const moviesWithVideos = await Promise.all(moviePromises);
             moviesWithVideos.forEach(({ movie, videoKey }) => {
                 const poster_img = `${img_base_url}${movie.backdrop_path}`;
                 const name = movie.name || movie.title;
                 const htmlRender = `
-        <div class="movies-card" data-movieid="${movie.id}" data-video-key="${videoKey}">
-          <h3 class="movies-name">${name}</h3>
-          <img src="${poster_img}" alt="${name}" class="lazy-load" loading="lazy">
-          <iframe class="iframeContainer" data-loaded="false" frameborder="0"></iframe>
-          <div class="title-bar">
+             <div class="movies-card" data-movieid="${movie.id}" data-video-key="${videoKey}">
+             <h3 class="movies-name">${name}</h3>
+                <img src="${poster_img}" alt="${name}" class="lazy-load" loading="lazy">
+              <iframe class="iframeContainer" data-loaded="false" frameborder="0"></iframe>
+             <div class="title-bar">
             <div class="title-bar-icons">
               <button class="button-play"><i class="fa-solid fa-play"></i></button>
               <button class="button-play second"><i class="fa-solid fa-plus"></i></button>
@@ -252,11 +252,13 @@ $(document).ready(async function () {
             <div class="movies-detail">
               <ul><li>${genreName} - Trailer</li></ul>
             </div>
-          </div>
-        </div>`;
+             </div>
+             </div>
+             `;
                 $(`#movie-images${containerIndex}`).append(htmlRender);
             });
         };
+
 
         $(document).on('mouseleave', '.movies-card', function (e) {
             e.stopPropagation();
@@ -324,7 +326,6 @@ $(document).ready(async function () {
             const card = $(this);
             const videoKey = card.data('video-key');
             if (players[videoKey] && typeof players[videoKey].pauseVideo === "function") {
-                console.log('mouse leaved');
                 players[videoKey].pauseVideo();
             }
         });

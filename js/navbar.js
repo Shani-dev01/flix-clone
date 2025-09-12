@@ -56,11 +56,7 @@ $(document).ready(function () {
         });
         // --- sign out ---
 
-
-        // Search functionallity for all pages
-        $('.search-input, input').on('keydown', function () {
-            console.log($(this).val());
-        })
+        
 
     })
 })
