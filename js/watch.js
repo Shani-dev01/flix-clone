@@ -1,5 +1,5 @@
 let link = JSON.parse(localStorage.getItem("link"));
-const urlKey = link.video_id;
+const urlKey = link.video_id || link;
 
 let player;
 let intervalId;

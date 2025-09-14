@@ -12,7 +12,7 @@ html {
 
 /* --- home page styling starts here --- */
 /* CSS */
-.tv-shows-page-hero-section {
+.home-page-hero-section {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -20,7 +20,7 @@ html {
     z-index: 0;
 }
 
-.tv-shows-page-hero-section::before {
+.home-page-hero-section::before {
     content: '';
     height: 100%;
     width: 100%;

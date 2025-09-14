@@ -126,9 +126,9 @@ $(document).ready(async function () {
     let a = 0, b = 0;
 
     // Home page movies render
-    const homePage = async (proxy, type, page, endPoint) => {
+    const homePage = async (proxy, type, endPoint) => {
         let heroMovie = null;
-        async function fetchMovieWithVideo(movieIndex, proxy, type, page, endPoint) {
+        async function fetchMovieWithVideo(movieIndex, proxy, type, endPoint) {
 
             try {
                 const posterUrl = `${url}/${endPoint}?api_key=${api_key}`;
@@ -144,7 +144,7 @@ $(document).ready(async function () {
             }
             
         }
-        await fetchMovieWithVideo(10, proxy, type, page, endPoint);
+        await fetchMovieWithVideo(10, proxy, type, endPoint);
         if (heroMovie) {
             const urlKey = videoIdKey;
             posterImg = `${img_base_url}${heroMovie.backdrop_path}`;
@@ -156,7 +156,7 @@ $(document).ready(async function () {
                 'position': 'relative',
                 'z-index': '1'
             });
-            const parentDiv = $(page);
+            const parentDiv = $('.parent-hero-div');
             const displayName = heroMovie?.name || heroMovie?.title || "Unknown Title";
             const bannerPoster = `
         <div class="child-hero-div">
@@ -180,9 +180,13 @@ $(document).ready(async function () {
             </div>  
         </div>`;
             parentDiv.append(bannerPoster);
+
+
             $('.home-page-play-button').on('click', function () {
                 window.location.href = '../html/watch.html';
             });
+
+
             if (playerReady && videoIdKey) {
                 setTimeout(() => {
                     player.loadVideoById(videoIdKey);
@@ -194,8 +198,8 @@ $(document).ready(async function () {
     };
 
     // Movies cards render
-    const moviesCards = async (proxy, containerSelector, type) => {
-        async function genreCodes(a, b, containerSelector, type) {
+    const moviesCards = async (proxy, type) => {
+        async function genreCodes(a, b, type) {
             const endpoint = `${url}/genre/${type}/list?api_key=${api_key}`;
             const genreData = await fetchWithCache(endpoint, proxy);
             const genres = genreData.genres || [];
@@ -203,8 +207,7 @@ $(document).ready(async function () {
             slicedMovies.forEach((genre, index) => {
                 const genreName = genre.name;
                 const genreId = genre.id;
-                let sliderHtml = `
-        <div class="slider-div">
+                let sliderHtml = `<div class="slider-div">
           <h2 class="movies-title">${genreName}</h2>
           <div class="btn-div">
             <button class="buttons left"><li class="fas fa-chevron-left"></li></button>
@@ -214,16 +217,16 @@ $(document).ready(async function () {
             <div class="movie-images" id="movie-images${index + 1}"></div>
           </div>
         </div>`;
-        $(containerSelector).append(sliderHtml);
+        $('.home-page-slider-div').append(sliderHtml);
         moviesPoster(genreId, genreName, index + 1);
             });
         }
-        genreCodes(a, b, containerSelector, type);
+
+        genreCodes(a, b, type);
 
         const moviesPoster = async (genreId, genreName, containerIndex) => {
             const endpoint = `${url}/discover/${type}?api_key=${api_key}&with_genres=${genreId}`;
             const allMoviesData = await fetchWithCache(endpoint, proxy);
-            
             $(`#movie-images${containerIndex}`).empty();
 
 
@@ -236,6 +239,7 @@ $(document).ready(async function () {
 
             const moviesWithVideos = await Promise.all(moviePromises);
             moviesWithVideos.forEach(({ movie, videoKey }) => {
+                // console.log(videoKey);
                 const poster_img = `${img_base_url}${movie.backdrop_path}`;
                 const name = movie.name || movie.title;
                 const htmlRender = `
@@ -246,16 +250,27 @@ $(document).ready(async function () {
              <div class="title-bar">
             <div class="title-bar-icons">
               <button class="button-play"><i class="fa-solid fa-play"></i></button>
-              <button class="button-play second"><i class="fa-solid fa-plus"></i></button>
-              <button class="button-play second"><i class="far fa-thumbs-up"></i></button>
+              <button class="button-plus second"><i class="fa-solid fa-plus"></i></button>
+              <button class="button-info second"><i class="far fa-thumbs-up"></i></button>
             </div>
             <div class="movies-detail">
               <ul><li>${genreName} - Trailer</li></ul>
             </div>
              </div>
-             </div>
-             `;
-                $(`#movie-images${containerIndex}`).append(htmlRender);
+                </div>`;
+
+            $(`#movie-images${containerIndex}`).append(htmlRender);
+
+
+
+             $(".movies-card").on('click', '.button-play' ,function(e){
+                e.stopPropagation();
+                const card = $(this).closest('.movies-card');
+                const videoKey = card.data('video-key');
+                localStorage.setItem('link', JSON.stringify(videoKey));
+                window.location.href='../html/watch.html'
+             });
+
             });
         };
 
@@ -274,12 +289,18 @@ $(document).ready(async function () {
         $(document).on('mouseenter', '.movies-card', function (e) {
             e.stopPropagation();
             const card = $(this);
+
             const iframeContainer = card.find('.iframeContainer');
             card.closest('.slider-div').find('.btn-div').css({ 'display': 'flex' });
+
+            // logic for next button div
             if ($(e.target).closest('.buttons').length) {
                 card.closest('.slider-div').find('.btn-div').css({ 'display': 'flex' });
                 card.removeClass('hover-active');
             }
+
+
+            // logic for next button div
             card.addClass('hover-active');
             card.find('.iframeContainer').css({
                 'display': 'flex',
@@ -290,6 +311,7 @@ $(document).ready(async function () {
                 'width': '265px',
                 'height': '60%'
             });
+
             $('.movies-card').not(card).find('.iframeContainer').css({
                 'display': 'flex',
                 'position': 'absolute',
@@ -302,15 +324,17 @@ $(document).ready(async function () {
                 // Set iframe src only on hover
                 const embedUrl = `https://www.youtube.com/embed/${videoKey}?controls=0&rel=0&enablejsapi=1&autoplay=1&mute=1`;
                 iframeContainer.attr('src', embedUrl);
-                iframeContainer.data('loaded', true);
-                // Initialize YT.Player using the players object
-                players[videoKey] = new YT.Player(iframeContainer[0], {
-                    events: {
-                        onReady: (event) => {
-                            event.target.playVideo(); // play on hover
-                        }
+            iframeContainer.data('loaded', true);
+
+            // Initialize YT.Player using the players object
+            players[videoKey] = new YT.Player(iframeContainer[0], {
+                events: {
+                   onReady: (event) => {
+                        event.target.playVideo(); // play on hover
                     }
+                  }
                 });
+
             } else {
                 // Already loaded, just play
                 if (players[videoKey]) players[videoKey].playVideo();
@@ -336,38 +360,30 @@ $(document).ready(async function () {
         });
     };
 
-    let endPoint, page, type, containerSelector;
+    let endPoint, page, type;
     if (window.location.href.includes('home.html')) {
         a = 0, b = 9;
         endPoint = 'trending/movie/week';
-        page = '.parent-hero-div';
         type = 'movie';
-        containerSelector = '.home-page-slider-div';
-        homePage(proxy, type, page, endPoint);
-        moviesCards(proxy, containerSelector, type);
+        homePage(proxy, type, endPoint);
+        moviesCards(proxy, type);
     } else if (window.location.href.includes('news-and-popular.html')) {
         a = 14, b = 19;
         endPoint = 'movie/popular';
-        page = '.parent-hero-div';
         type = 'movie';
-        containerSelector = '.news-page-slider-div';
-        homePage(proxy, type, page, endPoint);
-        moviesCards(proxy, containerSelector, type);
+        homePage(proxy, type, endPoint);
+        moviesCards(proxy, type);
     } else if (window.location.href.includes('movies.html')) {
         a = 6, b = 12;
         endPoint = 'movie/top_rated';
-        page = '.parent-hero-div';
         type = 'movie';
-        containerSelector = '.movies-page-slider-div';
-        homePage(proxy, type, page, endPoint);
-        moviesCards(proxy, containerSelector, type);
+        homePage(proxy, type, endPoint);
+        moviesCards(proxy, type);
     } else if (window.location.href.includes('tv-shows.html')) {
         a = 0, b = 5;
         endPoint = 'trending/tv/day';
-        page = '.parent-hero-div';
         type = 'tv';
-        containerSelector = '.tv-shows-slider-div';
-        homePage(proxy, type, page, endPoint);
-        moviesCards(proxy, containerSelector, type);
+        homePage(proxy, type, endPoint);
+        moviesCards(proxy, type);
     }
 });
